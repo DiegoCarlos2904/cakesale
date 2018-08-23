@@ -44,7 +44,7 @@
 			<div class="col-md-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-						<h6><?=  $come->pro_name  ?> - <?=  $come->pro_title  ?></h6>
+						<h6><?=  $come->pro_title  ?></h6>
                     </div>
                     <div class="panel-body">
 							<style>#g {width:500%;height: 120px;}</style>

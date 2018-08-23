@@ -3,34 +3,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Model_products extends CI_Model {
 	
-		public function all_products()//لجلب  جميع البيانات واظهاراها في الصفحة الرئيسية
-		{ //$show -> guery to get all products from table products
-			$show = $this->db->get('products');
+		public function all_products( $cat_id = '' ) {
+			if ( $cat_id ) {
+				$show = $this->db->get_where('products', array('cat_id' => $cat_id));
+			} else {
+				$show = $this->db->get('products');
+			}
 			if($show->num_rows() > 0 ) {
 					return $show->result();
 			} else {
 					 return array();
-			} //end if num_rows
+			} 
 					
-		}//end function all_products
+		}
 		
-		public function dis_products()//لجلب اسماء البيانات و اظهارها بالشريط بدون تكرار الاسماء 
+		public function dis_products()
 		{
 				$this->db->distinct();
-				$query = $this->db->query('SELECT DISTINCT pro_name FROM products');
+				$query = $this->db->query('SELECT DISTINCT pro_title FROM products');
 				return $query->result();
-		}//without repeated values
+		}
 		
-		public function showme($pro_name)//لاظهار البيانات من نفس اسم المنتج 
+		public function showme($pro_title)
 		{ 
 			
-			$query = $this->db->get_where('products', array('pro_name' => $pro_name));
+			$query = $this->db->get_where('products', array('pro_title' => $pro_title));
 			return $query->result();
 			
-		}//end function this --------- this will find product and show all same product
+		}
 		
-		public function find($pro_id)//للبحث عن رقم المنتج وتحقق من وجوده 
-			//this is for find record id->product
+		public function find($pro_id)
+			
 		{ 
 			$code = $this->db->where('pro_id',$pro_id)
 							->limit(1)
@@ -40,27 +43,27 @@ class Model_products extends CI_Model {
 					return $code->row();
 				}else {
 					return array();
-				}//end if code->num_rows > 0 
+				}
 				
-		}//end function find
+		}
 		
-		public function create($data_products)//لانشاء منتج جديد
+		public function create($data_products)
 		{
-			//guery insert into database 	
+			
 			$this->db->insert('products',$data_products);
 				
-		}//end function craete
+		}
 		
-		public function edit($pro_id,$data_products)//للتعديل على المنتج
+		public function edit($pro_id,$data_products)
 		{
-			//guery update FROM .. WHERE id->products
+			
 			$this->db->where('pro_id',$pro_id)
 					->update('products',$data_products);
 		}
 		
-		public function delete($pro_id)//لحذف منتج
+		public function delete($pro_id)
 		{
-			//guery delete id->products
+			
 			$this->db->where('pro_id',$pro_id)
 					->delete('products');
 		}
@@ -70,7 +73,7 @@ class Model_products extends CI_Model {
 		
 		$this->db->insert('reports',$report_products);
 		
-	}//end function craete
+	}
 	
 	public function reports()
 	{ 
@@ -79,9 +82,9 @@ class Model_products extends CI_Model {
 			return $report->result();
 		} else {
 			return array();
-		} //end if num_rows
+		} 
 		
-	}//end function report
+	}
 	
 	
 	public function del_report($rep_id_product)
@@ -93,5 +96,4 @@ class Model_products extends CI_Model {
 	
 	
 		
-} //end class Model_products
-///////////////////////////////  Model_products : this is use in controller admin/products + home 
+}

@@ -53,3 +53,4 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['logout']='login/logout';
+$route['categoria/(:any)']='categoria/ver/$1';

@@ -2,14 +2,12 @@
 	$pro_id 				= $product->pro_id;
 if($this->input->post('is_submitted'))
 {
-		$pro_name 			= set_value('pro_name');
 		$pro_title			= set_value('pro_title');
 		$pro_description	= set_value('pro_description');
 		$pro_price			= set_value('pro_price');
 		$pro_stock			= set_value('pro_stock');
 }else{
 
-		$pro_name 			= $product->pro_name;
 		$pro_title			= $product->pro_title;
 		$pro_description	= $product->pro_description;
 		$pro_price			= $product->pro_price;
@@ -76,13 +74,6 @@ if($this->input->post('is_submitted'))
 						<div class="panel-body">
 						<div><?= validation_errors()?></div>
 						<?=  form_open_multipart('admin/products/edit/'.$pro_id,['class'=>'form-group']) ?>
-							<div class="col-sm-4">
-								<div class="input-group">
-									<div class="input-group-addon">Name</div>
-									<input type="text" class="form-control" name="pro_name" placeholder="Enter Product Primary Name" value="<?= $pro_name ?>">
-								</div>
-							</div>
-							
 							<div class="col-sm-4">
 								<div class="input-group">
 									<div class="input-group-addon">Title</div>

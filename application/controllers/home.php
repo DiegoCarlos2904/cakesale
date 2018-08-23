@@ -23,12 +23,12 @@ class Home extends CI_Controller {
 		
 	}
 	
-	public function showme($pro_name)
+	public function showme($pro_title)
 	{		
 			$data['get_sitename'] = $this->model_settings->sitename_settings();
 			$data['get_footer'] = $this->model_settings->footer_settings();	
 			$data['starts'] = $this->model_products->dis_products();
-			$data['comes'] = $this->model_products->showme($pro_name); //for showme function in home/showme
+			$data['comes'] = $this->model_products->showme($pro_title); //for showme function in home/showme
 			$this->load->view('this_products',$data);
 	}
 	
@@ -41,13 +41,12 @@ class Home extends CI_Controller {
 			'id'      => $product->pro_id,
 			'qty'     => 1,
 			'price'   => $product->pro_price,
-			'name'    => $product->pro_name,
 			'title'	  => $product->pro_title
 		);
 
 		$this->cart->insert($data);
 			if ($send == 'add') {
-				redirect('home/showme/'.$product->pro_name);
+				redirect('home/showme/'.$product->pro_title);
 		} else{
 			redirect(base_url());
 		}
@@ -86,7 +85,6 @@ class Home extends CI_Controller {
 		$report_products = array
 		(
 			'rep_id_product'			=> $product->pro_id,
-			'rep_name'					=> $product->pro_name,
 			'rep_title_product'			=> $product->pro_title,
 			'rep_usr_name'				=> $name_usr,
 			'rep_usr_group'				=> $group_usr

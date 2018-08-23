@@ -13,7 +13,7 @@
                         <p> 
 							<?php foreach ($starts as $start ) : ?>
 							<!-- here to get name of product and show all ot same type -->
-								<?=  anchor('home/showme/'.$start->pro_name,$start->pro_name,['class'=>'btn btn-default']) ?>
+								<?=  anchor('home/showme/'.$start->pro_title,$start->pro_title,['class'=>'btn btn-default']) ?>
                             <?php endforeach; ?>
                         </p>
                     </div>

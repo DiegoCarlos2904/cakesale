@@ -32,7 +32,6 @@ class Products extends CI_Controller {
 		$data['get_footer'] = $this->model_settings->footer_settings();	
 		$this->load->view('backend/form_create_product',$data);
 		
-		$this->form_validation->set_rules('pro_name','Product Name','required');
 		$this->form_validation->set_rules('pro_title','Product Title','required');
 		$this->form_validation->set_rules('pro_description','Product Description','required');
 		$this->form_validation->set_rules('pro_price','Product Price','required|integer');
@@ -62,7 +61,6 @@ class Products extends CI_Controller {
 					$upload_image = $this->upload->data();
 					$data_products = array
 					(
-						'pro_name'			=> set_value('pro_name'),
 						'pro_title'			=> set_value('pro_title'),
 						'pro_description'	=> set_value('pro_description'),
 						'pro_price'			=> set_value('pro_price'),
@@ -82,7 +80,6 @@ class Products extends CI_Controller {
 	{
 		$data['get_sitename'] = $this->model_settings->sitename_settings();
 		$data['get_footer'] = $this->model_settings->footer_settings();	
-		$this->form_validation->set_rules('pro_name','Product Name','required');
 		$this->form_validation->set_rules('pro_title','Product Title','required');
 		$this->form_validation->set_rules('pro_description','Product Description','required');
 		$this->form_validation->set_rules('pro_price','Product Price','required|integer');
@@ -111,7 +108,6 @@ class Products extends CI_Controller {
 					}else{
 							$upload_image = $this->upload->data();
 							$data_products = array(
-								'pro_name'			=> set_value('pro_name'),
 								'pro_title'			=> set_value('pro_title'),
 								'pro_description'	=> set_value('pro_description'),
 								'pro_price'			=> set_value('pro_price'),
@@ -123,7 +119,6 @@ class Products extends CI_Controller {
 					}//end if uploading
 				}else{
 						$data_products = array(
-						'pro_name'			=> set_value('pro_name'),
 						'pro_title'			=> set_value('pro_title'),
 						'pro_description'	=> set_value('pro_description'),
 						'pro_price'			=> set_value('pro_price'),

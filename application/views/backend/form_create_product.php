@@ -58,13 +58,6 @@
 						<?=  form_open_multipart('admin/products/create',['class'=>'form-group']) ?>
 							<div class="col-sm-4">
 								<div class="input-group">
-									<div class="input-group-addon">Name</div>
-									<input type="text" class="form-control" name="pro_name" placeholder="Enter Product Primary Name" value="<?= set_value('pro_name') ?>">
-								</div>
-							</div>
-							
-							<div class="col-sm-4">
-								<div class="input-group">
 									<div class="input-group-addon">Title</div>
 									<input type="text" class="form-control" name="pro_title" placeholder="Enter Product Title" value="<?= set_value('pro_title') ?>">
 								</div>

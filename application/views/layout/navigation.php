@@ -7,29 +7,29 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="">Infatiles</a>
+						<a class="nav-link <?= $this->uri->segment(2) == 'infantiles' ? 'active' : '' ?>" href="<?= base_url("/categoria/infantiles") ?>">Infatiles</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="">Baby shower</a>
+						<a class="nav-link <?= $this->uri->segment(2) == 'babyshower' ? 'active' : '' ?>" href="<?= base_url("/categoria/babyshower") ?>">Baby shower</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="">Primera comunion</a>
+						<a class="nav-link <?= $this->uri->segment(2) == 'primeracomunion' ? 'active' : '' ?>" href="<?= base_url("/categoria/primeracomunion") ?>">Primera comunion</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="">Matrimonio</a>
+						<a class="nav-link <?= $this->uri->segment(2) == 'matrimonio' ? 'active' : '' ?>" href="<?= base_url("categoria/matrimonio") ?>">Matrimonio</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="">Deportivas</a>
+						<a class="nav-link <?= $this->uri->segment(2) == 'desportivas' ? 'active' : '' ?>" href="<?= base_url("/categoria/desportivas") ?>">Deportivas</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="">Despedidas</a>
+						<a class="nav-link <?= $this->uri->segment(2) == 'despedidas' ? 'active' : '' ?>" href="<?= base_url("/categoria/despedidas") ?>">Despedidas</a>
 					</li>
 					<li class="dropdown">
 						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Años <b class="caret"> </b></a>
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="">15 años</a>
-							<a class="dropdown-item" href="">18 años</a>
-							<a class="dropdown-item" href="">50 años</a>
+							<a class="dropdown-item" href="<?= base_url("/categoria/15-anos") ?>">15 años</a>
+							<a class="dropdown-item" href="<?= base_url("/categoria/18-anos") ?>">18 años</a>
+							<a class="dropdown-item" href="<?= base_url("/categoria/50-anos") ?>">50 años</a>
 						</div>
 					</li>
 				</ul>
@@ -57,7 +57,7 @@
 					<?php if ($this->session->userdata('username')): ?>
 					<li class="nav-item">
 						
-						<?php echo ('<a>'.'You Are : '.$this->session->userdata('username').'</a>'); ?>
+						<?php echo ('<a>'.'Hola : '.$this->session->userdata('username').'</a>'); ?>
 					</li>
 					
 					<li class="nav-item">
@@ -69,30 +69,25 @@
 						<?php endif;?>
 					</li>							
 					<?php  if($this->session->userdata('group')	!=	'1'  and $this->session->userdata('group')	!=	'2' ): ?>
+
 					<li class="dropdown">
 						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> Carrito <?= $this->cart->total_items(); ?> <i class="fa fa-shopping-cart"> </i> <b class="caret"> </b></a>
-						<ul class="dropdown-menu">
-						
-							<li class="nav-item">
-								<?php
-									$url_cart	 = 'Carrito ';
-									$url_cart	.=$this->cart->total_items().' <i class="fa fa-shopping-cart"></i></a>';
-								?>
-								<?= anchor('home/cart',$url_cart); ?>
-								
-							</li>
-							<li class="nav-item">
-									<?php
-									$url_order	 = 'Check Out';
-									$url_order	.=' <i class="fa fa-cc-paypal"></i> '.' <i class="fa fa-credit-card"></i> '.' <i class="fa fa-cc-visa"></i></a> ';
-									?>
-									<?php if  ($this->cart->total_items()!=0):?>
-									<?= anchor('order',$url_order); ?>
-									<?php else:?>
-									<?= anchor(base_url(),$url_order); ?>
-									<?php endif ;?>
-							</li>
-						</ul>
+						<div class="dropdown-menu">
+							<?php
+								$url_cart	 = 'Carrito ';
+								$url_cart	.=$this->cart->total_items().' <i class="fa fa-shopping-cart"></i></a>';
+							?>
+							<?= anchor('home/cart',$url_cart, array( 'class' => 'dropdown-item' )); ?>
+							<?php
+							$url_order	 = 'Pagar';
+							$url_order	.=' <i class="fa fa-cc-paypal"></i> '.' <i class="fa fa-credit-card"></i> '.' <i class="fa fa-cc-visa"></i></a> ';
+							?>
+							<?php if  ($this->cart->total_items()!=0):?>
+							<?= anchor('order',$url_order, array( 'class' => 'dropdown-item' )); ?>
+							<?php else:?>
+							<?= anchor(base_url(),$url_order, array( 'class' => 'dropdown-item' )); ?>
+							<?php endif ;?>
+						</div>
 					</li>
 					<?php endif;?>
 				</ul>

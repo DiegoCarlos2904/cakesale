@@ -71,7 +71,6 @@
 								<?php foreach ($products as $product ) : ?>
 									<tr>
 										<td><?=  $product->pro_id  ?></td>
-										<td><?=  $product->pro_name  ?></td>
 										<td><?=  $product->pro_title  ?></td>
 										<td><textarea rows="4" disabled><?=  $product->pro_description  ?></textarea></td>
 										<td><?=  $product->pro_price  ?></td>

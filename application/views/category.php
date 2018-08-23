@@ -70,6 +70,7 @@
 		<!-- Product Menu -->
 		<?php //$this->load->view('layout/product_menu')?>
 		<!-- /.row -->
+		<h1><?= $category->name ?></h1>
 		<div class="row">
 			<?php foreach ($products as $product ) : ?>
 			 <div class="col-md-3">
