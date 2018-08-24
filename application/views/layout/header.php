@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Online</title>
+    <title>Cake sale</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo base_url('/assets/css/bootstrap.min.css');?>" rel="stylesheet">
