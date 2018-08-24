@@ -48,7 +48,6 @@ class Products extends CI_Controller {
 				$this->load->library('upload', $config);
 				
 			if ( ! $this->upload->do_upload()) {
-					print_r( "asdasd" );
 				$this->load->view('backend/form_create_product');
 				
 			}else{	
