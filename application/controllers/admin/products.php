@@ -25,7 +25,9 @@ class Products extends CI_Controller {
 	
 	public function create()
 	{
-		$this->load->view('backend/form_create_product',$data);
+		if( !isset( $data ) ){
+			$data = [];
+		}
 		
 		$this->form_validation->set_rules('pro_title','Product Title','required');
 		$this->form_validation->set_rules('pro_description','Product Description','required');
@@ -33,36 +35,34 @@ class Products extends CI_Controller {
 		$this->form_validation->set_rules('pro_stock','Available Stock','required|integer');
 		//$this->form_validation->set_rules('userfile','image error','required');	
 		
-		if ($this->form_validation->run() == FALSE)
-		{
+		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('backend/form_create_product');	
 				
 		}else{
 			//load uploading file 
-				$config['upload_path']          = './assets/uploads/';
+				$config['upload_path']          = './upload/';
 				$config['allowed_types']        = 'jpg|png';
 				$config['max_size']             = 2048000;// = MB
 				$config['max_width']            = 2000;
 				$config['max_height']           = 2000;
 				$this->load->library('upload', $config);
 				
-			if ( ! $this->upload->do_upload())
-			{	
+			if ( ! $this->upload->do_upload()) {
+					print_r( "asdasd" );
 				$this->load->view('backend/form_create_product');
 				
-				
 			}else{	
-				// if form_validation = true  -> insert into db
 					$upload_image = $this->upload->data();
 					$data_products = array
 					(
 						'pro_title'			=> set_value('pro_title'),
 						'pro_description'	=> set_value('pro_description'),
 						'pro_price'			=> set_value('pro_price'),
+						'pro_slug'			=> set_value('pro_title'),
 						'pro_stock'			=> set_value('pro_stock'),
-						'pro_image'			=> $upload_image['file_name']
-					);//end array data_products
-					
+						'cat_id'			=> 1,
+						'pro_image'			=> 'http://cakesale.pe/upload/'.$upload_image['file_name']
+					);
 					$this->model_products->create($data_products);
 					redirect('admin/products');	
 			} //end if uploading 
