@@ -15,21 +15,16 @@ class Products extends CI_Controller {
 		//load model -> model_products
 		$this->load->model('model_products');
 		$this->load->model('model_users');
-		$this->load->model('model_settings');
 	}
 	
 	public function index()
 	{	
 		$data['products'] = $this->model_products->all_products();	
-		$data['get_sitename'] = $this->model_settings->sitename_settings();
-		$data['get_footer'] = $this->model_settings->footer_settings();	
 		$this->load->view('backend/dashboard',$data);
 	}
 	
 	public function create()
 	{
-		$data['get_sitename'] = $this->model_settings->sitename_settings();
-		$data['get_footer'] = $this->model_settings->footer_settings();	
 		$this->load->view('backend/form_create_product',$data);
 		
 		$this->form_validation->set_rules('pro_title','Product Title','required');
@@ -78,8 +73,6 @@ class Products extends CI_Controller {
 	
 	public function edit($pro_id)
 	{
-		$data['get_sitename'] = $this->model_settings->sitename_settings();
-		$data['get_footer'] = $this->model_settings->footer_settings();	
 		$this->form_validation->set_rules('pro_title','Product Title','required');
 		$this->form_validation->set_rules('pro_description','Product Description','required');
 		$this->form_validation->set_rules('pro_price','Product Price','required|integer');
@@ -142,8 +135,6 @@ class Products extends CI_Controller {
 	
 	public function reports()
 	{
-		$data['get_sitename'] = $this->model_settings->sitename_settings();
-		$data['get_footer'] = $this->model_settings->footer_settings();	
 		$data['reports'] = $this->model_products->reports();	
 		$this->load->view('backend/reports',$data);
 	}
@@ -156,8 +147,6 @@ class Products extends CI_Controller {
 	
 	public function members()
 	{
-		$data['get_sitename'] = $this->model_settings->sitename_settings();
-		$data['get_footer'] = $this->model_settings->footer_settings();	
 		$data['members'] = $this->model_users->members();	
 		$this->load->view('backend/members',$data);
 	}

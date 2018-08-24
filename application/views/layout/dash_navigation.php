@@ -1,5 +1,3 @@
-<!-- Navigation Top_Menu -->
-
 
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 				<div class="container">
@@ -14,7 +12,7 @@
 					
 					
 			
-						<a class="navbar-brand" href="<?php echo base_url(); ?>"><?php foreach($get_sitename as $sitename):?><?=  $sitename->all_value_settings;?><?php endforeach;?></a>
+						<a class="navbar-brand" href="<?php echo base_url(); ?>">Cake Sale</a>
 					</div>
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -25,7 +23,6 @@
 							<li>
 								<a href="">About</a>
 							</li>
-							
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 							<?php  if($this->session->userdata('group')	==	'1'  or $this->session->userdata('group')	==	'2' ): ?>

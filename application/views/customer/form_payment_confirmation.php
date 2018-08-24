@@ -32,7 +32,7 @@
 <body>
 
     <!-- Navigation Top_Menu -->
-    <?php $this->load->view('layout/navigation')?>
+    <?php $this->load->view('layout/header')?>
     <!-- Header Carousel -->
 
     <!-- Page Content -->

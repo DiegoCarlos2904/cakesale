@@ -3,8 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Model_orders extends CI_Model {
 	
-	public function get_user_id_by_session()
-	{ 
+	public function get_user_id_by_session() {
 		$usr_name = $this->session->userdata('username');
 		$gry = $this->db->where('usr_name',$usr_name)
 						->select('usr_id')
@@ -20,11 +19,8 @@ class Model_orders extends CI_Model {
 	}
 	
 	
-	public function process()
-	{ 	
+	public function process() {
 	
-		
-		//here for create new invoice
 		$invoice = array(
 						'data'		=>	date('Y-m-d H:i:s'),
 						'due_date'	=>	date('Y-m-d H:i:s',mktime(date('H'),date('i'),date('s'),date('m'),date('d') + 1,date('Y'))),
@@ -39,8 +35,7 @@ class Model_orders extends CI_Model {
 			$data = array(
 						'invoice_id'		=> $invoice_id,
 						'product_id'		=> $item['id'],
-						'product_type'		=> $item['name'],
-						'product_title'		=> $item['title'],
+						'product_title'		=> $item['name'],
 						'qty'				=> $item['qty'],
 						'price'				=> $item['price']
 						

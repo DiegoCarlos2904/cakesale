@@ -7,7 +7,6 @@ class Customer extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('model_customer');
-		$this->load->model('model_settings');
 		$this->load->model('model_users');
 	}
 
@@ -18,8 +17,6 @@ class Customer extends CI_Controller {
 	public function payment_confirmation($invoice_id = 0 )
 	{
 		
-		$data['get_sitename'] = $this->model_settings->sitename_settings();
-		$data['get_footer'] = $this->model_settings->footer_settings();
 			
 		$this->form_validation->set_rules('invoice_id_input','Invoice id','required|integer');
 		$this->form_validation->set_rules('amount_input','Amount Transfered','required|integer');
@@ -47,8 +44,6 @@ class Customer extends CI_Controller {
 	}
 	public function shopping_history()
 	{
-		$data['get_sitename'] = $this->model_settings->sitename_settings();
-		$data['get_footer'] = $this->model_settings->footer_settings();	
 		
 		$user=$this->session->userdata('username');
 		$data['history'] = $this->model_customer->get_shopping_history($user);

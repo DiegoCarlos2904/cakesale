@@ -6,7 +6,6 @@ class Register extends CI_Controller {
 	public function __construct () {
 		parent::__construct();
 		$this->load->model('model_users');
-		$this->load->model('model_settings');
 	}
 		
 	public function index() {
@@ -15,8 +14,6 @@ class Register extends CI_Controller {
 		$this->form_validation->set_rules('repassword','Password','required|alpha_numeric');
 		
 		if( $this->form_validation->run() ==	FALSE) {
-			$data['get_sitename'] = $this->model_settings->sitename_settings();
-			$data['get_footer'] = $this->model_settings->footer_settings();	
 			$this->load->view('register/form_register',$data); 
 			
 		} else {

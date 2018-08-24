@@ -1,10 +1,44 @@
-<!-- Navigation Top_Menu -->
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
 
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shop Online</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="<?php echo base_url('/assets/css/bootstrap.min.css');?>" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="<?php echo base_url('/assets/css/modern-business.css');?>" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="<?php echo base_url('/assets/font-awesome/css/font-awesome.min.css');?>" rel="stylesheet" type="text/css">
+
+	<script type="text/javascript" language="javascript" src="<?php echo base_url('/assets/js/jquery-1.10.2.min.js');?>"></script>
+	<script type="text/javascript" language="javascript" src="<?php echo base_url('/assets/js/jquery.dataTables.min.js');?>"></script>
+	<script type="text/javascript" language="javascript" src="<?php echo base_url('/assets/js/dataTables.bootstrap.js');?>"></script>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/dataTables.bootstrap.css');?>">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <!-- Navigation Top_Menu -->
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" role="navigation">
 		<div class="container">
-			<a class="navbar-brand" href="<?php echo base_url(); ?>"><?php foreach($get_sitename as $sitename):?><?=  $sitename->all_value_settings;?><?php endforeach;?></a>
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<a class="navbar-brand" href="<?php echo base_url(); ?>">Cake Sale</a>
+			<div class="collapse navbar-collapse" id="">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
 						<a class="nav-link <?= $this->uri->segment(2) == 'infantiles' ? 'active' : '' ?>" href="<?= base_url("/categoria/infantiles") ?>">Infatiles</a>
@@ -35,41 +69,22 @@
 				</ul>
 				<ul class="navbar-nav">
 					<?php  if($this->session->userdata('group')	==	'1'  or $this->session->userdata('group')	==	'2' ): ?>
-					<li class="nav-item">
-					<?php echo anchor('admin/invoices','Invoices List');?>
-					</li>
-					<li class="nav-item">
-						<?php echo anchor('admin/products/reports','Product Report');?>
-					</li>
-					<li class="nav-item">
-						<?php echo anchor('admin/products','Dashboard');?>
-						<?php endif;?>
-					</li>
-						<?php if ($this->session->userdata('group')=='3'): ?>
-					<li class="nav-item">
-						<?php echo anchor('customer/payment_confirmation','Payment Confirmation');?>
-					</li>
-					<li class="nav-item">
-						<?php echo anchor('customer/shopping_history','History');?>
-					</li>
-						<?php endif;?>
-						
+						<li class="nav-item">
+							<?php echo anchor('admin/products','Dashboard', ['class' => 'nav-link'] );?>
+						</li>
+					<?php endif;?>
 					<?php if ($this->session->userdata('username')): ?>
 					<li class="nav-item">
-						
-						<?php echo ('<a>'.'Hola : '.$this->session->userdata('username').'</a>'); ?>
-					</li>
-					
-					<li class="nav-item">
-						<?php echo anchor('logout','Logout');?>
+						<?php echo anchor('logout','Cerrar sesión', ['class' => 'nav-link'] );?>
 						<?php else:?>
 					</li>
 					<li class="nav-item">
-						<?php //echo anchor('login','Iniciar sesión / Crear cuenta');?>
+						<?php echo anchor('login','Iniciar sesión', ['class' => 'nav-link']);?>
 						<?php endif;?>
 					</li>							
 					<?php  if($this->session->userdata('group')	!=	'1'  and $this->session->userdata('group')	!=	'2' ): ?>
 
+					<?php endif;?>
 					<li class="dropdown">
 						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"> Carrito <?= $this->cart->total_items(); ?> <i class="fa fa-shopping-cart"> </i> <b class="caret"> </b></a>
 						<div class="dropdown-menu">
@@ -77,7 +92,7 @@
 								$url_cart	 = 'Carrito ';
 								$url_cart	.=$this->cart->total_items().' <i class="fa fa-shopping-cart"></i></a>';
 							?>
-							<?= anchor('home/cart',$url_cart, array( 'class' => 'dropdown-item' )); ?>
+							<?= anchor('tienda/cart/cuenta',$url_cart, array( 'class' => 'dropdown-item' )); ?>
 							<?php
 							$url_order	 = 'Pagar';
 							$url_order	.=' <i class="fa fa-cc-paypal"></i> '.' <i class="fa fa-credit-card"></i> '.' <i class="fa fa-cc-visa"></i></a> ';
@@ -89,8 +104,10 @@
 							<?php endif ;?>
 						</div>
 					</li>
-					<?php endif;?>
 				</ul>
 			</div>
 		</div>
 	</nav>
+	<div class="container pt-5">
+		<h1><?= isset( $title ) ? $title : '' ?></h1>
+		<hr>
