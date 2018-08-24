@@ -103,8 +103,9 @@ class Products extends CI_Controller {
 								'pro_title'			=> set_value('pro_title'),
 								'pro_description'	=> set_value('pro_description'),
 								'pro_price'			=> set_value('pro_price'),
+								'pro_slug'			=> set_value('pro_title'),
 								'pro_stock'			=> set_value('pro_stock'),
-								'pro_image'			=> $upload_image['file_name']
+								'pro_image'			=> 'http://cakesale.pe/upload/'.$upload_image['file_name']
 							);//end array data_products
 							$this->model_products->edit($pro_id,$data_products);
 							redirect('admin/products');
