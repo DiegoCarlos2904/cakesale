@@ -12,14 +12,15 @@ class Tienda extends CI_Controller {
 		$data['products'] = $this->model_products->all_products();
 		$this->load->view('home',$data);
 	}
-	public function cart( $cuenta ) {
+	public function carrito( ) {
 		$data['title'] = 'Carrito';
-		$this->load->view('show_cart',$data);
+		$data['hide_slider'] = true;
+		$this->load->view('carrito',$data);
 	}
 	public function ver($pro_slug) {
-		$data['comes'] = $this->model_products->showme($pro_slug);
+		$data['products'] = $this->model_products->showme($pro_slug);
 		$data['title'] = 'Tienda';
-		$this->load->view('this_products',$data);
+		$this->load->view('producto',$data);
 	}
 	public function clear_cart() {
 		$this->cart->destroy();

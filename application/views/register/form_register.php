@@ -32,7 +32,7 @@
 <body>
 
     <!-- Navigation Top_Menu -->
-    <?php $this->load->view('layout/header')?>
+    <?php $this->load->view('header')?>
     <!-- Header Carousel -->
 
     <!-- Page Content -->
@@ -115,7 +115,7 @@
         <hr>
 
         <!-- Footer -->
-        <?php $this->load->view('layout/footer')?>
+        <?php $this->load->view('footer')?>
 
     </div>
     <!-- /.container -->

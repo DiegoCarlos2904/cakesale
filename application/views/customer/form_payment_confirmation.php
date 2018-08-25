@@ -32,7 +32,7 @@
 <body>
 
     <!-- Navigation Top_Menu -->
-    <?php $this->load->view('layout/header')?>
+    <?php $this->load->view('header')?>
     <!-- Header Carousel -->
 
     <!-- Page Content -->
@@ -70,7 +70,7 @@
 								<div class="form-group">
 								<div class="col-md-2"></div>
 								<div class="col-md-7">
-									<button type="submit" class="btn btn-success">Confirm My Payment</button>
+									<button type="submit" class="btn btn-primary">Confirm My Payment</button>
 									<?=  anchor(base_url(),'Cancel',['class'=>'btn']) ?>
 									
 									</div>
@@ -115,7 +115,7 @@
         <hr>
 
         <!-- Footer -->
-        <?php $this->load->view('layout/footer')?>
+        <?php $this->load->view('footer')?>
 
     </div>
     <!-- /.container -->

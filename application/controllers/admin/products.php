@@ -3,16 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Products extends CI_Controller {
 		
-	public function __construct ()
-	{
+	public function __construct () {
 		parent::__construct();
-		if($this->session->userdata('group')!=	('1' ||'2') )
-		{
+		if($this->session->userdata('usr_group')!=	('1' ||'2') ) {
 			$this->session->set_flashdata('error','Sorry You Are Not Logged in !');
 			redirect('login');	
 		}
 		
-		//load model -> model_products
 		$this->load->model('model_products');
 		$this->load->model('model_users');
 	}
@@ -127,8 +124,7 @@ class Products extends CI_Controller {
 			
 	}//end function update
 	
-	public function delete($pro_id)
-	{
+	public function delete($pro_id) {
 		$this->model_products->delete($pro_id);
 		redirect('admin/products');
 	}

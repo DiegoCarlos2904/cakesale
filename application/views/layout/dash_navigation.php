@@ -25,7 +25,7 @@
 							</li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
-							<?php  if($this->session->userdata('group')	==	'1'  or $this->session->userdata('group')	==	'2' ): ?>
+							<?php  if($this->session->userdata('usr_group')	==	'1'  or $this->session->userdata('usr_group')	==	'2' ): ?>
 							
 							<li>
 							<?php echo anchor('admin/invoices','Invoices List');?>

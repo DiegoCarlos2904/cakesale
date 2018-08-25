@@ -2,55 +2,58 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
+	function __construct() {
+		parent::__construct();
+		$this->load->model('model_users');
+		$this->load->library('form_validation');
+	}
 		
 	public function index() {
-		$this->form_validation->set_rules('username','Username','required|alpha_numeric');
-		$this->form_validation->set_rules('password','Password','required|alpha_numeric|md5');
-		
-		if($this->form_validation->run()	==	FALSE) {
-			$data['title'] = 'Iniciar sesión';
-			$this->load->view('login/form_login',$data); 	
-		}else{
-			$this->load->model('model_users');	
-			$valid_user	= $this->model_users->check_usr();
-			$check_user_is_active = $this->model_users->check_user_is_active();
-			if($valid_user	==	FALSE) {
-				if ($check_user_is_active == FALSE) {
-						$this->session->set_flashdata('error','Username / Password Not Correct !' );
-				}else{
-					$this->session->set_flashdata('error','Sorry this account is not active !' );
+		if( $this->isLoggedin() ) { 
+			redirect( base_url().'admin');
+		}
+		$data['hide_slider'] = true;
+		$data['title'] = '';
+		if ( isset( $_POST ) && count( $_POST ) ) {
+			$config = array(
+				array(
+					'field' => 'username',
+					'label' => 'Correo',
+					'rules' => 'trim|required'
+				),
+				array(
+					'field' => 'password',
+					'label' => 'Contraseña',
+					'rules' => 'trim|required'
+				)
+			);
+			$this->form_validation->set_rules($config);
+			if ($this->form_validation->run() == false) {
+				$data['errors'] = validation_errors();
+			} else {
+				$data_user = $this->security->xss_clean($_POST);
+				$user = $this->model_users->check_usr($data_user);
+				if ($user) {
+					$this->session->set_userdata($user);
+					$this->session->set_flashdata('log_success','Sesión iniciada correctamente');
+					redirect(base_url() . 'admin');
+				} else {
+					$data['errors'] = 'Las credenciales ingresadas no son válidas.';
 				}
-				redirect('login');
-			}else{
-				$this->session->set_userdata('username',$valid_user->usr_name);
-				$this->session->set_userdata('group',$valid_user->usr_group);
-				
-				switch($valid_user->usr_group)
-				{
-					case 1 ://for admin
-							redirect('admin/products');
-					break;
-					
-					case 2 ://for c-admin
-							redirect('admin/products');
-					break;
-					
-					case 3 ://for member
-							redirect(base_url());
-					break;
-					
-					default: break;
-				}
-			}//end if valid_user 
-			
-		}//end if validation
-		
+			}
+		}
+		$this->load->view('login/form_login',$data);
 	}
-	
-	public function logout()
-	{
+	public function logout() {
 		$this->session->sess_destroy();
 		redirect('login');
 	}
-	
+	public function isLoggedin() {
+		if(!empty($this->session->userdata['usr_id'])) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 }

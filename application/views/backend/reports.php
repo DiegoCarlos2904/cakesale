@@ -83,8 +83,8 @@
 							</div>
 							<div class="col-md-2">
 								<h4>View The Product</h4>
-								<?=  anchor('admin/products/edit/'.$report->rep_id_product,'View',['class'=>'btn btn-success btn-xs'])  ?>
-								<?php  if($this->session->userdata('group')	==	'1' ): ?>
+								<?=  anchor('admin/products/edit/'.$report->rep_id_product,'View',['class'=>'btn btn-primary btn-xs'])  ?>
+								<?php  if($this->session->userdata('usr_group')	==	'1' ): ?>
 								<?=  anchor('admin/products/del_report/'.$report->rep_id_product,'Delete Report',['class'=>'btn btn-danger btn-xs',
 									'onclick'=>'return confirm(\'Are You Sure You Want Delete The Report? \')'
 								])  ?>
@@ -110,7 +110,7 @@
 			<hr>
 			
 			<!-- Footer -->
-			<?php $this->load->view('layout/footer')?>
+			<?php $this->load->view('footer')?>
 			
 		</div>
 		<!-- /.container -->

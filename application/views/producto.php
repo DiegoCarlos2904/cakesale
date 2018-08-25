@@ -1,4 +1,4 @@
-		<?php $this->load->view('header')?>
+	   <?php $this->load->view('header')?>
 		<div class="row">
 			<?php $this->load->view('list_productos')?>
 		</div>

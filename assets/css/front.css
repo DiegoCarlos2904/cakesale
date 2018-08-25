@@ -1,0 +1,40 @@
+.btn-primary {
+	color: #fff;
+	background-color: #4b1d1d;
+	border-color: #4b1d1d;
+}
+.btn-primary:hover {
+	color: #fff;
+	background-color: #3e1717;
+	border-color: #3e1717;
+}
+a {
+	color: #4b1d1d;
+}
+a:hover {
+	color: #3e1717;
+}
+
+@media (min-width: 768px) {
+}
+
+.bd-navbar {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 1071;
+}
+footer {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+main.main {
+	background-color: #f8f9fa!important;
+}
+
+.form-signin {
+	width: 100%;
+	max-width: 330px;
+	padding: 15px;
+	margin: auto;
+}

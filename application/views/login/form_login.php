@@ -1,48 +1,24 @@
-		<?php $this->load->view('layout/header')?>
-		<div class="row">
-						<!-- body items -->
-			<!-- load products from table -->
-			 <div class="col-md-12">
-
-				<div class="panel panel-default">
-					<div class="panel-body" >
-						<div class="col-md-12">
-							<?= validation_errors() ?>
-							<div class="col-md-3"><?= $this->session->flashdata('error') ?></div>
-							<div class="col-md-6">
-							<?= form_open('login') ?>
-								<div class="form-group">
-									<label for="username">Nombre de usuario: </label>
-									<input type="text" class="form-control" required="" name="username" >
-								</div>
-								<div class="form-group">
-									<label for="password">Contraseña: </label>
-									<input type="password" class="form-control" required name="password" >
-								</div>
-								<div class="form-group">
-								<div class="col-md-2"></div>
-								<div class="col-md-7">
-									<button type="submit" class="btn btn-success">Login</button>
-									<?=  anchor(base_url(),'Cancel',['class'=>'btn']) ?>
-									
-									</div>
-								<div class="col-md-3">
-									<?//=  anchor('register','Register',['class'=>'btn btn-default']) ?>
-								</div>
-								</div>
-							<?= form_close() ?>
-							</div>
-							<div class="col-md-3"></div>	
-						</div>  
-						
-					</div>
-					
-					
+		<?php $this->load->view('header')?>
+		<div class="form-signin">
+			<h1 class="h3 mb-3  font-weight-normal">Iniciar sesión</h1>
+			<?php if( isset($errors) ): ?>
+				<div class="alert alert-danger text-left">
+					<?php print_r($errors); ?>
 				</div>
-			</div>  
-			
+			<?php endif ?>
+			<?= form_open('login') ?>
+				<div class="form-group">
+					<label for="username">Correo</label> 
+					<input id="username" name="username" type="email" class="form-control">
+				</div>
+				<div class="form-group">
+					<label for="password">Contraseña</label> 
+					<input id="password" name="password" type="password" class="form-control">
+				</div> 
+				<div class="form-group">
+					<button name="submit" type="submit" class="btn btn-primary">Ingresar</button>
+					<?=	anchor(base_url(),'Cancelar',['class'=>'btn']) ?>
+				</div>
+			<?= form_close() ?>
 		</div>
-
-		<hr>
-
-		<?php $this->load->view('layout/footer')?>
+		<?php $this->load->view('footer')?>

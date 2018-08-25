@@ -11,7 +11,7 @@
 						<h4> Dashboard <i class="fa fa-th-large"></i> </h4>
 						<div class="btn-toolbar btn-group-lg" role="group" aria-label="" style="text-align: center">
 						<div class="span7 offset5">
-							<?php  if($this->session->userdata('group')	==	'1'  or $this->session->userdata('group')	==	'2' ): ?>
+							<?php  if($this->session->userdata('usr_group')	==	'1'  or $this->session->userdata('usr_group')	==	'2' ): ?>
 							<?=  anchor('admin/products','View All Productst',['class'=>'btn btn-default']) ?>
 							<?=  anchor('admin/products/create','Add New Product',['class'=>'btn btn-default']) ?>
 							<?=  anchor('admin/products/members','Members',['class'=>'btn btn-default']) ?>

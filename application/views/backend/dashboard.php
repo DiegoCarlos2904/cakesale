@@ -1,5 +1,5 @@
 
-		<?php $this->load->view('layout/header')?>
+		<?php $this->load->view('header')?>
 		<!-- Navigation -->
 		<?php //$this->load->view('layout/dash_navigation')?>
 		<!-- Header- dash_menu -->
@@ -49,8 +49,8 @@
 												?>
 										</td>
 										<td>
-											<?=  anchor('admin/products/edit/'.$product->pro_id,'Editar',['class'=>'btn btn-success btn-xs']) ?>
-											<?php  if($this->session->userdata('group')	==	'1' ): ?>
+											<?=  anchor('admin/products/edit/'.$product->pro_id,'Editar',['class'=>'btn btn-primary btn-xs']) ?>
+											<?php  if($this->session->userdata('usr_group')	==	'1' ): ?>
 											<?=  anchor('admin/products/delete/'.$product->pro_id,'Eliminar',['class'=>'btn btn-danger btn-xs',
 																											'onclick'=>'return confirm(\'¿Seguro que quiere eliminar este producto? \')'
 																											]) ?>
@@ -79,4 +79,4 @@
 				
 			</div>
 			<hr>
-			<?php $this->load->view('layout/footer')?>
+			<?php $this->load->view('footer')?>

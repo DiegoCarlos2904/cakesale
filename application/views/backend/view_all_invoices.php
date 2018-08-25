@@ -72,7 +72,7 @@
 										<td><?=  $invoice->due_date  ?></td>
 										<td><?=  $invoice->status  ?></td>
 										<?php if($invoice->status == 'confirmed'):?>
-										<td><?=  anchor('admin/invoices/detail/'.$invoice->id,'Details',['class'=>'btn btn-success btn-xs']) ?>
+										<td><?=  anchor('admin/invoices/detail/'.$invoice->id,'Details',['class'=>'btn btn-primary btn-xs']) ?>
 										<?php else:?>
 										<td><?=  anchor('admin/invoices/detail/'.$invoice->id,'Details',['class'=>'btn btn-primary btn-xs']) ?>
 										<?php endif;?>
@@ -103,7 +103,7 @@
 			<hr>
 			
 			<!-- Footer -->
-			<?php $this->load->view('layout/footer')?>
+			<?php $this->load->view('footer')?>
 			
 		</div>
 		<!-- /.container -->

@@ -86,7 +86,7 @@
 							<div class="col-md-2">
 								
 							
-								<?php  if($this->session->userdata('group')	==	'1' ): ?>
+								<?php  if($this->session->userdata('usr_group')	==	'1' ): ?>
 								<h4>User Status</h4>
 								<?php if ($member->usr_id == '1' ):?>
 								<?php echo "administrator"?>
@@ -98,12 +98,12 @@
 									'onclick'=>'return confirm(\'Are You Sure You Want Disabled This user ? \')'
 								])  ?>
 								
-								<?=  anchor('#','Active',['class'=>'btn btn-success btn-xs disabled '
+								<?=  anchor('#','Active',['class'=>'btn btn-primary btn-xs disabled '
 								])  ?>
 								<?php else:?>
 								<?=  anchor('#','Disabled ',['class'=>'btn btn-danger btn-xs disabled'])  ?>
 								
-								<?=  anchor('admin/products/active_usr/'.$member->usr_id,'Active ',['class'=>'btn btn-success btn-xs ',
+								<?=  anchor('admin/products/active_usr/'.$member->usr_id,'Active ',['class'=>'btn btn-primary btn-xs ',
 									'onclick'=>'return confirm(\'Are You Sure You Want Disabled This  user ? \')'
 								])  ?>
 								<?php endif;?>
@@ -127,7 +127,7 @@
 			<hr>
 			
 			<!-- Footer -->
-			<?php $this->load->view('layout/footer')?>
+			<?php $this->load->view('footer')?>
 			
 		</div>
 		<!-- /.container -->

@@ -65,7 +65,7 @@
 												<input type="text" class="form-control" name="edit_sitename_input"  value="<?=set_value('edit_sitename_input') ?>">
 											</div>
 											</div>
-							<button type="submit" class="btn btn-success btn-xs" onclick="return confirm ('Are You Sure You Want Change  Site Name ?')">Change</button>
+							<button type="submit" class="btn btn-primary btn-xs" onclick="return confirm ('Are You Sure You Want Change  Site Name ?')">Change</button>
 							<?= form_close() ?>
 											</blockquote>
 											
@@ -77,7 +77,7 @@
 												<input type="text" class="form-control" name="edit_footer_input"  value="<?=set_value('edit_footer_input') ?>">
 											</div>
 											</div>
-							<button type="submit" class="btn btn-success btn-xs" onclick="return confirm ('Are You Sure You Want Change  Site Footer Name ?')">Change</button>
+							<button type="submit" class="btn btn-primary btn-xs" onclick="return confirm ('Are You Sure You Want Change  Site Footer Name ?')">Change</button>
 							<?= form_close() ?>
 											</blockquote>
 											
@@ -99,7 +99,7 @@
 												<input type="text" class="form-control" name="repassword_admin" placeholder="Re Type Your Password" value="<?=set_value('repassword_admin') ?>">
 											</div>
 											</div>
-							<button type="submit" class="btn btn-success btn-xs" onclick="return confirm ('Are You Sure You Want Change  Admin Password  ?')">Change</button>
+							<button type="submit" class="btn btn-primary btn-xs" onclick="return confirm ('Are You Sure You Want Change  Admin Password  ?')">Change</button>
 							<?= form_close() ?>
 											</blockquote>
 											<blockquote><p><kbd>Add</kbd> Slide Show ...</p></blockquote>
@@ -113,7 +113,7 @@
 			</div>
 			<!-- /.row -->
 			<!-- Footer -->
-			<?php $this->load->view('layout/footer')?>
+			<?php $this->load->view('footer')?>
 		</div>
 		<!-- /.container -->
 		

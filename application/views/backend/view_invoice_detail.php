@@ -115,7 +115,7 @@
 			<hr>
 			
 			<!-- Footer -->
-			<?php $this->load->view('layout/footer')?>
+			<?php $this->load->view('footer')?>
 			
 		</div>
 		<!-- /.container -->

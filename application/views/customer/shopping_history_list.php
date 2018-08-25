@@ -32,7 +32,7 @@
 <body>
 
     <!-- Navigation Top_Menu -->
-    <?php $this->load->view('layout/header')?>
+    <?php $this->load->view('header')?>
     <!-- Header Carousel -->
 
     <!-- Page Content -->
@@ -99,7 +99,7 @@
 								<code><?= $row->status ?></code>
 								<?= anchor('customer/payment_confirmation/'.$row->id,'Confirn Payment',array('class'=>'btn btn-primary btn-xs')) ?>
 								<?php else:?>
-								 <label class="btn btn-success btn-xs active"><?= $row->status ?></label>
+								 <label class="btn btn-primary btn-xs active"><?= $row->status ?></label>
 								<?php endif;?>
 							</div>
 							
@@ -158,7 +158,7 @@
         <hr>
 
         <!-- Footer -->
-        <?php $this->load->view('layout/footer')?>
+        <?php $this->load->view('footer')?>
 
     </div>
     <!-- /.container -->
