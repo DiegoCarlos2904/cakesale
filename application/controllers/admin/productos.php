@@ -4,9 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Productos extends CI_Controller {
 	public function __construct () {
 		parent::__construct();
-		if($this->session->userdata('usr_group')!=	('1' ||'2') ) {
-			$this->session->set_flashdata('error','No tiene una sesión iniciada');
-			redirect('login');	
+		if( !in_array( $this->session->userdata('usr_group'), array( '1', '2' )  ) ) {
+			$this->session->set_flashdata('error','No tiene los accesos necesarios');
+			redirect('');
 		}
 		$this->load->model('model_products');
 		$this->load->model('model_categories');

@@ -16,40 +16,20 @@ class Model_products extends CI_Model {
 		}
 	}
 	
-	public function dis_products() {
-			$this->db->distinct();
-			$query = $this->db->query('SELECT DISTINCT pro_title FROM products');
-			return $query->result();
-	}
-	
 	public function showme($pro_slug) {
 		$query = $this->db->get_where('products', array('pro_slug' => $pro_slug));
 		return $query->result();
-	}
-	
-	public function findbyslug($pro_slug) {
-		$code = $this->db->where('pro_slug',$pro_slug)
-						->limit(1)
-						->get('products');
-		if ($code->num_rows() > 0 )
-			{
-				return $code->row();
-			}else {
-				return array();
-			}
-			
 	}
 	
 	public function find($pro_id) {
 		$code = $this->db->where('pro_id',$pro_id)
 						->limit(1)
 						->get('products');
-		if ($code->num_rows() > 0 )
-			{
-				return $code->row();
-			}else {
-				return array();
-			}
+		if ($code->num_rows() > 0 ) {
+			return $code->row();
+		}else {
+			return array();
+		}
 			
 	}
 	

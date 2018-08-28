@@ -1,6 +1,6 @@
 		<?php $this->load->view('header')?>
 		<div class="form-signin">
-			<h1 class="h3 mb-3  font-weight-normal">Iniciar sesión</h1>
+			<h1 class="h3 mb-3 font-weight-normal">Iniciar sesión</h1>
 			<?php if( isset($errors) ): ?>
 				<div class="alert alert-danger text-left">
 					<?php print_r($errors); ?>
@@ -18,6 +18,7 @@
 				<div class="form-group">
 					<button name="submit" type="submit" class="btn btn-primary">Ingresar</button>
 					<?=	anchor(base_url(),'Cancelar',['class'=>'btn']) ?>
+					<?=  anchor('Register','Registrarse',['class'=>'btn  btn-default']) ?>
 				</div>
 			<?= form_close() ?>
 		</div>
