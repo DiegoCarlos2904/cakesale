@@ -1,14 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Login extends CI_Controller {
+class Cuenta extends CI_Controller {
 	function __construct() {
 		parent::__construct();
 		$this->load->model('model_users');
 		$this->load->library('form_validation');
 	}
-		
 	public function index() {
+	}
+
+	public function login() {
 		if( $this->isLoggedin() ) { 
 			redirect( base_url().'admin');
 		}
@@ -42,7 +44,37 @@ class Login extends CI_Controller {
 				}
 			}
 		}
-		$this->load->view('login/form_login',$data);
+		$this->load->view('login',$data);
+	}
+
+	public function register() {
+		
+		$data['hide_slider'] = true;
+		$data['title'] = '';
+		
+		if ( isset( $_POST ) && count( $_POST ) ) {
+			$this->form_validation->set_rules('rusername','Correo','required');
+			$this->form_validation->set_rules('rpassword','Contraseña','required|alpha_numeric|matches[repassword]');
+			$this->form_validation->set_rules('repassword','Repetir contraseña','required|alpha_numeric');
+			if ($this->form_validation->run() == false) {
+				$data['errors'] = validation_errors();
+			} else {
+				$data_register_new = array (
+					'usr_name'			=> set_value('rusername'),
+					'usr_password'		=> sha1(md5( set_value('rpassword') ) ),
+					'stuts'				=> '1',
+					'usr_group'				=>'3'
+				);
+				if($this->model_users->is_usr() == FALSE) {
+					$this->model_users->register_new($data_register_new);
+					redirect(base_url().'login');
+				}else{
+					$data['errors'] = 'Ya existe un usuario con ese correo.';
+				}
+			}
+		}
+
+		$this->load->view('register',$data); 
 	}
 	public function logout() {
 		$this->session->sess_destroy();

@@ -1,0 +1,21 @@
+Gestion de usuario
+	iniciar sesion
+	registrar usuario
+	administrar usuarios
+
+---------------------------
+
+gestionar pedido
+	agregar al carrito
+	pagar con paypal
+	finalizar compra
+
+personalizar pproducto en la compra
+	cantidad de porciones
+	mensaje en la torta
+	especificaciones adicionales
+
+generar factura y boleta
+	campos de nombre direecion y ruc
+	activar deseo factura
+	exportar un pdf con la factura, donde este el logo de la empresa, y resuemn de la compra con su total

@@ -9,16 +9,16 @@
 			<?= form_open('login') ?>
 				<div class="form-group">
 					<label for="username">Correo</label> 
-					<input id="username" name="username" type="email" class="form-control">
+					<input id="username" name="username" required="" type="email" class="form-control">
 				</div>
 				<div class="form-group">
 					<label for="password">Contraseña</label> 
-					<input id="password" name="password" type="password" class="form-control">
+					<input id="password" name="password" required="" type="password" class="form-control">
 				</div> 
 				<div class="form-group">
 					<button name="submit" type="submit" class="btn btn-primary">Ingresar</button>
-					<?=	anchor(base_url(),'Cancelar',['class'=>'btn']) ?>
-					<?=  anchor('Register','Registrarse',['class'=>'btn  btn-default']) ?>
+					<a class="btn" href="<?= base_url() ?>">Cancelar</a>
+					<a class="btn btn-default" href="<?= base_url('register') ?>">Registrarse</a>
 				</div>
 			<?= form_close() ?>
 		</div>

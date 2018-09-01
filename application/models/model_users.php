@@ -2,6 +2,20 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Model_users extends CI_Model {
+
+	public function get_users( $user_id = '' ) {
+		if ( $user_id ) {
+			$show = $this->db->get_where('users', array('usr_id' => $user_id));
+			return $show->row();
+		} else {
+			$show = $this->db->get('users');
+		}
+		if($show->num_rows() > 0 ) {
+			return $show->result();
+		} else {
+			return array();
+		}
+	}
 		
 	public function check_usr() {
 		$username = set_value('username');	
@@ -32,6 +46,40 @@ class Model_users extends CI_Model {
 			return TRUE;	
 		}else{
 			return FALSE;
+		}
+	}
+	public function exists_email( $username ) {
+		$gry = $this->db->where('usr_name',$username)
+		->limit(1)
+		->get('users');
+		if($gry->num_rows()	> 0) {
+			return TRUE;	
+		}else{
+			return FALSE;
+		}
+	}
+
+	public function insert($data = array()) {
+		$insert = $this->db->insert('users', $data);
+		if($insert){
+			return $this->db->insert_id();
+		} else{
+			return false;
+		}
+	}
+
+	public function update($data, $id) {
+		if(!empty($data) && !empty($id)){
+			$update = $this->db->update('users', $data, array( 'usr_id' =>$id));
+			if($update){
+				return true;
+			}else{
+				print_r( $this->db->_error_messag );
+				exit();
+				return $this->db->_error_message(); 
+			}
+		}else{
+			return false;
 		}
 	}
 	

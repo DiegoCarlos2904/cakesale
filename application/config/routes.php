@@ -52,5 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'tienda';
 $route['404_override'] = 'notfound';
 $route['translate_uri_dashes'] = FALSE;
-$route['logout']='login/logout';
+$route['logout']='cuenta/logout';
+$route['login']='cuenta/login';
+$route['register']='cuenta/register';
 $route['categoria/(:any)']='categoria/ver/$1';
