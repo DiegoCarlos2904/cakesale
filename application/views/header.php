@@ -89,7 +89,7 @@
 							$url_order	.=' <i class="fa fa-cc-paypal"></i> '.' <i class="fa fa-credit-card"></i> '.' <i class="fa fa-cc-visa"></i></a> ';
 							?>
 							<?php if	($this->cart->total_items()!=0):?>
-								<a href="<?= base_url( 'order') ?>" class="dropdown-item"><?= $url_order ?></a>
+								<a href="<?= base_url( 'tienda/finalizar_compra') ?>" class="dropdown-item"><?= $url_order ?></a>
 							<?php else:?>
 								<a href="<?= base_url( '') ?>" class="dropdown-item"><?= $url_order ?></a>
 							<?php endif ;?>

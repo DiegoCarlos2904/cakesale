@@ -64,7 +64,7 @@
 			<a href="<?= base_url( 'tienda/clear_cart' ) ?>" class="btn btn-danger">Limpiar carrito</a>
 			<a href="<?= base_url( '' ) ?>" class="btn btn-primary">Continuar comprando</a>
 			<?php if  ($this->cart->total_items()!=0):?>
-				<a href="<?= base_url( 'order' ) ?>" class="btn btn-success">Pagar</a>
+				<a href="<?= base_url( 'tienda/finalizar_compra' ) ?>" class="btn btn-success">Pagar</a>
 			<?php endif ?>
 		</div>
 		<div class="col-md-2"></div>
