@@ -5,10 +5,10 @@ class Model_users extends CI_Model {
 
 	public function get_users( $user_id = '' ) {
 		if ( $user_id ) {
-			$show = $this->db->get_where('users', array('usr_id' => $user_id));
+			$show = $this->db->get_where('users', array('usr_id' => $user_id, 'stuts'=>'publish'));
 			return $show->row();
 		} else {
-			$show = $this->db->get('users');
+			$show = $this->db->get_where('users', array('stuts'=>'publish'));
 		}
 		if($show->num_rows() > 0 ) {
 			return $show->result();
@@ -36,7 +36,18 @@ class Model_users extends CI_Model {
 	public function register_new($data_register_new) {
 		$this->db->insert('users',$data_register_new);		
 	}
-	
+	public function delete($usr_id) {
+		if( !empty($usr_id) ) {
+			$update = $this->db->update('users', array( 'stuts'=>'trash' ), array( 'usr_id' =>$usr_id));
+			if( $update ){
+				return true;
+			} else{
+				return $this->db->_error_message(); 
+			}
+		} else {
+			return false;
+		}
+	}
 	public function is_usr() {
 		$username = set_value('rusername');	
 		$gry = $this->db->where('usr_name',$username)
@@ -74,8 +85,6 @@ class Model_users extends CI_Model {
 			if($update){
 				return true;
 			}else{
-				print_r( $this->db->_error_messag );
-				exit();
 				return $this->db->_error_message(); 
 			}
 		}else{

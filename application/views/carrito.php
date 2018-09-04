@@ -29,6 +29,14 @@
 			</div>
 			<div class="col-md-4">
 				<?= $items['name'] ?>
+				<?php if ( isset( $items['options'] ) ): ?>
+					<?php if ( isset( $items['options']['porciones'] ) && $items['options']['porciones'] ): ?>
+						<br><b>Porciones</b>: <?= $items['options']['porciones'] ?>
+					<?php endif ?>
+					<?php if ( isset( $items['options']['mensaje'] ) && $items['options']['mensaje'] ): ?>
+						<br><b>Mensaje</b>: <?= $items['options']['mensaje'] ?>
+					<?php endif ?>
+				<?php endif ?>
 			</div>
 			<div class="col-md-2">
 				<?= $items['qty'] ?>
@@ -53,17 +61,11 @@
 		</div>
 		<div class="col-md-4"></div>
 		<div class="col-md-6">
-			<?=  anchor('tienda/clear_cart','Limpiar carrito',['class'=>'btn btn-danger','role'=>'button']) ?>
-			<?=  anchor(base_url(),'Continuar comprando',['class'=>'btn btn-primary','role'=>'button']) ?>
-			<?php
-				$url_check	='<button class="btn btn-success type="submit">';
-				$url_check	 .= 'Pagar'.'</button>';
-			?>
+			<a href="<?= base_url( 'tienda/clear_cart' ) ?>" class="btn btn-danger">Limpiar carrito</a>
+			<a href="<?= base_url( '' ) ?>" class="btn btn-primary">Continuar comprando</a>
 			<?php if  ($this->cart->total_items()!=0):?>
-			<?=  anchor('order',' Pagar',['class'=>'btn btn-success','role'=>'button']) ?>
-			<?php else:?>
-			<?= anchor(base_url(),$url_check); ?>
-			<?php endif ;?>
+				<a href="<?= base_url( 'order' ) ?>" class="btn btn-success">Pagar</a>
+			<?php endif ?>
 		</div>
 		<div class="col-md-2"></div>
 		<?php $this->load->view('footer')?>

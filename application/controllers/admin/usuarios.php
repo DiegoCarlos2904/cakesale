@@ -5,7 +5,7 @@ class Usuarios extends CI_Controller {
 	public function __construct () {
 		parent::__construct();
 		if( !in_array( $this->session->userdata('usr_group'), array( '1', '2' )  ) ) {
-			$this->session->set_flashdata('error','No tiene los accesos necesarios');
+			$this->session->set_flashdata('log_error','No tiene los accesos necesarios');
 			redirect('');
 		}
 		$this->load->model('model_users');
@@ -15,9 +15,9 @@ class Usuarios extends CI_Controller {
 		$data['list'] = $this->model_users->get_users();
 		$this->load->view('admin/usuarios',$data);
 	}
-	public function delete($pro_id) {
-		$this->model_products->delete($pro_id);
-		redirect('admin/productos');
+	public function delete($usr_id) {
+		$this->model_users->delete($usr_id);
+		redirect('admin/usuarios');
 	}
 	
 	public function registrar() {

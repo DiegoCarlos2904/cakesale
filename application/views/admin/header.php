@@ -41,6 +41,9 @@
 						<a class="nav-link <?= $this->uri->segment(2) == 'productos' ? 'active' : '' ?>" href="<?= base_url("/admin/productos") ?>">Productos</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link <?= $this->uri->segment(2) == 'categorias' ? 'active' : '' ?>" href="<?= base_url("/admin/categorias") ?>">Categorías</a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link <?= $this->uri->segment(2) == 'pedidos' ? 'active' : '' ?>" href="<?= base_url("/admin/pedidos") ?>">Pedidos</a>
 					</li>
 					<li class="nav-item">
@@ -49,10 +52,10 @@
 				</ul>
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<?php echo anchor('','Tienda', ['class' => 'nav-link'] );?>
+						<a href="<?= base_url( '' ) ?>" class="nav-link">Tienda</a>
 					</li>
 					<li class="nav-item">
-						<?php echo anchor('logout','Cerrar sesión', ['class' => 'nav-link'] );?>
+						<a href="<?= base_url( 'logout' ) ?>" class="nav-link">Cerrar sesión</a>
 					</li>
 				</ul>
 			</div>

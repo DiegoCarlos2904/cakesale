@@ -65,15 +65,15 @@
 					<?php if ( $this->session && $this->session->userdata && ! empty( $this->session->userdata['usr_id'] ) ): ?>
 						<?php	if($this->session->userdata['usr_group'] ==	'1'	or $this->session->userdata['usr_group']	==	'2' ): ?>
 							<li class="nav-item">
-								<?php echo anchor('admin','Dashboard', ['class' => 'nav-link'] );?>
+								<a href="<?= base_url( 'admin') ?>" class="nav-link">Dashboard</a>
 							</li>
 						<?php endif ?>
 						<li class="nav-item">
-							<?php echo anchor('logout','Cerrar sesión', ['class' => 'nav-link'] );?>
+							<a href="<?= base_url( 'logout') ?>" class="nav-link">Cerrar sesión</a>
 						</li>
 					<?php else: ?>
 						<li class="nav-item">
-							<?php echo anchor('login','Iniciar sesión', ['class' => 'nav-link']);?>
+							<a href="<?= base_url( 'login') ?>" class="nav-link">Iniciar sesión</a>
 						</li>
 					<?php endif ?>
 					<li class="dropdown">
@@ -83,15 +83,15 @@
 								$url_cart	 = 'Carrito ';
 								$url_cart	.=$this->cart->total_items().' <i class="fa fa-shopping-cart"></i></a>';
 							?>
-							<?= anchor('tienda/carrito',$url_cart, array( 'class' => 'dropdown-item' )); ?>
+							<a href="<?= base_url( 'tienda/carrito') ?>" class="dropdown-item"><?= $url_cart ?></a>
 							<?php
 							$url_order	 = 'Pagar';
 							$url_order	.=' <i class="fa fa-cc-paypal"></i> '.' <i class="fa fa-credit-card"></i> '.' <i class="fa fa-cc-visa"></i></a> ';
 							?>
 							<?php if	($this->cart->total_items()!=0):?>
-							<?= anchor('order',$url_order, array( 'class' => 'dropdown-item' )); ?>
+								<a href="<?= base_url( 'order') ?>" class="dropdown-item"><?= $url_order ?></a>
 							<?php else:?>
-							<?= anchor(base_url(),$url_order, array( 'class' => 'dropdown-item' )); ?>
+								<a href="<?= base_url( '') ?>" class="dropdown-item"><?= $url_order ?></a>
 							<?php endif ;?>
 						</div>
 					</li>
@@ -133,3 +133,13 @@
 				<h1><?= $title ?></h1>
 				<hr>
 			<?php endif ?>
+			<?php if($this->session->flashdata('log_success')){?>
+				<div class="alert alert-success">
+					<?php echo $this->session->flashdata('log_success');?>
+				</div>
+			<?php }?>
+			<?php if($this->session->flashdata('log_error')){?>
+				<div class="alert alert-danger">
+					<?php echo $this->session->flashdata('log_error');?>
+				</div>
+			<?php }?>

@@ -5,7 +5,7 @@ class Productos extends CI_Controller {
 	public function __construct () {
 		parent::__construct();
 		if( !in_array( $this->session->userdata('usr_group'), array( '1', '2' )  ) ) {
-			$this->session->set_flashdata('error','No tiene los accesos necesarios');
+			$this->session->set_flashdata('log_error','No tiene los accesos necesarios');
 			redirect('');
 		}
 		$this->load->model('model_products');
@@ -28,7 +28,7 @@ class Productos extends CI_Controller {
 			$this->form_validation->set_rules('pro_title','Título','required');
 			$this->form_validation->set_rules('pro_description','Descripción','required');
 			$this->form_validation->set_rules('cat_id','Categoría','required|integer');
-			$this->form_validation->set_rules('pro_price','Precio','required|integer');
+			$this->form_validation->set_rules('pro_price','Precio','required|decimal');
 			$this->form_validation->set_rules('pro_stock','Stock','required|integer');
 
 			if ($this->form_validation->run() == FALSE) {
@@ -72,7 +72,7 @@ class Productos extends CI_Controller {
 				}
 			}
 		}
-		$this->load->view('admin/crear_producto', $data);
+		$this->load->view('admin/registrar_producto', $data);
 	}
 	
 	public function editar($pro_id) {
@@ -82,7 +82,7 @@ class Productos extends CI_Controller {
 			$this->form_validation->set_rules('pro_title','Título','required');
 			$this->form_validation->set_rules('pro_description','Descripción','required');
 			$this->form_validation->set_rules('cat_id','Categoría','required|integer');
-			$this->form_validation->set_rules('pro_price','Precio','required|integer');
+			$this->form_validation->set_rules('pro_price','Precio','required|decimal');
 			$this->form_validation->set_rules('pro_stock','Stock','required|integer');
 
 			if ($this->form_validation->run() == FALSE) {

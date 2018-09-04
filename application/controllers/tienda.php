@@ -18,7 +18,7 @@ class Tienda extends CI_Controller {
 		$this->load->view('carrito',$data);
 	}
 	public function ver($pro_slug) {
-		$data['products'] = $this->model_products->showme($pro_slug);
+		$data['product'] = $this->model_products->showme($pro_slug);
 		$data['title'] = 'Tienda';
 		$this->load->view('producto',$data);
 	}
@@ -26,18 +26,28 @@ class Tienda extends CI_Controller {
 		$this->cart->destroy();
 		redirect(base_url());
 	}
-	public function add_to_cart($pro_id,$send = '') {
+	public function add_to_cart($pro_slug,$send = '') {
 		$this->load->library('cart');
-		$product = $this->model_products->find($pro_id);
+		$product = $this->model_products->showme($pro_slug);
+
+
+	 	$data_post = $this->security->xss_clean($_POST);
 		$data = array(
 			'id'      => $product->pro_id,
 			'qty'     => 1,
 			'price'   => $product->pro_price,
-			'name'	  => $product->pro_title
+			'name'	  => $product->pro_title,
+	        'options' => array( 
+	        	'porciones' => $data_post['porciones'],
+	        	'mensaje' => $data_post['mensaje'],
+	        	'especificaciones' => $data_post['especificaciones'],
+	        )
 		);
 		$this->cart->insert($data);
+
+		$this->session->set_flashdata('log_success','Se agregó el producto al carrito correctamente.');
 		if ( $send == 'add' ) {
-			redirect('tienda/'.$product->pro_slug);
+			redirect('tienda/ver/'.$product->pro_slug);
 		} else{
 			redirect( base_url() );
 		}

@@ -1,7 +1,7 @@
 		<?php $this->load->view('admin/header')?>
 		<div class="row">
 			<div class="col-md-12">
-				<h4><?=  anchor('admin/productos/registrar','Agregar',['class'=>'btn btn-primary']) ?></h4>
+				<h4><a href="<?= base_url( 'admin/productos/registrar') ?>" class="btn btn-primary">Agregar</a></h4>
 				<div class="table-responsive">
 					<table class="table table-striped table-hover" id="tableList">
 						<thead>
@@ -34,22 +34,14 @@
 								<td><?=  $product->pro_price  ?></td>
 								<td><?=  $product->pro_stock  ?></td>
 								<td>
-									<?=  anchor('admin/productos/editar/'.$product->pro_id,'Editar',['class'=>'btn btn-primary btn-xs']) ?>
-									<?=  anchor('admin/productos/delete/'.$product->pro_id,'Eliminar',[
-										'class'=>'btn btn-danger btn-xs',
-										'onclick'=>'return confirm(\'¿Seguro que quiere eliminar este producto? \')'
-									]) ?>
+									<a href="<?= base_url( 'admin/productos/editar/'.$product->pro_id ) ?>" class="btn btn-primary btn-xs">Editar</a>
+									<a onclick="return confirm('¿Seguro que quiere eliminar este producto?')" href="<?= base_url( 'admin/productos/delete/'.$product->pro_id ) ?>" class="btn btn-danger btn-xs">Eliminar</a>
 								</td>
 							</tr>
 							<?php endforeach; ?>
 						</tbody>
 					</table>
 				</div>
-				<script>
-					$(document).ready(function(){
-						//$('#tableproducts').DataTable();
-					});
-				</script>
 			</div>
 		</div>
 		<?php $this->load->view('admin/footer')?>

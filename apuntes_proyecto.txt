@@ -3,6 +3,11 @@ Gestion de usuario
 	registrar usuario
 	administrar usuarios
 
+personalizar pproducto en la compra
+	cantidad de porciones
+	mensaje en la torta
+	especificaciones adicionales
+
 ---------------------------
 
 gestionar pedido
@@ -10,10 +15,6 @@ gestionar pedido
 	pagar con paypal
 	finalizar compra
 
-personalizar pproducto en la compra
-	cantidad de porciones
-	mensaje en la torta
-	especificaciones adicionales
 
 generar factura y boleta
 	campos de nombre direecion y ruc

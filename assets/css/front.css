@@ -38,3 +38,10 @@ main.main {
 	padding: 15px;
 	margin: auto;
 }
+
+.card-title {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}

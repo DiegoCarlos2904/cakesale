@@ -49,7 +49,7 @@
 							<label for="pro_price">Precio</label> 
 							<div class="input-group">
 								<div class="input-group-addon">S/</div> 
-								<input value="<?= $pro_price ?>" id="pro_price" name="pro_price" type="text" class="form-control" required="required">
+								<input value="<?= $pro_price ?>" id="pro_price" name="pro_price" type="text" class="onlyDecimal form-control" required="required">
 							</div> 
 						</div>
 					</div>
@@ -63,8 +63,8 @@
 				</div>
 				<div class="form-group">
 					<input type="hidden" name="is_submitted" value="1">
-					<button name="submit" type="submit" class="btn btn-primary">Registrar</button>
-					<?= anchor('admin/productos','Cancelar',['class'=>'btn btn-danger']) ?>
+					<button type="submit" class="btn btn-primary">Registrar</button>
+					<a href="<?= base_url( 'admin/productos' ) ?>" class="btn btn-danger">Cancelar</a>
 				</div>
 			<?= form_close() ?>
 		</div>

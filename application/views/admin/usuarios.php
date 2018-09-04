@@ -33,11 +33,6 @@
 						</tbody>
 					</table>
 				</div>
-				<script>
-					$(document).ready(function(){
-						//$('#tableproducts').DataTable();
-					});
-				</script>
 			</div>
 		</div>
 		<?php $this->load->view('admin/footer')?>

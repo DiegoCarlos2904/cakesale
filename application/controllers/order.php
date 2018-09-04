@@ -5,7 +5,6 @@ class Order extends CI_Controller {
 	
 	public function __construct() {
 		parent::__construct();
-		
 		if(!$this->session->userdata('usr_name')) {
 			redirect('login');
 		}
@@ -18,7 +17,7 @@ class Order extends CI_Controller {
 			$this->cart->destroy();
 			redirect('order/success');
 		}else{
-			$this->session->set_flashdata('error','Failed To Processed Your Order ! , please try again');
+			$this->session->set_flashdata('log_error','Failed To Processed Your Order ! , please try again');
 			redirect('tienda/carrito');
 		}
 	}

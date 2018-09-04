@@ -5,9 +5,13 @@ class Model_products extends CI_Model {
 	
 	public function all_products( $cat_id = '' ) {
 		if ( $cat_id ) {
-			$show = $this->db->get_where('products', array('cat_id' => $cat_id));
+			$this->db->select('products.*, categories.name as cat_name, categories.slug as cat_slug');
+			$this->db->join('categories', 'categories.cat_id = products.cat_id', 'LEFT');
+			$show = $this->db->get_where('products', array('products.stuts'=>'publish', 'products.cat_id' => $cat_id));
 		} else {
-			$show = $this->db->get('products');
+			$this->db->select('products.*, categories.name as cat_name, categories.slug as cat_slug');
+			$this->db->join('categories', 'categories.cat_id = products.cat_id', 'LEFT');
+			$show = $this->db->get_where('products', array( 'products.stuts'=>'publish' ));
 		}
 		if($show->num_rows() > 0 ) {
 			return $show->result();
@@ -17,8 +21,10 @@ class Model_products extends CI_Model {
 	}
 	
 	public function showme($pro_slug) {
-		$query = $this->db->get_where('products', array('pro_slug' => $pro_slug));
-		return $query->result();
+		$this->db->select('products.*, categories.name as cat_name, categories.slug as cat_slug');
+		$this->db->join('categories', 'categories.cat_id = products.cat_id', 'LEFT');
+		$query = $this->db->get_where('products', array( 'products.stuts'=>'publish', 'pro_slug' => $pro_slug));
+		return $query->row();
 	}
 	
 	public function find($pro_id) {
@@ -46,11 +52,27 @@ class Model_products extends CI_Model {
 	}
 	
 	public function delete($pro_id) {
-		
-		$this->db->where('pro_id',$pro_id)
-				->delete('products');
+		if( !empty($pro_id) ) {
+			$update = $this->db->update('products', array( 'stuts'=>'trash' ), array( 'pro_id' =>$pro_id));
+			if( $update ){
+				return true;
+			} else{
+				return $this->db->_error_message(); 
+			}
+		} else {
+			return false;
+		}
 	}
-		
+	public function exists( $slug ) {
+		$gry = $this->db->where('pro_slug',$slug)
+		->limit(1)
+		->get('products');
+		if($gry->num_rows()	> 0) {
+			return TRUE;	
+		}else{
+			return FALSE;
+		}
+	}
 	public function report($report_products) {
 		
 		$this->db->insert('reports',$report_products);

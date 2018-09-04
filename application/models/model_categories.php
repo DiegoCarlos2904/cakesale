@@ -5,14 +5,26 @@ class Model_categories extends CI_Model {
 
 	public function get_all( $cat_id = '' ) {
 		if ( $cat_id ) {
-			$show = $this->db->get_where('categories', array('cat_id' => $cat_id));
+			$show = $this->db->get_where('categories', array('stuts' => 'publish', 'cat_id' => $cat_id));
+			return $show->row();
 		} else {
-			$show = $this->db->get('categories');
+			$show = $this->db->get_where('categories', array('stuts' => 'publish'));
 		}
 		if($show->num_rows() > 0 ) {
 			return $show->result();
 		} else {
 			return array();
+		}
+	}
+
+	public function exists( $slug ) {
+		$gry = $this->db->where('slug',$slug)
+		->limit(1)
+		->get('categories');
+		if($gry->num_rows()	> 0) {
+			return TRUE;	
+		}else{
+			return FALSE;
 		}
 	}
 		
@@ -27,18 +39,39 @@ class Model_categories extends CI_Model {
 		}
 	}
 	
-	public function create($data_products) {
-		$this->db->insert('categories',$data_products);
+	public function insert($data = array()) {
+		$insert = $this->db->insert('categories', $data);
+		if($insert){
+			return $this->db->insert_id();
+		} else{
+			return false;
+		}
 	}
-	
-	public function edit($cat_id,$data_products) {
-		$this->db->where('cat_id',$cat_id)
-				->update('categories',$data_products);
+	public function update($data, $id) {
+		if(!empty($data) && !empty($id)){
+			$update = $this->db->update('categories', $data, array( 'cat_id' =>$id));
+			if($update){
+				return true;
+			}else{
+				return $this->db->_error_message(); 
+			}
+		}else{
+			return false;
+		}
 	}
 	
 	public function delete($cat_id) {
-		$this->db->where('cat_id',$cat_id)
-				->delete('categories');
+		if( !empty($cat_id) ) {
+			$update = $this->db->update('categories', array( 'stuts'=>'trash' ), array( 'cat_id' =>$cat_id));
+			if( $update ){
+				return true;
+			} else{
+				return $this->db->_error_message(); 
+			}
+		} else {
+			return false;
+		}
 	}
+
 		
 } 
