@@ -48,7 +48,7 @@
 						<div class="form-group">
 							<label for="pro_price">Precio</label> 
 							<div class="input-group">
-								<div class="input-group-addon">S/</div> 
+								<div class="input-group-addon">$</div> 
 								<input value="<?= $pro_price ?>" id="pro_price" name="pro_price" type="text" class="onlyDecimal form-control" required="required">
 							</div> 
 						</div>

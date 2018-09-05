@@ -1,8 +1,5 @@
 		<?php $this->load->view('header')?>
 		<h2 align="center">Pago completo</h2>
-		<div class="alert alert-info">
-			<p>¡Ahora hemos llegado a la página final de agradecimiento / recibo y el pago se ha procesado! Hemos agregado la Id. De la transacción de PayPal a la Información de facturación, que se proporcionó en la respuesta DoExpressCheckoutPayment.</p>
-		</div>
 		<table class="table table-bordered">
 			<thead>
 				<tr>

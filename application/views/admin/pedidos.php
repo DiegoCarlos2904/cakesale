@@ -17,7 +17,7 @@
 						<?php foreach ($invoices as $invoice ) : ?>
 							<tr>
 								<td><?=  $invoice->id  ?></td>
-								<td>S/ <?= $this->cart->format_number($invoice->total )  ?></td>
+								<td>$ <?= $this->cart->format_number($invoice->total )  ?></td>
 								<td><?=  $invoice->due_date  ?></td>
 								<td><?=  $invoice->status  ?></td>
 								<?php if($invoice->status == 'confirmed'):?>

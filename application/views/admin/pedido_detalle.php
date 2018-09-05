@@ -31,8 +31,8 @@
 									<td></td>
 								<?php endif ?>
 								<td width="100"><?=  $order->qty  ?></td>
-								<td width="100">S/ <?=  $order->price  ?></td>
-								<td width="100">S/ <?php $subtotal = $order->qty * $order->price; $total += $subtotal;echo $this->cart->format_number($subtotal); ?></td>
+								<td width="100">$ <?=  $order->price  ?></td>
+								<td width="100">$ <?php $subtotal = $order->qty * $order->price; $total += $subtotal;echo $this->cart->format_number($subtotal); ?></td>
 							</tr>
 							<?php endforeach; ?>
 						</tbody>
@@ -40,7 +40,7 @@
 							<tr>
 								<th colspan="5"></th>
 								<th>Total</th>
-								<th colspan="2">S/ <?= $this->cart->format_number($total) ?></th>
+								<th colspan="2">$ <?= $this->cart->format_number($total) ?></th>
 							</tr>
 						</thead>
 					</table>

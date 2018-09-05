@@ -120,6 +120,9 @@ class Tienda extends CI_Controller {
 			$cart['hide_slider'] = true;
 			$this->load->vars('cart', $cart);
 
+
+			$this->cart->destroy();
+
 			
 			$this->load->view('review', $cart);
 		}

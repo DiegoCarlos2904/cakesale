@@ -12,7 +12,7 @@
 			<div class="col-12 col-xl-6">
 				<h2 class="mb-3 post-title"><?=	$product->pro_title	?></h2>
 				<p>Categoría: <a href="<?= base_url( 'categoria/'. $product->cat_slug ) ?>"><?= $product->cat_name ?></a></p>
-				<h4 class="btn btn-outline-primary">S/ <?= number_format( $product->pro_price, 2 ); ?></h4>
+				<h4 class="btn btn-outline-primary">$ <?= number_format( $product->pro_price, 2 ); ?></h4>
 				<div class="row align-items-center">
 					<div class="col-md-8">
 						<div class="card ">

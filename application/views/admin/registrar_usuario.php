@@ -42,7 +42,7 @@
 				</div>
 				<div class="form-group">
 					<label for="usr_name">Correo</label>
-					<input type="email" class="form-control" required="" name="usr_name" value="<?= $usr_name ?>">
+					<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  class="form-control" required="" name="usr_name" value="<?= $usr_name ?>">
 				</div>
 				<div class="form-group">
 					<label for="usr_password">Contraseña</label>

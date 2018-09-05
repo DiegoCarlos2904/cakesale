@@ -17,9 +17,9 @@
 				<tr>
 					<td><?php echo $cart_item['id']; ?></td>
 					<td><?php echo $cart_item['name']; ?></td>
-					<td class="center"> S/<?php echo number_format($cart_item['price'],2); ?></td>
+					<td class="center"> $<?php echo number_format($cart_item['price'],2); ?></td>
 					<td class="center"><?php echo $cart_item['qty']; ?></td>
-					<td class="center"> S/<?php echo round($cart_item['qty'] * $cart_item['price'],2); ?></td>
+					<td class="center"> $<?php echo round($cart_item['qty'] * $cart_item['price'],2); ?></td>
 				</tr>
 				<?php
 			}
@@ -44,7 +44,7 @@
 					<tbody>
 					<tr>
 						<td><strong> Total</strong></td>
-						<td> S/<?php echo number_format($cart['shopping_cart']['subtotal'],2); ?></td>
+						<td> $<?php echo number_format($cart['shopping_cart']['subtotal'],2); ?></td>
 					</tr>
 					<tr>
 						<td class="center" colspan="2">
