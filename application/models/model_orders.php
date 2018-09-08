@@ -20,7 +20,6 @@ class Model_orders extends CI_Model {
 				'data'		=>	date('Y-m-d H:i:s'),
 				'due_date'	=>	date('Y-m-d H:i:s',mktime(date('H'),date('i'),date('s'),date('m'),date('d') + 1,date('Y'))),
 				'user_id'	=> $this->get_user_id_by_session(),
-				'user_id'	=> $this->get_user_id_by_session(),
 				'total'	=>	$this->cart->total()
 		);
 		$this->db->insert('invoices',$invoice);

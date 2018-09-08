@@ -45,7 +45,7 @@
 				<table class="table">
 					<tbody>
 						<tr>
-							<td><strong> tOTAL</strong></td>
+							<td><strong> Total</strong></td>
 							<td> $<?php echo number_format($cart['shopping_cart']['subtotal'],2); ?></td>
 						</tr>
 					</tbody>

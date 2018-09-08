@@ -31,6 +31,7 @@ class Tienda extends CI_Controller {
 		$this->load->library('paypal/paypal_pro', $config);
 
 		$this->load->model('model_products');
+		$this->load->model('model_orders');
 	}
 	public function index() {
 		$data['title'] = 'Tienda';
@@ -90,10 +91,8 @@ class Tienda extends CI_Controller {
 			$this->load->vars('errors', $errors);
 
 			$this->load->vars('hide_slider', true );
-			$this->load->view('paypal_error');
 		}
 		else {
-			
 			$cart['paypal_payer_id'] = isset($PayPalResult['PAYERID']) ? $PayPalResult['PAYERID'] : '';
 			$cart['phone_number'] = isset($PayPalResult['PHONENUM']) ? $PayPalResult['PHONENUM'] : '';
 			$cart['email'] = isset($PayPalResult['EMAIL']) ? $PayPalResult['EMAIL'] : '';
@@ -120,6 +119,8 @@ class Tienda extends CI_Controller {
 			$cart['hide_slider'] = true;
 			$this->load->vars('cart', $cart);
 
+
+			$is_processed = $this->model_orders->process();
 
 			$this->cart->destroy();
 
@@ -201,8 +202,8 @@ class Tienda extends CI_Controller {
 
 		if(empty($cart)) redirect('');
 
-		$cart['hide_slider'] = true;
 		
+		$this->load->vars('hide_slider', true );
 		$this->load->vars('cart', $cart);
 
 		
@@ -211,6 +212,7 @@ class Tienda extends CI_Controller {
 
 	public function pedido_cancelado() {
 
+		$this->load->vars('hide_slider', true);
 		$this->session->unset_userdata('PayPalResult');
 		$this->session->unset_userdata('shopping_cart');
 		$this->load->view('order_cancelled');
@@ -220,14 +222,15 @@ class Tienda extends CI_Controller {
 
 		$cart = $this->session->userdata('shopping_cart');
 
+
 		$SECFields = array(
 			'maxamt' => round($cart['shopping_cart']['grand_total'] * 2,2), 
 			'returnurl' => site_url('tienda/GetExpressCheckoutDetails'), 
 			'cancelurl' => site_url('tienda/pedido_cancelado'), 			
-			'hdrimg' => 'http://cakesale.pe/assets/img/logo.jpg', 	
-			'logoimg' => 'http://cakesale.pe/assets/img/logo.jpg',
+			'hdrimg' => 'https://image.ibb.co/ksSRX9/logo.jpg', 	
+			'logoimg' => 'https://image.ibb.co/ksSRX9/logo.jpg',
 			'brandname' => 'Cake Sale', 
-			'customerservicenumber' => '',
+			'customerservicenumber' => '986532360',
 		);
 
 		$Payments = array();
@@ -256,7 +259,7 @@ class Tienda extends CI_Controller {
 
 			redirect($PayPalResult['REDIRECTURL'],'Location');
 			
-			redirect($PayPalResult['REDIRECTURL'], 'Location');
+			redirect($PayPalResult['REDIRECTURL'],'Location');
 		}
 	}
 	public function finalizar_compra() {

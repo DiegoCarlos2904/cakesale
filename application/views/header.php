@@ -73,7 +73,7 @@
 						</li>
 					<?php else: ?>
 						<li class="nav-item">
-							<a href="<?= base_url( 'login') ?>" class="nav-link">Iniciar sesión</a>
+							<a href="<?= base_url( 'loginn') ?>" class="nav-link">Iniciar sesión</a>
 						</li>
 					<?php endif ?>
 					<li class="dropdown">

@@ -6,14 +6,14 @@
 					<?php print_r($errors); ?>
 				</div>
 			<?php endif ?>
-			<?= form_open('login') ?>
+			<?= form_open('loginn') ?>
 				<div class="form-group">
 					<label for="username">Correo</label> 
-					<input id="username" name="username" required="" type="email" class="form-control">
+					<input id="username" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="username" required="" type="email" class="form-control">
 				</div>
 				<div class="form-group">
 					<label for="password">Contraseña</label> 
-					<input id="password" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  name="password" required="" type="password" class="form-control">
+					<input id="password"  name="password" required="" type="password" class="form-control">
 				</div> 
 				<div class="form-group">
 					<button name="submit" type="submit" class="btn btn-primary">Ingresar</button>

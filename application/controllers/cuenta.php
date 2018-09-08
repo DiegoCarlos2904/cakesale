@@ -78,7 +78,7 @@ class Cuenta extends CI_Controller {
 	}
 	public function logout() {
 		$this->session->sess_destroy();
-		redirect('login');
+		redirect('loginn');
 	}
 	public function isLoggedin() {
 		if(!empty($this->session->userdata['usr_id'])) {
