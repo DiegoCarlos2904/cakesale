@@ -18,5 +18,5 @@ $config['ApplicationID'] = $config['Sandbox'] ? 'APP-80W284485P519543T' : 'PRODU
 $config['DeviceID'] = '';
 $config['DeviceIpAddress'] = $_SERVER['REMOTE_ADDR'];
 
-$config['DeveloperEmailAccount'] = 'diestone29@egmail.com';
+$config['DeveloperEmailAccount'] = 'diestone29@gmail.com';
 

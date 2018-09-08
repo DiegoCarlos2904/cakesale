@@ -81,8 +81,7 @@
 						<div class="dropdown-menu">
 							<?php
 								$url_cart	 = 'Carrito ';
-								$url_cart	.=$this->cart->total_items().' <i class="fa fa-shopping-cart"></i></a>';
-							?>
+								$url_cart	.=$this->cart->total_items().' <i class="fa fa-shopping-cart"></i></a>';	?>
 							<a href="<?= base_url( 'tienda/carrito') ?>" class="dropdown-item"><?= $url_cart ?></a>
 							<?php
 							$url_order	 = 'Pagar';
