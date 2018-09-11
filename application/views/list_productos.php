@@ -16,10 +16,10 @@
 								<a href="<?= base_url( 'tienda/ver/'.$product->pro_slug ) ?>"><?=	$product->pro_title	?></a>
 							</h4>
 							<div class="row align-items-center">
-								<div class="col-md-6">
+								<div class="col-md">
 									<h4 class="mb-0">$ <?= number_format( $product->pro_price, 2 );	?></h4>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-auto">
 									<a class="btn btn-primary btn-xs" href="<?= base_url( 'tienda/ver/'.$product->pro_slug ) ?>">Ver</a>
 								</div>
 							</div>

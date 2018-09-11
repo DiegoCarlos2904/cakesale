@@ -12,7 +12,7 @@ class Pedidos extends CI_Controller {
 	}
 	public function index() {
 		$data['title'] = 'Pedidos';
-		$data['invoices'] = $this->model_orders->all_invoices();	
+		$data['invoices'] = $this->model_orders->all_invoices();
 		$this->load->view('admin/pedidos',$data);
 	}
 	

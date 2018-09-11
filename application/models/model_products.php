@@ -57,7 +57,7 @@ class Model_products extends CI_Model {
 			if( $update ){
 				return true;
 			} else{
-				return $this->db->_error_message(); 
+				return false; 
 			}
 		} else {
 			return false;

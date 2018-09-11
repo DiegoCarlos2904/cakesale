@@ -5,7 +5,7 @@
 				<p class="mb-0 float-right">
 					<a href="#">Subir</a>
 				</p>
-				<p class="mb-0">Cake Sale  2018</p>
+				<p class="mb-0">Cake Sale <?= date('Y') ?></p>
 			</div>
 		</footer>
 	</div>

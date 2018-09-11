@@ -17,7 +17,13 @@ class Productos extends CI_Controller {
 		$this->load->view('admin/productos',$data);
 	}
 	public function delete($pro_id) {
-		$this->model_products->delete($pro_id);
+		$check = $this->model_products->delete($pro_id);
+		if($check) {
+			$this->session->set_flashdata('log_success','Producto eliminado correctamente');
+		}
+		else {
+			$this->session->set_flashdata('log_error','Ocurruó un error al eliminar el producto');
+		}
 		redirect('admin/productos');
 	}
 	

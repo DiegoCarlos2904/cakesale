@@ -14,7 +14,7 @@
 					<?php print_r($errors); ?>
 				</div>
 			<?php endif ?>
-			<?=	form_open('admin/categorias/editar/'.$cat_id,['class'=>'']) ?>
+			<?=	form_open('',['class'=>'']) ?>
 				<div class="form-group">
 					<label for="name">Nombre</label> 
 					<input value="<?= $name ?>" id="name" name="name" type="text" class="form-control" required="required">

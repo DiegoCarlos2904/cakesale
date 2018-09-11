@@ -46,10 +46,18 @@ class Model_orders extends CI_Model {
 			 return array();
 		}
 	}
+	public function all_invoices_by_user( $usr_id ) {
+		$get_orders = $this->db->get_where( 'invoices', array( 'usr_id' => $usr_id ) );
+		if($get_orders->num_rows() > 0 ) {
+			return $get_orders->result();
+		} else {
+			 return array();
+		}
+	}
 	public function get_invoice_by_id($invoice_id) {
 		$get_invoice_by = $this->db->where('id',$invoice_id)->limit(1)->get('invoices');
 		if( $get_invoice_by->num_rows() > 0 ) {
-			return $get_invoice_by->result();
+			return $get_invoice_by->row();
 		} else {
 			return FALSE;
 		}

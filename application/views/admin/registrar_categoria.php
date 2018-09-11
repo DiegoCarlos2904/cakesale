@@ -13,7 +13,7 @@
 					<?php print_r($errors); ?>
 				</div>
 			<?php endif ?>
-			<?=	form_open_multipart('admin/categorias/registrar/',['class'=>'']) ?>
+			<?=	form_open_multipart('',['class'=>'']) ?>
 				<div class="form-group">
 					<label for="name">Nombre</label> 
 					<input value="<?= $name ?>" id="name" name="name" type="text" class="form-control" required="required">

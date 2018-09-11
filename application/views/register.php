@@ -6,7 +6,7 @@
 					<?php print_r($errors); ?>
 				</div>
 			<?php endif ?>
-			<?= form_open('register') ?>
+			<?= form_open('') ?>
 				<div class="form-group">
 					<label for="username">Correo</label>
 					<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  class="form-control" required="" name="rusername" value="<?= set_value('rusername') ?>">

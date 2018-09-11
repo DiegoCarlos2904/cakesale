@@ -46,9 +46,6 @@
 					<li class="nav-item">
 						<a class="nav-link <?= $this->uri->segment(2) == 'pedidos' ? 'active' : '' ?>" href="<?= base_url("/admin/pedidos") ?>">Pedidos</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link <?= $this->uri->segment(2) == 'facturas' ? 'active' : '' ?>" href="<?= base_url("/admin/facturas") ?>">Facturas</a>
-					</li>
 				</ul>
 				<ul class="navbar-nav">
 					<li class="nav-item">
@@ -67,3 +64,13 @@
 				<h1><?= $title ?></h1>
 				<hr>
 			<?php endif ?>
+			<?php if($this->session->flashdata('log_success')){?>
+				<div class="alert alert-success">
+					<?php echo $this->session->flashdata('log_success');?>
+				</div>
+			<?php }?>
+			<?php if($this->session->flashdata('log_error')){?>
+				<div class="alert alert-danger">
+					<?php echo $this->session->flashdata('log_error');?>
+				</div>
+			<?php }?>

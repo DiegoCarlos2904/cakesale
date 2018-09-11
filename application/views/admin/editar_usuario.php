@@ -24,7 +24,7 @@
 					<?php print_r($errors); ?>
 				</div>
 			<?php endif ?>
-			<?= form_open('admin/usuarios/editar/'.$usr_id ) ?>
+			<?= form_open('' ) ?>
 				<div class="form-group">
 					<label for="first_name">Nombres</label>
 					<input type="text" class="form-control" required="" name="first_name" value="<?= $first_name ?>">

@@ -32,19 +32,18 @@ class Usuarios extends CI_Controller {
 			if ($this->form_validation->run() == FALSE) {
 				$data['errors'] = validation_errors();
 			} else {
-	 			$data_user = $this->security->xss_clean($_POST);
-				unset( $data_user['is_submitted'] );
-				$data_user['stuts'] = '1';
-				$data_user['usr_password'] = sha1(md5($data_user['usr_password']));
-				$data_user['full_name'] = $data_user['first_name'] . ' ' . $data_user['last_name'];
+	 			$data_post = $this->security->xss_clean($_POST);
+				unset( $data_post['is_submitted'] );
+				$data_post['stuts'] = '1';
+				$data_post['usr_password'] = sha1(md5($data_post['usr_password']));
+				$data_post['full_name'] = $data_post['first_name'] . ' ' . $data_post['last_name'];
 
-				if($this->model_users->exists_email($data_user['usr_name']) == FALSE) {
-					$user_id = $this->model_users->insert($data_user );
+				if($this->model_users->exists_email($data_post['usr_name']) == FALSE) {
+					$user_id = $this->model_users->insert($data_post );
 					if( $user_id ) {
 						$this->session->set_flashdata('log_success','Se registró la cuenta correctamente.');
 						redirect('admin/usuarios');
 					}
-					$data_user['is_submitted'] = 1;
 					$data['errors'] = 'Ocurrió un error al registrar los datos del usuario';
 				}else{
 					$data['errors'] = 'Ya existe un usuario con ese correo.';
@@ -67,20 +66,19 @@ class Usuarios extends CI_Controller {
 			if ($this->form_validation->run() == FALSE) {
 				$data['errors'] = validation_errors();
 			} else {
-	 			$data_user = $this->security->xss_clean($_POST);
-				unset( $data_user['is_submitted'] );
-				if ( isset( $data_user['usr_password'] ) ) {
-					$data_user['usr_password'] = sha1(md5($data_user['usr_password']));
+	 			$data_post = $this->security->xss_clean($_POST);
+				unset( $data_post['is_submitted'] );
+				if ( isset( $data_post['usr_password'] ) ) {
+					$data_post['usr_password'] = sha1(md5($data_post['usr_password']));
 				} else {
-					unset( $data_user['usr_password'] );
+					unset( $data_post['usr_password'] );
 				}
-				$data_user['full_name'] = $data_user['first_name'] . ' ' . $data_user['last_name'];
-				$user_id = $this->model_users->update($data_user, $usr_id );
+				$data_post['full_name'] = $data_post['first_name'] . ' ' . $data_post['last_name'];
+				$user_id = $this->model_users->update($data_post, $usr_id );
 				if( $user_id ) {
 					$this->session->set_flashdata('log_success','Se actualizó la cuenta correctamente.');
 					redirect('admin/usuarios');
 				}
-				$data_user['is_submitted'] = 1;
 				$data['errors'] = 'Ocurrió un error al actualizar los datos del usuario';
 			}
 		}

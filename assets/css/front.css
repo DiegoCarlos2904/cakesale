@@ -15,9 +15,9 @@ a:hover {
 	color: #3e1717;
 }
 
-@media (min-width: 768px) {
+.container {
+	max-width: 1160px;
 }
-
 .bd-navbar {
 	position: -webkit-sticky;
 	position: sticky;

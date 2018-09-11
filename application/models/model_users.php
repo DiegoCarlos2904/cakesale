@@ -16,6 +16,15 @@ class Model_users extends CI_Model {
 			return array();
 		}
 	}
+
+	function exist($userName = "", $id = ""){
+		if(!empty($userName)){
+			$query = $this->db->get_where( 'users', array( 'users.usr_name' => $userName, 'usr_id !=' => $id ));
+			return $query->row_array();
+		}else{
+			return array();
+		}
+	}
 		
 	public function check_usr() {
 		$username = set_value('username');	
@@ -82,11 +91,7 @@ class Model_users extends CI_Model {
 	public function update($data, $id) {
 		if(!empty($data) && !empty($id)){
 			$update = $this->db->update('users', $data, array( 'usr_id' =>$id));
-			if($update){
-				return true;
-			}else{
-				return $this->db->_error_message(); 
-			}
+			return $update ? true : false;
 		}else{
 			return false;
 		}

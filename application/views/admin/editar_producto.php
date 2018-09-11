@@ -22,7 +22,7 @@
 					<?php print_r($errors); ?>
 				</div>
 			<?php endif ?>
-			<?=	form_open_multipart('admin/productos/editar/'.$pro_id,['class'=>'']) ?>
+			<?=	form_open_multipart('',['class'=>'']) ?>
 				<div class="form-group">
 					<label for="pro_title">Título</label> 
 					<input value="<?= $pro_title ?>" id="pro_title" name="pro_title" type="text" class="form-control" required="required">
