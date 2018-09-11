@@ -1,4 +1,4 @@
-		<?php $this->load->view('admin/header')?>
+		<?php $this->load->view('header')?>
 		<?php $total = 0; ?>
 		<div class="row">
 			<div class="col-md-12">
@@ -45,4 +45,4 @@
 				</div>
 			</div>
 		</div>
-		<?php $this->load->view('admin/footer')?>
+		<?php $this->load->view('footer')?>

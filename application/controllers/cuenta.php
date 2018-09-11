@@ -105,6 +105,7 @@ class Cuenta extends CI_Controller {
 
 		}
 		$data['title'] = 'Detalle del pedido';
+		$data['hide_slider'] = true;
 		$this->load->view('pedido_detalle',$data);
 	}
 	public function login() {
