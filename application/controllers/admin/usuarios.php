@@ -28,13 +28,14 @@ class Usuarios extends CI_Controller {
 			$this->form_validation->set_rules('last_name','Apellidos','required');
 			$this->form_validation->set_rules('direccion','Dirección','required');
 			$this->form_validation->set_rules('usr_password','Contraseña','required');
+			$this->form_validation->set_rules('usr_group','Rol','required');
 
 			if ($this->form_validation->run() == FALSE) {
 				$data['errors'] = validation_errors();
 			} else {
 	 			$data_post = $this->security->xss_clean($_POST);
 				unset( $data_post['is_submitted'] );
-				$data_post['stuts'] = '1';
+				$data_post['stuts'] = 'publish';
 				$data_post['usr_password'] = sha1(md5($data_post['usr_password']));
 				$data_post['full_name'] = $data_post['first_name'] . ' ' . $data_post['last_name'];
 
@@ -62,6 +63,7 @@ class Usuarios extends CI_Controller {
 			$this->form_validation->set_rules('first_name','Nombres','required');
 			$this->form_validation->set_rules('last_name','Apellidos','required');
 			$this->form_validation->set_rules('direccion','Dirección','required');
+			$this->form_validation->set_rules('usr_group','Rol','required');
 
 			if ($this->form_validation->run() == FALSE) {
 				$data['errors'] = validation_errors();

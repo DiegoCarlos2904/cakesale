@@ -134,7 +134,7 @@ class Cuenta extends CI_Controller {
 				$data_register_new = array (
 					'usr_name'			=> set_value('rusername'),
 					'usr_password'		=> sha1(md5( set_value('rpassword') ) ),
-					'stuts'				=> '1',
+					'stuts'				=> 'publish',
 					'usr_group'				=>'3'
 				);
 				if($this->model_users->is_usr() == FALSE) {
