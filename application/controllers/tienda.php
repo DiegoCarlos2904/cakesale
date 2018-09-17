@@ -273,7 +273,7 @@ class Tienda extends CI_Controller {
 				'id' => $items['id'],
 				'name' => $items['name'],
 				'qty' =>  $items['qty'],
-				'price' =>  number_format( $items['price'], 2 ),
+				'price' =>   $items['price'], 2 ,
 			);
 			
 		}
@@ -285,10 +285,10 @@ class Tienda extends CI_Controller {
 			'shipping' => 0,
 			'handling' => 0,
 			'tax' => 0,
-			'subtotal' => number_format( $this->cart->total(), 2 ),
+			'subtotal' =>  $this->cart->total(),
 		);
 
-		$cart['shopping_cart']['grand_total'] = number_format($cart['shopping_cart']['subtotal'], 2);
+		$cart['shopping_cart']['grand_total'] = $cart['shopping_cart']['subtotal'];
 
 		$this->load->vars('cart', $cart);
 		$this->session->set_userdata('shopping_cart', $cart);

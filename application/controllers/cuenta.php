@@ -7,32 +7,6 @@ class Cuenta extends CI_Controller {
 		$this->load->model('model_users');
 		$this->load->library('form_validation');
 	}
-	function sendMail() {
-		$config = Array(
-			'protocol' => 'smtp',
-			'smtp_host' => 'ssl://smtp.googlemail.com',
-			'smtp_port' => 465,
-			'smtp_user' => 'nicanor.quisp@gmail.com', // change it to yours
-			'smtp_pass' => 'Consultora1', // change it to yours
-			'mailtype' => 'html',
-			'charset' => 'iso-8859-1',
-			'wordwrap' => TRUE
-		);
-
-		$message = '';
-		$this->load->library('email', $config);
-		$this->email->set_newline("\r\n");
-		$this->email->from('nico@ebp.pe'); // change it to yours
-		$this->email->to('nico@ebp.pe');// change it to yours
-		$this->email->subject('Resume from JobsBuddy for your Job posting');
-		$this->email->message($message);
-		if($this->email->send()) {
-			echo 'Email sent.';
-		}
-		else {
-			show_error($this->email->print_debugger());
-		}
-	}
 	public function index() {
 		if( !$this->isLoggedin() ) { 
 			redirect('login');
@@ -136,7 +110,7 @@ class Cuenta extends CI_Controller {
 				if ($user) {
 					$this->session->set_userdata($user);
 					$this->session->set_flashdata('log_success','Sesión iniciada correctamente');
-					redirect(base_url() . 'admin');
+					redirect(base_url() . 'admin'); //cakesales.pe/admin
 				} else {
 					$data['errors'] = 'Las credenciales ingresadas no son válidas.';
 				}

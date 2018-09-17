@@ -104,6 +104,7 @@
 				<div class="carousel-item active">
 					<img src="http://cakesale.pe/upload/50.png" class="d-block w-100 img-responsive">
 				</div>
+
 			</div>
 			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>

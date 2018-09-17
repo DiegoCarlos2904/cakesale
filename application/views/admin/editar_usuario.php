@@ -35,7 +35,7 @@
 				</div>
 				<div class="form-group">
 					<label for="telephone">Teléfono</label>
-					<input type="text" class="form-control" required="" name="telephone" value="<?= $telephone ?>">
+					<input type="text" class="form-control onlyNumbers" required="" name="telephone" value="<?= $telephone ?>">
 				</div>
 				<div class="form-group">
 					<label for="direccion">Dirección</label>
