@@ -7,12 +7,14 @@
 		$last_name			= set_value('last_name');
 		$usr_password			= set_value('usr_password');
 		$direccion			= set_value('direccion');
+		$usr_group			= set_value('usr_group');
 	} else {
 		$usr_name			= $user->usr_name;
 		$telephone			= $user->telephone;
 		$first_name			= $user->first_name;
 		$last_name			= $user->last_name;
 		$direccion			= $user->direccion;
+		$usr_group			= $user->usr_group;
 		$usr_password		= '';
 	}
 ?>
@@ -32,6 +34,13 @@
 				<div class="form-group">
 					<label for="last_name">Apellidos</label>
 					<input type="text" class="form-control" required="" name="last_name" value="<?= $last_name ?>">
+				</div>
+				<div class="form-group">
+					<label for="usr_group">Rol</label>
+					<select class="form-control" required="" name="usr_group">
+						<option <?= $usr_group == "1" ? "selected" : "" ?> value="1">Admin</option>
+						<option <?= $usr_group == "1" ? "selected" : "" ?> value="2">Simple</option>
+					</select>
 				</div>
 				<div class="form-group">
 					<label for="telephone">Teléfono</label>

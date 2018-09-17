@@ -8,15 +8,18 @@ personalizar pproducto en la compra
 	mensaje en la torta
 	especificaciones adicionales
 
+gestionar pedido
+	agregar al carrito
+	finalizar compra
+	pagar con paypal
+
 ---------------------------
 
 gestionar pedido
-	agregar al carrito
-	pagar con paypal
-	finalizar compra
-
 
 generar factura y boleta
 	campos de nombre direecion y ruc
 	activar deseo factura
 	exportar un pdf con la factura, donde este el logo de la empresa, y resuemn de la compra con su total
+
+
