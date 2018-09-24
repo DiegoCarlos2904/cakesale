@@ -14,10 +14,11 @@
 					<?php print_r($errors); ?>
 				</div>
 			<?php endif ?>
-			<?=	form_open('',['class'=>'']) ?>
+			<?=	form_open('',['data-toggle'=>"validator", 'class'=>'']) ?>
 				<div class="form-group">
 					<label for="name">Nombre</label> 
-					<input value="<?= $name ?>" id="name" name="name" type="text" class="form-control" required="required">
+					<input value="<?= $name ?>" id="name" data-required-error="CAMBIAR TEXTO" name="name" type="text" class="form-control" required="required">
+					<div class="help-block with-errors"></div>
 				</div>
 				<div class="form-group">
 					<input type="hidden" name="is_submitted" value="1">
