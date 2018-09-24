@@ -1,5 +1,5 @@
 		<?php $this->load->view('header')?>
-		<div class="form-signin">
+		<div class="form-signin" >
 			<h1 class="h3 mb-3 font-weight-normal">Iniciar sesión</h1>
 			<?php if( isset($errors) ): ?>
 				<div class="alert alert-danger text-left">
@@ -10,6 +10,7 @@
 				<div class="form-group">
 					<label for="username">Correo</label> 
 					<input id="username" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="username" required="" type="email" class="form-control">
+					<div class="help-block with-errors"></div>
 				</div>
 				<div class="form-group">
 					<label for="password">Contraseña</label> 
@@ -18,7 +19,7 @@
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary">Ingresar</button>
 					<a class="btn" href="<?= base_url() ?>">Cancelar</a>
-					<a class="btn btn-default" href="<?= base_url('register') ?>">Registrarse</a>
+					<a class="btn btn-default" href="<?= base_url('cuenta/register') ?>">Registrarse</a>
 				</div>
 			<?= form_close() ?>
 		</div>

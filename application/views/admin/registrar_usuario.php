@@ -38,12 +38,12 @@
 					<label for="usr_group">Rol</label>
 					<select class="form-control" required="" name="usr_group">
 						<option <?= $usr_group == "1" ? "selected" : "" ?> value="1">Admin</option>
-						<option <?= $usr_group == "1" ? "selected" : "" ?> value="2">Simple</option>
+						<option <?= $usr_group == "1" ? "selected" : "" ?> value="3">Simple</option>
 					</select>
 				</div>
 				<div class="form-group">
 					<label for="telephone">Teléfono</label>
-					<input type="text" class="form-control" required="" name="telephone" value="<?= $telephone ?>">
+					<input type="text" class=" onlyNumbers form-control" required="" name="telephone" value="<?= $telephone ?>">
 				</div>
 				<div class="form-group">
 					<label for="direccion">Dirección</label>

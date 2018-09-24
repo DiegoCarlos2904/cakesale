@@ -42,7 +42,7 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="telephone">Teléfono</label>
-							<input type="text" class="form-control" required="" name="telephone" value="<?= $telephone ?>">
+							<input type="text" class="onlyNumbers form-control" required="" name="telephone" value="<?= $telephone ?>">
 						</div>
 					</div>
 					<div class="col-md-6">

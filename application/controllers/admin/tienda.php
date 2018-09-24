@@ -5,7 +5,7 @@ class Tienda extends CI_Controller {
 	public function __construct () {
 		parent::__construct();
 		if( !in_array( $this->session->userdata('usr_group'), array( '1', '2' )  ) ) {
-			$this->session->set_flashdata('log_error','No tiene los accesos necesarios');
+		//	$this->session->set_flashdata('log_error','No tiene los accesos necesarios'); 
 			redirect('');
 		}
 	}

@@ -1,7 +1,7 @@
 		<?php $this->load->view('admin/header')?>
 		<div class="row">
 			<div class="col-md-12">
-				<h4><a class="btn btn-primary" href="<?= base_url('admin/categorias/registrar') ?>">Agregar</a></h4>
+				<h4><a class="btn btn-primary" href="<?= base_url('admin/categorias/registrar') ?>">Agregar</a></h4> 
 				<div class="table-responsive">
 					<table class="table table-striped table-hover" id="tableList">
 						<thead>
