@@ -32,10 +32,10 @@
 						<a class="nav-link <?= $this->uri->segment(2) == 'infantiles' ? 'active' : '' ?>" href="<?= base_url("/categoria/infantiles") ?>">Infatiles</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link <?= $this->uri->segment(2) == 'babyshower' ? 'active' : '' ?>" href="<?= base_url("/categoria/babyshower") ?>">Baby shower</a>
+						<a class="nav-link <?= $this->uri->segment(2) == 'baby-shower' ? 'active' : '' ?>" href="<?= base_url("/categoria/baby-shower") ?>">Baby shower</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link <?= $this->uri->segment(2) == 'primeracomunion' ? 'active' : '' ?>" href="<?= base_url("/categoria/primeracomunion") ?>">Primera comunion</a>
+						<a class="nav-link <?= $this->uri->segment(2) == 'primeracomunion' ? 'active' : '' ?>" href="<?= base_url("/categoria/primera-comunion") ?>">Primera comunion</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link <?= $this->uri->segment(2) == 'matrimonio' ? 'active' : '' ?>" href="<?= base_url("categoria/matrimonio") ?>">Matrimonio</a>

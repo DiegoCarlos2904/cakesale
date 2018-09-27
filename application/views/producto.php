@@ -20,12 +20,12 @@
 								<?=	form_open('tienda/add_to_cart/'.$product->pro_slug.'/add',['data-toggle'=>"validator", 'class'=>'']) ?>
 									<div class="form-group">
 										<label for="porciones">Cantidad de porciones</label>
-										<input value="" min="20" max="100" id="porciones" name="porciones" type="number" class="form-control" data-required-error="CAMBIAR TEXTO" required="required">
+										<input value="" min="20" max="100" id="porciones" name="porciones" type="number" class="form-control" data-required-error=" Ingrese Cantidad" required="required">
 										<div class="help-block with-errors"></div>
 									</div>
 									<div class="form-group">
 										<label for="mensaje">Mensaje en la torta</label>
-										<textarea id="mensaje" name="mensaje" id="" cols="30" class="form-control" rows="3" data-required-error="CAMBIAR TEXTO" required="required"></textarea>
+										<textarea id="mensaje" name="mensaje" id="" cols="30" class="form-control" rows="3" data-required-error="Ingrese un mensaje" required="required"></textarea>
 										<div class="help-block with-errors"></div>
 									</div>
 									<div class="form-group">

@@ -28,17 +28,17 @@
 			<?= form_open('',['data-toggle'=>"validator"] ) ?>
 				<div class="form-group">
 					<label for="first_name">Nombres</label>
-					<input type="text" class="form-control" data-required-error="CAMBIAR TEXTO" required="" name="first_name" value="<?= $first_name ?>">
+					<input type="text" class="form-control" data-required-error="Ingrese Nombres" required="" name="first_name" value="<?= $first_name ?>">
 					<div class="help-block with-errors"></div>
 				</div>
 				<div class="form-group">
 					<label for="last_name">Apellidos</label>
-					<input type="text" class="form-control" data-required-error="CAMBIAR TEXTO" required="" name="last_name" value="<?= $last_name ?>">
+					<input type="text" class="form-control" data-required-error="Ingrese Apellidos" required="" name="last_name" value="<?= $last_name ?>">
 					<div class="help-block with-errors"></div>
 				</div>
 				<div class="form-group">
 					<label for="usr_group">Rol</label>
-					<select class="form-control" data-required-error="CAMBIAR TEXTO" required="" name="usr_group">
+					<select class="form-control" data-required-error=" " required="" name="usr_group">
 						<option <?= $usr_group == "1" ? "selected" : "" ?> value="1">Admin</option>
 						<option <?= $usr_group == "1" ? "selected" : "" ?> value="3">Simple</option>
 					</select>
@@ -46,22 +46,22 @@
 				</div>
 				<div class="form-group">
 					<label for="telephone">Teléfono</label>
-					<input type="text" data-minlength-error="CAMBIAR TEXTO" data-minlength="7" class=" onlyNumbers form-control" data-required-error="CAMBIAR TEXTO" required="" name="telephone" value="<?= $telephone ?>">
+					<input type="text" data-minlength-error="Ingrese Teléfono" data-minlength="7" class=" onlyNumbers form-control" data-required-error="CAMBIAR TEXTO" required="" name="telephone" maxlength="9" value="<?= $telephone ?>">
 					<div class="help-block with-errors"></div>
 				</div>
 				<div class="form-group">
 					<label for="direccion">Dirección</label>
-					<input type="text" class="form-control" data-required-error="CAMBIAR TEXTO" required="" name="direccion" value="<?= $direccion ?>">
+					<input type="text" class="form-control" data-required-error="Ingrese una direccion" required="" name="direccion" value="<?= $direccion ?>">
 					<div class="help-block with-errors"></div>
 				</div>
 				<div class="form-group">
 					<label for="usr_name">Correo</label>
-					<input type="email" data-pattern-error="CAMBIAR TEXTO" data-required-error="CAMBIAR TEXTO" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  class="form-control" data-required-error="CAMBIAR TEXTO" required="" name="usr_name" value="<?= $usr_name ?>">
+					<input type="email" data-pattern-error="Falta completar el campo" data-required-error="Ingrese correo electronico" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  class="form-control" data-required-error="Correo incorrecto" required="" name="usr_name" value="<?= $usr_name ?>">
 					<div class="help-block with-errors"></div>
 				</div>
 				<div class="form-group">
 					<label for="usr_password">Contraseña</label>
-					<input type="password" class="form-control" data-minlength-error="CAMBIAR TEXTO" data-minlength="7" data-required-error="CAMBIAR TEXTO" required="" name="usr_password" value="<?= $usr_password ?>" >
+					<input type="password" class="form-control" data-minlength-error="Ingrese Contraseña" data-minlength="7" data-required-error=" " required="" name="usr_password"  value="<?= $usr_password ?>" >
 					<div class="help-block with-errors"></div>
 				</div>
 				<div class="form-group">

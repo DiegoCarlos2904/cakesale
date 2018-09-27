@@ -24,12 +24,12 @@
 			<?=	form_open_multipart('',['data-toggle'=>"validator", 'class'=>'']) ?>
 				<div class="form-group">
 					<label for="pro_title">Título</label> 
-					<input value="<?= $pro_title ?>" id="pro_title" name="pro_title" type="text" class="form-control" data-required-error="CAMBIAR TEXTO" required="required">
+					<input value="<?= $pro_title ?>" id="pro_title" name="pro_title" type="text" class="form-control" data-required-error="Ingrese titulo" required="required">
 					<div class="help-block with-errors"></div>
 				</div>
 				<div class="form-group">
 					<label for="pro_description">Descripción</label> 
-					<textarea id="pro_description" name="pro_description" cols="40" rows="5" class="form-control" data-required-error="CAMBIAR TEXTO" required="required"><?= $pro_description ?></textarea>
+					<textarea id="pro_description" name="pro_description" cols="40" rows="5" class="form-control" data-required-error="Ingrese una descripcion" required="required"><?= $pro_description ?></textarea>
 					<div class="help-block with-errors"></div>
 				</div>
 				<div class="form-group">
@@ -52,7 +52,7 @@
 							<label for="pro_price">Precio</label> 
 							<div class="input-group">
 								<div class="input-group-addon">$</div> 
-								<input value="<?= $pro_price ?>" id="pro_price" name="pro_price" type="text" class="onlyDecimal form-control" data-required-error="CAMBIAR TEXTO" required="required">
+								<input value="<?= $pro_price ?>" id="pro_price" name="pro_price" type="text" class="onlyDecimal form-control" data-required-error="Ingrese precio" required="required">
 								<div class="help-block with-errors"></div>
 							</div> 
 						</div>
@@ -60,7 +60,7 @@
 					<div class="col-xl-6">
 						<div class="form-group">
 							<label for="pro_stock">Stock</label>
-							<input value="<?= $pro_stock ?>" id="pro_stock" name="pro_stock" type="number" data-required-error="CAMBIAR TEXTO" required="required" class="form-control">
+							<input value="<?= $pro_stock ?>" id="pro_stock" name="pro_stock" type="number" data-required-error="Ingrese Stock" required="required" class="form-control">
 							<div class="help-block with-errors"></div>
 						</div> 
 						

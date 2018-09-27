@@ -17,7 +17,7 @@
 			<?=	form_open('',['data-toggle'=>"validator", 'class'=>'']) ?>
 				<div class="form-group">
 					<label for="name">Nombre</label> 
-					<input value="<?= $name ?>" id="name" data-required-error="CAMBIAR TEXTO" name="name" type="text" class="form-control" required="required">
+					<input value="<?= $name ?>" id="name" data-required-error="Ingrese categorias" name="name" type="text" class="form-control" required="required">
 					<div class="help-block with-errors"></div>
 				</div>
 				<div class="form-group">
