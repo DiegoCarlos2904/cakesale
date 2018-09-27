@@ -17,6 +17,14 @@ class Model_users extends CI_Model {
 		}
 	}
 
+	function existbyHash($userName = ""){
+		if(!empty($userName)){
+			$query = $this->db->get_where( 'users', array( 'users.hash' => $userName ));
+			return $query->row_array();
+		}else{
+			return array();
+		}
+	}
 	function exist($userName = "", $id = ""){
 		if(!empty($userName)){
 			$query = $this->db->get_where( 'users', array( 'users.usr_name' => $userName, 'usr_id !=' => $id ));

@@ -52,6 +52,108 @@ class Cuenta extends CI_Controller {
 		$data['hide_slider'] = true;
 		$this->load->view('cuenta',$data);
 	}
+
+
+
+	private function sendMail( $asunto, $contenido, $para ) {
+		$config = Array(
+			'protocol' 		=> 'smtp',
+			'smtp_host' 	=> 'ssl://smtp.googlemail.com',
+			'smtp_port' 	=> 465, //465 o 587
+			'smtp_user' 	=> 'cakesalepe@gmail.com', //para que no llega spam
+			'smtp_pass' 	=> 'cakesale12345',
+			'mailtype' 		=> 'html',
+			'charset' 		=> 'UTF-8',
+			'wordwrap' 		=> TRUE
+		);
+		$this->load->library('email', $config);
+		$this->email->set_newline("\r\n");
+		$this->email->from( 'Cake Sale <cakesalepe@gmail.com>' );
+		$this->email->to( $para );
+		$this->email->subject( mb_convert_encoding( $asunto, "UTF-8" ) );
+		$this->email->message( mb_convert_encoding( $contenido, "UTF-8" ) );
+		return $this->email->send();
+	}
+	
+
+	public function cambiar_contrasena( $hash ) {
+		if( $this->isLoggedin() ) {
+			redirect( base_url() );
+		}
+		$data['hide_slider'] = true;
+		$data['title'] = '';
+		if ( $usuario = $this->model_users->existbyHash( $hash ) ) {
+			if ( isset( $_POST ) && count( $_POST ) ) {
+
+				$this->form_validation->set_rules('rpassword','Contraseña','required|alpha_numeric|matches[repassword]');
+				$this->form_validation->set_rules('repassword','Repetir contraseña','required|alpha_numeric');
+				if ($this->form_validation->run() == false) {
+					$data['errors'] = validation_errors();
+				} else {
+					$data_post = $this->security->xss_clean($_POST);
+					$data_post['usr_password'] = sha1(md5($data_post['rpassword']));
+					//$data_post['hash'] = sha1( time() );
+					unset( $data_post['rpassword'] );
+					unset( $data_post['repassword'] );
+
+					if( $this->model_users->update($data_post, $usuario['usr_id'] ) ) {
+						$user = $this->model_users->get_users( $usuario['usr_id']);
+						$this->session->set_userdata( (array) $user );
+						$this->session->set_flashdata('log_success','Se actualizó la contraeña correctamente.');
+						redirect( base_url() );
+					} else {
+						$data['errors'] = 'Ocurrió un error al actualizar la contraeña.';
+					}
+				}
+			}
+			$this->load->view('cambiar_contrasena',$data);
+		}
+		else {
+			$this->session->set_flashdata('log_error','No existe el usuario al que quiere restablecer la contraseña.');
+			redirect( base_url() );
+		}
+	}
+
+	public function restablecer() {
+		if( $this->isLoggedin() ) {
+			redirect( base_url() );
+		}
+		$data['title'] = '';
+
+		if ( isset( $_POST ) && count( $_POST ) ) {
+			$this->form_validation->set_rules('username','Correo','required');
+			if ($this->form_validation->run() == false) {
+				$data['errors'] = validation_errors();
+			} else {
+				$data_register_new = array (
+					'usr_name'			=> set_value('rusername'),
+				);
+				if ( $user = $this->model_users->exist( set_value('username') ) ) {
+					if ( $user['hash'] ) {
+						$contenido = '<p style="font-size: 20px;">
+                            <font color="#8b4513"><b><i>Restablecer&nbsp;contraseña</i></b></font>
+                        </p>
+                        <p style="font-size: 18px;"><span style="font-size:16px;">Hola '. $user['full_name'] .', Por favor, para continuar con el restablecimiento de contraseña ingrese al siguiente enlace: http://cakesale.pe/cuenta/cambiar_contrasena/'. $user['hash'] . '</span></p>
+						</p>';
+						ob_start();
+						$this->load->view('plantilla_correo', array( 'contenido' => $contenido ) );
+						$html = ob_get_contents();
+						ob_end_clean();
+						$restablecer = $this->sendMail( "Restablecer contraseña de HAPPYELDER", $html, $user['usr_name'] );
+						$this->session->set_flashdata('log_success','Se le envió un correo con un enlace para restablecer su contraseña.');
+						redirect( base_url() );
+					} else {
+						$data['errors'] = 'No existe la cuenta.';
+					}
+				}else{
+					$data['errors'] = 'No existe un usuario con ese correo.';
+				}
+			}
+		}
+		$data['hide_slider'] = true;
+		$this->load->view('restablecer',$data);
+	}
+
 	public function pedidos() {
 		if( !$this->isLoggedin() ) { 
 			redirect('login');

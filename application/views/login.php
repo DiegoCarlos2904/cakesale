@@ -22,6 +22,9 @@
 					<a class="btn" href="<?= base_url() ?>">Cancelar</a>
 					<a class="btn btn-default" href="<?= base_url('cuenta/register') ?>">Registrarse</a>
 				</div>
+				<div class="form-group">
+					<a class="btn btn-default" href="<?= base_url('cuenta/restablecer') ?>">¿Olvidaste tu contraseña?</a>
+				</div>
 			<?= form_close() ?>
 		</div>
 		<?php $this->load->view('footer')?>
