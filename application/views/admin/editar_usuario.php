@@ -47,7 +47,7 @@
 				</div>
 				<div class="form-group">
 					<label for="telephone">Teléfono</label>
-					<input type="text" data-minlength="7" data-minlength-error="CAMBIAR TEXTO" class="form-control onlyNumbers" data-required-error="Ingrese telefono" required="" name="telephone" value="<?= $telephone ?>">
+					<input type="text" data-minlength="7" data-minlength-error="El numero  de telefono debe contener minimo 7 numeros  " class="form-control onlyNumbers" data-required-error="Ingrese telefono" required="" name="telephone" maxlength="9" value="<?= $telephone ?>">
 					<div class="help-block with-errors"></div>
 				</div>
 				<div class="form-group">
@@ -62,7 +62,7 @@
 				</div>
 				<div class="form-group">
 					<label for="usr_password">Contraseña</label>
-					<input type="password" class="form-control" data-minlength="7" data-minlength-error="CAMBIAR TEXTO" name="usr_password" value="<?= $usr_password ?>" >
+					<input type="password" class="form-control" data-minlength="7" data-minlength-error="Debe contener minimo 7 digitos" name="usr_password" value="<?= $usr_password ?>" >
 					<div class="help-block with-errors"></div>
 				</div>
 				<div class="form-group">

@@ -65,9 +65,9 @@ class Model_products extends CI_Model {
 	}
 	public function exists( $slug ) {
 		$gry = $this->db->where('pro_slug',$slug)
-		->limit(1)
+		->limit(1)// retoma al primer  produucto
 		->get('products');
-		if($gry->num_rows()	> 0) {
+		if($gry->num_rows()	> 0) {// numero de filas, a retornado una fila 
 			return TRUE;	
 		}else{
 			return FALSE;

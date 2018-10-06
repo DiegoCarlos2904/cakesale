@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Categorias extends CI_Controller {
-	public function __construct () {
+	public function __construct () { //que es lo que carga el function_construct
 		parent::__construct();
 		if( !in_array( $this->session->userdata('usr_group'), array( '1', '2' )  ) ) {
 			$this->session->set_flashdata('log_error','No tiene los accesos necesarios');
@@ -64,7 +64,7 @@ class Categorias extends CI_Controller {
 				if( $user_id ) {
 					$this->session->set_flashdata('log_success','Se actualizó la categoría correctamente.');
 					redirect('admin/categorias');
-				}
+				} 
 				$data['errors'] = 'Ocurrió un error al actualizar la categoría';
 			}
 		}

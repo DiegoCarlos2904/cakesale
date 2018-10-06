@@ -14,7 +14,7 @@
 				</div>
 				<div class="form-group">
 					<label for="password">Contraseña</label> 
-					<input id="password" data-minlength="4" data-minlength-error="" data-required-error="Introduce tu Contraseña" name="password" required="" type="password" class="form-control">
+					<input id="password" data-minlength="4" data-minlength-error="Las credenciales deben contener minimo 4 digitos" data-required-error="Introduce tu Contraseña" name="password" required="" type="password" class="form-control">
 					<div class="help-block with-errors"></div>
 				</div> 
 				<div class="form-group">

@@ -92,7 +92,7 @@ class Cuenta extends CI_Controller {
 				} else {
 					$data_post = $this->security->xss_clean($_POST);
 					$data_post['usr_password'] = sha1(md5($data_post['rpassword']));
-					//$data_post['hash'] = sha1( time() );
+					$data_post['hash'] = sha1( time() );
 					unset( $data_post['rpassword'] );
 					unset( $data_post['repassword'] );
 
@@ -139,7 +139,7 @@ class Cuenta extends CI_Controller {
 						$this->load->view('plantilla_correo', array( 'contenido' => $contenido ) );
 						$html = ob_get_contents();
 						ob_end_clean();
-						$restablecer = $this->sendMail( "Restablecer contraseña de HAPPYELDER", $html, $user['usr_name'] );
+						$restablecer = $this->sendMail( "Restablecer contraseña de CAKESALE", $html, $user['usr_name'] );
 						$this->session->set_flashdata('log_success','Se le envió un correo con un enlace para restablecer su contraseña.');
 						redirect( base_url() );
 					} else {

@@ -36,7 +36,7 @@ class Tienda extends CI_Controller {
 	public function index() {
 		$data['title'] = 'Tienda';
 		$data['products'] = $this->model_products->all_products();
-		$this->load->view('home',$data);
+		$this->load->view('home',$data); 
 	}
 	public function carrito( ) {
 		$data['title'] = 'Carrito';

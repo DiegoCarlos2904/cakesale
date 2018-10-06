@@ -9,18 +9,18 @@
 			<?= form_open('', ['data-toggle'=>"validator"]) ?>
 				<div class="form-group">
 					<label for="username">Correo</label>
-					<input type="email" data-pattern-error="Ingrese correo" data-required-error="CAMBIAR TEXTO" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" required="" name="rusername" value="<?= set_value('rusername') ?>">
+					<input type="email" data-pattern-error="" data-required-error="Ingrese correo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" required="" name="rusername" value="<?= set_value('rusername') ?>">
 					<div class="help-block with-errors"></div>
 
 			</div>
 				<div class="form-group">
 					<label for="password">Contraseña</label>
-					<input type="password" data-minlength="7" data-minlength-error="CAMBIAR TEXTO" class="form-control" data-required-error="CAMBIAR TEXTO" required="" id="rpassword" name="rpassword" value="<?= set_value('rpassword') ?>" >
+					<input type="password" data-minlength="7" data-minlength-error=" " class="form-control" data-required-error="Ingrese una contraseña" required="" id="rpassword" name="rpassword" value="<?= set_value('rpassword') ?>" >
 					<div class="help-block with-errors"></div>
 				</div>
 				<div class="form-group">
 					<label for="password">Repetir contraseña</label>
-					<input type="password" data-match="#rpassword" data-match-error="CAMBIAR TEXTO" data-minlength="7" data-minlength-error="CAMBIAR TEXTO" class="form-control" data-required-error="CAMBIAR TEXTO" required="" name="repassword" value="<?= set_value('repassword') ?>" >
+					<input type="password" data-match="#rpassword" data-match-error="No coinciden" data-minlength="7" data-minlength-error=" Deben tener minimo 7 digitos" class="form-control" data-required-error="Ingrese este campo" required="" name="repassword" value="<?= set_value('repassword') ?>" >
 					<div class="help-block with-errors"></div>
 				</div>
 				<div class="form-group">

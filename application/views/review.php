@@ -1,4 +1,4 @@
-		<?php $this->load->view('header')?>
+K		<?php $this->load->view('header')?>
 		<h2 align="center">Finalizar compra - Resumen</h2>
 		<table class="table table-bordered">
 			<thead>
