@@ -6,7 +6,6 @@ class Tienda extends CI_Controller {
 	public function __construct () {
 		parent::__construct();
 
-
 		$this->load->helper('url');
 		$this->load->library('session');
 		$this->config->load('paypal');
@@ -44,6 +43,7 @@ class Tienda extends CI_Controller {
 		$this->load->view('carrito',$data);
 	}
 	public function ver($pro_slug) {
+		$data['hide_slider'] = true;
 		$data['product'] = $this->model_products->showme($pro_slug);
 		$data['title'] = 'Tienda';
 		$this->load->view('producto',$data);
@@ -124,90 +124,103 @@ class Tienda extends CI_Controller {
 
 			$this->cart->destroy();
 
+			$cart_data = $this->session->userdata('shopping_cart');
 			
-			$this->load->view('review', $cart);
-		}
-	}
+			$SetExpressCheckoutPayPalResult = $this->session->userdata('PayPalResult');
+			$PayPal_Token = $SetExpressCheckoutPayPalResult['TOKEN'];
 
-	function DoExpressCheckoutPayment() {
-		
-		$cart = $this->session->userdata('shopping_cart');
+			$DECPFields = array(
+				'token' => $PayPal_Token,
+				'payerid' => $cart_data['paypal_payer_id'],
+			);
 
-		
-		$SetExpressCheckoutPayPalResult = $this->session->userdata('PayPalResult');
-		$PayPal_Token = $SetExpressCheckoutPayPalResult['TOKEN'];
+			$Payments = array();
+			$Payment = array(
+				'amt' => number_format($cart_data['shopping_cart']['grand_total'],2), 
+				'itemamt' => number_format($cart_data['shopping_cart']['subtotal'],2),       
+				'currencycode' => 'USD',
+				'shippingamt' => number_format($cart_data['shopping_cart']['shipping'],2),
+				'handlingamt' => number_format($cart_data['shopping_cart']['handling'],2),
+				'taxamt' => number_format($cart_data['shopping_cart']['tax'],2), 	
+				'shiptoname' => $cart_data['shipping_name'], 					      
+				'shiptostreet' => $cart_data['shipping_street'], 	
+				'shiptocity' => $cart_data['shipping_city'], 				
+				'shiptostate' => $cart_data['shipping_state'], 				
+				'shiptozip' => $cart_data['shipping_zip'], 				
+				'shiptocountrycode' => $cart_data['shipping_country_code'], 	
+				'shiptophonenum' => $cart_data['phone_number'],  				            
+				'paymentaction' => 'Sale',
+			);
 
-		$DECPFields = array(
-			'token' => $PayPal_Token,
-			'payerid' => $cart['paypal_payer_id'],
-		);
+			array_push($Payments, $Payment);
 
-		$Payments = array();
-		$Payment = array(
-			'amt' => number_format($cart['shopping_cart']['grand_total'],2), 
-			'itemamt' => number_format($cart['shopping_cart']['subtotal'],2),       
-			'currencycode' => 'USD',
-			'shippingamt' => number_format($cart['shopping_cart']['shipping'],2),
-			'handlingamt' => number_format($cart['shopping_cart']['handling'],2),
-			'taxamt' => number_format($cart['shopping_cart']['tax'],2), 	
-			'shiptoname' => $cart['shipping_name'], 					      
-			'shiptostreet' => $cart['shipping_street'], 	
-			'shiptocity' => $cart['shipping_city'], 				
-			'shiptostate' => $cart['shipping_state'], 				
-			'shiptozip' => $cart['shipping_zip'], 				
-			'shiptocountrycode' => $cart['shipping_country_code'], 	
-			'shiptophonenum' => $cart['phone_number'],  				            
-			'paymentaction' => 'Sale',
-		);
+			$PayPalRequestData = array(
+				'DECPFields' => $DECPFields,
+				'Payments' => $Payments,
+			);
 
-		array_push($Payments, $Payment);
-
-		$PayPalRequestData = array(
-			'DECPFields' => $DECPFields,
-			'Payments' => $Payments,
-		);
-
-		$PayPalResult = $this->paypal_pro->DoExpressCheckoutPayment($PayPalRequestData);
-
-		
-		if(!$this->paypal_pro->APICallSuccessful($PayPalResult['ACK']))
-		{
-			$errors = array('Errors'=>$PayPalResult['ERRORS']);
+			$PayPalResult = $this->paypal_pro->DoExpressCheckoutPayment($PayPalRequestData);
 
 			
-			$this->load->vars('errors', $errors);
-			$this->load->vars('hide_slider', true );
-
-			$this->load->view('paypal_error');
-		}
-		else {
-			
-			foreach($PayPalResult['PAYMENTS'] as $payment)
-			{
-				$cart['paypal_transaction_id'] = isset($payment['TRANSACTIONID']) ? $payment['TRANSACTIONID'] : '';
-				$cart['paypal_fee'] = isset($payment['FEEAMT']) ? $payment['FEEAMT'] : '';
+			if(!$this->paypal_pro->APICallSuccessful($PayPalResult['ACK'])) {
+				$errors = array('Errors'=>$PayPalResult['ERRORS']);
+				$this->load->vars('errors', $errors);
+				$this->load->vars('hide_slider', true );
+				$this->load->view('paypal_error');
 			}
-
-			
-			$this->session->set_userdata('shopping_cart', $cart);
-
-			
-			redirect('tienda/OrderComplete');
+			else {
+				ob_start();
+				$this->load->view('review_mail', $cart );
+				$contenido = ob_get_contents();
+				ob_end_clean();
+				
+				ob_start();
+				$this->load->view('plantilla_correo', array( 'contenido' => $contenido ) );
+				$html = ob_get_contents();
+				ob_end_clean();
+				$name_pdf = 'invoice_'.$is_processed;
+				$this->pdf_generate( $html, $name_pdf );
+				$send_mail = $this->sendMail( "Compra realizada en CAKESALE", $html, $this->session->userdata['usr_name'], FCPATH.'/upload/'.$name_pdf.'.pdf' );
+				foreach($PayPalResult['PAYMENTS'] as $payment) {
+					$cart_data['paypal_transaction_id'] = isset($payment['TRANSACTIONID']) ? $payment['TRANSACTIONID'] : '';
+					$cart_data['paypal_fee'] = isset($payment['FEEAMT']) ? $payment['FEEAMT'] : '';
+				}
+				$this->session->set_userdata('shopping_cart', $cart_data);
+				$this->load->view('review', $cart);
+			}
 		}
 	}
 
-	function OrderComplete() {
-		
-		$cart = $this->session->userdata('shopping_cart');
 
-		if(empty($cart)) redirect('');
+	private function pdf_generate( $html, $name_view ) {
+		$this->load->helper( array( 'dompdf', 'file' ) );
+		//pdf_create($html, 'filename');
+		$pdf_string = pdf_create($html, '', false);
+		file_put_contents( './upload/'.$name_view.'.pdf', $pdf_string ); 
+		//write_file('name', $data);
+	}
 
-		
-		$this->load->vars('hide_slider', true );
-		$this->load->vars('cart', $cart);
-
-		
-		$this->load->view('payment_complete');
+	private function sendMail( $asunto, $contenido, $para, $attach = '' ) {
+		$config = Array(
+			'protocol' 		=> 'smtp',
+			'smtp_host' 	=> 'ssl://smtp.googlemail.com',
+			'smtp_port' 	=> 465, //465 o 587
+			'smtp_user' 	=> 'cakesalepe@gmail.com', //para que no llega spam
+			'smtp_pass' 	=> 'cakesale12345',
+			'mailtype' 		=> 'html',
+			'charset' 		=> 'UTF-8',
+			'wordwrap' 		=> TRUE
+		);
+		$this->load->library('email', $config);
+		$this->email->set_newline("\r\n");
+		$this->email->from( 'Cake Sale <cakesalepe@gmail.com>' );
+		$this->email->to( $para );
+		if ( $attach ) {
+			$this->email->attach( $attach );
+		}
+		$this->email->subject( mb_convert_encoding( $asunto, "UTF-8" ) );
+		$this->email->message( mb_convert_encoding( $contenido, "UTF-8" ) );
+		return $this->email->send();
 	}
 
 	public function pedido_cancelado() {
@@ -263,7 +276,10 @@ class Tienda extends CI_Controller {
 		}
 	}
 	public function finalizar_compra() {
-
+		if( !$this->isLoggedin() ) { 
+			redirect('login');
+			exit();
+		}
 		$this->session->unset_userdata('PayPalResult');
 		$this->session->unset_userdata('shopping_cart');
 
@@ -294,5 +310,13 @@ class Tienda extends CI_Controller {
 		$this->session->set_userdata('shopping_cart', $cart);
 
 		$this->load->view('finalizar_compra', $cart);
+	}
+	public function isLoggedin() {
+		if(!empty($this->session->userdata['usr_id'])) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 }

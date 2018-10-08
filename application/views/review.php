@@ -1,4 +1,4 @@
-K		<?php $this->load->view('header')?>
+		<?php $this->load->view('header')?>
 		<h2 align="center">Finalizar compra - Resumen</h2>
 		<table class="table table-bordered">
 			<thead>
@@ -45,11 +45,6 @@ K		<?php $this->load->view('header')?>
 					<tr>
 						<td><strong> Total</strong></td>
 						<td> $<?php echo number_format($cart['shopping_cart']['subtotal'],2); ?></td>
-					</tr>
-					<tr>
-						<td class="center" colspan="2">
-							<a class="btn btn-primary btn-block" href="<?php echo site_url('tienda/DoExpressCheckoutPayment'); ?>">Completar Orden</a>
-						</td>
 					</tr>
 					</tbody>
 				</table>

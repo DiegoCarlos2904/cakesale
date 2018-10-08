@@ -7,6 +7,7 @@ class Cuenta extends CI_Controller {
 		$this->load->model('model_users');
 		$this->load->library('form_validation');
 	}
+	
 	public function index() {
 		if( !$this->isLoggedin() ) { 
 			redirect('login');
@@ -25,8 +26,8 @@ class Cuenta extends CI_Controller {
 			if ($this->form_validation->run() == FALSE) {
 				$data['errors'] = validation_errors();
 			} else {
-	 			$data_post = $this->security->xss_clean($_POST);
-	 			if ( !$this->model_users->exist( $data_post['usr_name'], $usr_id ) ) {
+				$data_post = $this->security->xss_clean($_POST);
+				if ( !$this->model_users->exist( $data_post['usr_name'], $usr_id ) ) {
 					unset( $data_post['is_submitted'] );
 					if ( isset( $data_post['usr_password'] ) ) {
 						$data_post['usr_password'] = sha1(md5($data_post['usr_password']));
@@ -41,9 +42,9 @@ class Cuenta extends CI_Controller {
 					} else {
 						$data['errors'] = 'Ocurrió un error al actualizar los datos del usuario.';
 					}
-	 			} else {
+				} else {
 					$data['errors'] = 'Ya existe una cuenta con el correo.';
-	 			}
+				}
 			}
 		}
 
@@ -52,8 +53,6 @@ class Cuenta extends CI_Controller {
 		$data['hide_slider'] = true;
 		$this->load->view('cuenta',$data);
 	}
-
-
 
 	private function sendMail( $asunto, $contenido, $para ) {
 		$config = Array(
@@ -74,7 +73,6 @@ class Cuenta extends CI_Controller {
 		$this->email->message( mb_convert_encoding( $contenido, "UTF-8" ) );
 		return $this->email->send();
 	}
-	
 
 	public function cambiar_contrasena( $hash ) {
 		if( $this->isLoggedin() ) {
@@ -131,9 +129,9 @@ class Cuenta extends CI_Controller {
 				if ( $user = $this->model_users->exist( set_value('username') ) ) {
 					if ( $user['hash'] ) {
 						$contenido = '<p style="font-size: 20px;">
-                            <font color="#8b4513"><b><i>Restablecer&nbsp;contraseña</i></b></font>
-                        </p>
-                        <p style="font-size: 18px;"><span style="font-size:16px;">Hola '. $user['full_name'] .', Por favor, para continuar con el restablecimiento de contraseña ingrese al siguiente enlace: http://cakesale.pe/cuenta/cambiar_contrasena/'. $user['hash'] . '</span></p>
+							<font color="#8b4513"><b><i>Restablecer&nbsp;contraseña</i></b></font>
+						</p>
+						<p style="font-size: 18px;"><span style="font-size:16px;">Hola '. $user['full_name'] .', Por favor, para continuar con el restablecimiento de contraseña ingrese al siguiente enlace: http://cakesale.pe/cuenta/cambiar_contrasena/'. $user['hash'] . '</span></p>
 						</p>';
 						ob_start();
 						$this->load->view('plantilla_correo', array( 'contenido' => $contenido ) );

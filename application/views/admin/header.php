@@ -8,6 +8,7 @@
 	<meta name="author" content="">
 	<title>Cake sale</title>
 	<link href="<?php echo base_url('/assets/css/bootstrap.min.css');?>" rel="stylesheet">
+	<link href="<?php echo base_url('assets/css/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
 	<link href="<?php echo base_url('/assets/css/back.css');?>" rel="stylesheet">
 	<link href="<?php echo base_url('/assets/font-awesome/css/font-awesome.min.css');?>" rel="stylesheet" type="text/css">
 	<script type="text/javascript" language="javascript" src="<?php echo base_url('/assets/js/jquery-1.10.2.min.js');?>"></script>

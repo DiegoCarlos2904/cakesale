@@ -67,3 +67,11 @@ main.main {
 
 	border-right: 0;
 }
+.page-link{
+	color: #4b1d1d;
+}
+
+.page-item.active .page-link {
+	background-color: #4b1d1d;
+	border-color: #4b1d1d;
+}

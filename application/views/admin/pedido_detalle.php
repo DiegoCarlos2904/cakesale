@@ -28,9 +28,9 @@
 										</td><td>
 									<?php endif ?>
 								</td>
-								<td width="100"><?=  $order->qty  ?></td>
-								<td width="100">$ <?=  $order->price  ?></td>
-								<td width="100">$ <?php $subtotal = $order->qty * $order->price; $total += $subtotal;echo $this->cart->format_number($subtotal); ?></td>
+								<td width="80"><?=  $order->qty  ?></td>
+								<td width="120">$ <?=  $order->price  ?></td>
+								<td width="120">$ <?php $subtotal = $order->qty * $order->price; $total += $subtotal;echo $this->cart->format_number($subtotal); ?></td>
 							</tr>
 							<?php endforeach; ?>
 						</tbody>

@@ -36,7 +36,6 @@ class Model_products extends CI_Model {
 		}else {
 			return array();
 		}
-			
 	}
 	
 	public function create($data_products) {

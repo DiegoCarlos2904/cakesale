@@ -14,16 +14,29 @@ class Model_orders extends CI_Model {
 			return 0;
 		}	
 	}
-	
+
+	public function find_product($pro_id) {
+		$code = $this->db->where('pro_id',$pro_id)
+						->limit(1)
+						->get('products');
+		if ($code->num_rows() > 0 ) {
+			return $code->row();
+		}else {
+			return array();
+		}
+	}
+
 	public function process() {
 		$invoice = array(
 				'data'		=>	date('Y-m-d H:i:s'),
 				'due_date'	=>	date('Y-m-d H:i:s',mktime(date('H'),date('i'),date('s'),date('m'),date('d') + 1,date('Y'))),
-				'usr_id'	=> $this->get_user_id_by_session(),
+				'usr_id'	=> $this->session->userdata['usr_id'],
+				'status'	=> 'paid',
 				'total'	=>	$this->cart->total()
 		);
 		$this->db->insert('invoices',$invoice);
 		$invoice_id = $this->db->insert_id();
+		$update_products_qty = [];
 		foreach ($this->cart->contents() as $item) {
 			$data = array(
 				'invoice_id'		=> $invoice_id,
@@ -33,12 +46,29 @@ class Model_orders extends CI_Model {
 				'price'				=> $item['price'],
 				'options'				=> serialize( $item['options'] )
 			 );
+			if ( isset( $update_products_qty[$item['id']] ) && $update_products_qty[$item['id']] ) {
+				$update_products_qty[$item['id']]['qty'] += $item['qty'];
+			} else {
+				$update_products_qty[$item['id']] = array(
+					'product_id'		=> $item['id'],
+					'qty'		=> $item['qty'],
+				);
+			}
 			$this->db->insert('orders',$data);
 		}
-		
-		return TRUE;
+		foreach ( $update_products_qty as $key => $product_qty ) {
+			$product = $this->find_product( $product_qty['product_id'] );
+			if ( $product ) {
+				$pro_stock = $product->pro_stock - $product_qty['qty'];
+				$this->db->where('pro_id', $product_qty['product_id'])
+				->update('products', array( 'pro_stock' => $pro_stock ) );
+			}
+		}
+		return $invoice_id;
 	}
 	public function all_invoices() {
+		$this->db->select('invoices.*, users.full_name as usuario');
+		$this->db->join('users', 'users.usr_id = invoices.usr_id', 'LEFT');
 		$get_orders = $this->db->get('invoices');
 		if($get_orders->num_rows() > 0 ) {
 			return $get_orders->result();

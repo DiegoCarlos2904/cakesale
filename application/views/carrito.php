@@ -1,62 +1,48 @@
 
 		<?php $this->load->view('header')?>
 		<div class="row">
-			<div class="col-md-1">
-			<h3>#</h3>
-			</div>
-			<div class="col-md-4">
-			<h3>Producto</h3>
-			</div>
-			<div class="col-md-2">
-			<h3>Cantidad</h3>
-			</div>
-			<div class="col-md-3">
-			<h3>Precio</h3>
-			</div>
-			<div class="col-md-2">
-			<h3>Sub total</h3>
-			</div>
-		</div>  
-		<?php 
-			$i=0;
-			foreach ($this->cart->contents() as $items): 
-			$i++;
-		?>
-		<hr>
-		<div class="row">
-			<div class="col-md-1">
-				<?= $i ?>
-			</div>
-			<div class="col-md-4">
-				<?= $items['name'] ?>
-				<?php if ( isset( $items['options'] ) ): ?>
-					<?php if ( isset( $items['options']['porciones'] ) && $items['options']['porciones'] ): ?>
-						<br><b>Porciones</b>: <?= $items['options']['porciones'] ?>
-					<?php endif ?>
-					<?php if ( isset( $items['options']['mensaje'] ) && $items['options']['mensaje'] ): ?>
-						<br><b>Mensaje</b>: <?= $items['options']['mensaje'] ?>
-					<?php endif ?>
-				<?php endif ?>
-			</div>
-			<div class="col-md-2">
-				<?= $items['qty'] ?>
-			</div>
-			<div class="col-md-3">
-				<?php echo $this->cart->format_number( $items['price'] );?>
-			</div>
-			<div class="col-md-2">
-				<?php echo $this->cart->format_number( $items['subtotal'] );?>
-			</div>
-			<hr>
-		</div> 
-		<?php endforeach;?>
-		<div class="row">
-			<hr>
-			<div class="col-md-9">
-			<hr>
-			</div>
-			<div class="col-md-3">
-				<h3>Total : <?php echo $this->cart->format_number( $this->cart->total() ); ?></h3>
+			<div class="col-md-12">
+				<div class="table-responsive">
+					<table class="table table-striped table-hover " id="tableList">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Producto</th>
+								<th>Cantidad</th>
+								<th>Precio</th>
+								<th>Sub total</th>
+							</tr>
+						</thead>
+						<tbody>
+						<?php $i=0; foreach ($this->cart->contents() as $items ) : $i++; ?>
+							<tr>
+								<td><?= $i ?></td>
+								<td>
+									<?= $items['name'] ?>
+									<?php if ( isset( $items['options'] ) ): ?>
+										<?php if ( isset( $items['options']['porciones'] ) && $items['options']['porciones'] ): ?>
+											<br><b>Porciones</b>: <?= $items['options']['porciones'] ?>
+										<?php endif ?>
+										<?php if ( isset( $items['options']['mensaje'] ) && $items['options']['mensaje'] ): ?>
+											<br><b>Mensaje</b>: <?= $items['options']['mensaje'] ?>
+										<?php endif ?>
+									<?php endif ?>
+								</td>
+								<td width="80"><?= $items['qty'] ?></td>
+								<td width="120">$ <?php echo $this->cart->format_number( $items['price'] );?></td>
+								<td width="120">$ <?php echo $this->cart->format_number( $items['subtotal'] );?></td>
+							</tr>
+							<?php endforeach; ?>
+						</tbody>
+						<thead>
+							<tr>
+								<th colspan="3"></th>
+								<th>Total</th>
+								<th colspan="2">$ <?php echo $this->cart->format_number( $this->cart->total() ); ?></th>
+							</tr>
+						</thead>
+					</table>
+				</div>
 			</div>
 		</div>
 		<div class="col-md-4"></div>
