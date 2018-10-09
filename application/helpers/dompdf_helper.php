@@ -12,7 +12,7 @@ function pdf_create($html, $filename='', $stream=TRUE) {
 	
 	$dompdf = new Dompdf\Dompdf( $options );
 	$dompdf->load_html($html);
-	$dompdf->setPaper('A4', 'landscape');
+	$dompdf->setPaper('A4', 'portrait');
 	$dompdf->render();
 	if ($stream) {
 		$dompdf->stream($filename.".pdf");

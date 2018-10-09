@@ -1,5 +1,7 @@
 		<?php $this->load->view('header')?>
 		<h2 align="center">Finalizar compra - Resumen</h2>
+		<p>El resumen de este pedido se te ha enviado por correo, y tambien la puedes ver en mis pedidos. </p>
+		<p>Descar el <a target="_blank" href="<?= base_url( 'upload/invoice_'.$invoice_id.'.pdf' ) ?>" class="btn btn-primary btn-xs">PDF</a></p>
 		<table class="table table-bordered">
 			<thead>
 			<tr>

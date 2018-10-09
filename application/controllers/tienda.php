@@ -121,6 +121,7 @@ class Tienda extends CI_Controller {
 
 
 			$is_processed = $this->model_orders->process();
+			$cart['invoice_id'] = $is_processed;
 
 			$this->cart->destroy();
 
