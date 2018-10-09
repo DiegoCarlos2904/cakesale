@@ -43,6 +43,7 @@
 									<td>
 									<a href="<?= base_url( 'admin/pedidos/detalle/'.$invoice->id ) ?>" class="btn btn-primary btn-xs">Detalle</a>
 								<?php endif;?>
+								<a target="_blank" href="<?= base_url( 'upload/invoice_'.$invoice->id.'.pdf' ) ?>" class="btn btn-primary btn-xs">Descargar PDF</a>
 								</td>
 							</tr>
 							<?php endforeach; ?>
