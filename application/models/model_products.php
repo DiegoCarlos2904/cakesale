@@ -20,6 +20,21 @@ class Model_products extends CI_Model {
 		}
 	}
 	
+	public function search( $texto = '' ) {
+		$this->db->select('products.*, categories.name as cat_name, categories.slug as cat_slug');
+		$this->db->join('categories', 'categories.cat_id = products.cat_id', 'LEFT');
+		$this->db->group_start();
+		$this->db->like('pro_title', $texto);
+		$this->db->or_like('pro_description', $texto);
+		$this->db->group_end();
+		$show = $this->db->get_where('products', array( 'products.stuts'=>'publish' ));
+		if($show->num_rows() > 0 ) {
+			return $show->result();
+		} else {
+			return array();
+		}
+	}
+	
 	public function showme($pro_slug) {
 		$this->db->select('products.*, categories.name as cat_name, categories.slug as cat_slug');
 		$this->db->join('categories', 'categories.cat_id = products.cat_id', 'LEFT');

@@ -32,9 +32,21 @@ class Tienda extends CI_Controller {
 		$this->load->model('model_products');
 		$this->load->model('model_orders');
 	}
+	public function ubicaciones() {
+		$data['hide_slider'] = true;
+		$data['title'] = 'Ubicaciones';
+		$this->load->view('ubicaciones',$data); 
+	}
 	public function index() {
 		$data['title'] = 'Tienda';
 		$data['products'] = $this->model_products->all_products();
+		$this->load->view('home',$data); 
+	}
+	public function buscar() {
+		$texto = $this->input->get('s');
+		$data['hide_slider'] = true;
+		$data['title'] = 'Resultados para "'. $texto .'"';
+		$data['products'] = $this->model_products->search( $texto );
 		$this->load->view('home',$data); 
 	}
 	public function carrito( ) {
@@ -43,8 +55,14 @@ class Tienda extends CI_Controller {
 		$this->load->view('carrito',$data);
 	}
 	public function ver($pro_slug) {
+		$this->load->model('model_comments');
 		$data['hide_slider'] = true;
 		$data['product'] = $this->model_products->showme($pro_slug);
+		if ( $data['product'] ) {
+        	$data['comments'] = $this->model_comments->get_comment( $data['product']->pro_id );
+		} else {
+			$data['comments'] = array();
+		}
 		$data['title'] = 'Tienda';
 		$this->load->view('producto',$data);
 	}

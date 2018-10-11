@@ -18,6 +18,11 @@
 </head>
 
 <body>
+	<div class="position-fixed" style="top: 50%; right: 0; z-index: 111; ">
+		<div class="alert alert-primary" role="alert" style="background: #5e3535; border-color: #5e3535; color: white; ">
+			<a class="btn btn-xs" href="/disena-producto" style="color: white; border: 0; padding: 0; ">Diseña tu torta</a>
+		</div>
+	</div>
 	<header class="navbar navbar-expand-lg navbar-light flex-column flex-md-row bd-navbar bg-white">
 		<div class="container">
 			<a class="navbar-brand mr-0 mr-md-4 p-0" href="/" aria-label="Bootstrap">
@@ -54,7 +59,14 @@
 							<a class="dropdown-item" href="<?= base_url("/categoria/50-anos") ?>">50 años</a>
 						</div>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link <?= $this->uri->segment(1) == 'ubicaciones' ? 'active' : '' ?>" href="<?= base_url("/ubicaciones") ?>">Ubicaciones</a>
+					</li>
 				</ul>
+				<form action="/tienda/buscar/" class="form-inline my-2 my-lg-0">
+					<input class="form-control" name="s" type="search" placeholder="Buscar" style="border-right: 0;max-width: 7em;border-radius: .25rem 0 0 .25rem;">
+					<button class="btn my-2 my-sm-0" type="submit" style="border-radius: 0 .25rem .25rem 0; border-color: #d1d7dc; "><i class="fa fa-search"></i></button>
+				</form>
 				<ul class="navbar-nav">
 					<?php if ( $this->session && $this->session->userdata && ! empty( $this->session->userdata['usr_id'] ) ): ?>
 						<?php	if($this->session->userdata['usr_group'] ==	'1'	or $this->session->userdata['usr_group']	==	'2' ): ?>
