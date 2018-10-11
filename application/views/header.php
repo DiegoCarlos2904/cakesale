@@ -33,27 +33,15 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item">
-						<a class="nav-link <?= $this->uri->segment(2) == 'infantiles' ? 'active' : '' ?>" href="<?= base_url("/categoria/infantiles") ?>">Infatiles</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link <?= $this->uri->segment(2) == 'baby-shower' ? 'active' : '' ?>" href="<?= base_url("/categoria/baby-shower") ?>">Baby shower</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link <?= $this->uri->segment(2) == 'primeracomunion' ? 'active' : '' ?>" href="<?= base_url("/categoria/primera-comunion") ?>">Primera comunion</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link <?= $this->uri->segment(2) == 'matrimonio' ? 'active' : '' ?>" href="<?= base_url("categoria/matrimonio") ?>">Matrimonio</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link <?= $this->uri->segment(2) == 'desportivas' ? 'active' : '' ?>" href="<?= base_url("/categoria/desportivas") ?>">Deportivas</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link <?= $this->uri->segment(2) == 'despedidas' ? 'active' : '' ?>" href="<?= base_url("/categoria/despedidas") ?>">Despedidas</a>
-					</li>
 					<li class="dropdown">
-						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Años <b class="caret"> </b></a>
+						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cateogrías <b class="caret"> </b></a>
 						<div class="dropdown-menu">
+							<a class="dropdown-item" href="<?= base_url("/categoria/infantiles") ?>">Infatiles</a>
+							<a class="dropdown-item" href="<?= base_url("/categoria/baby-shower") ?>">Baby shower</a>
+							<a class="dropdown-item" href="<?= base_url("/categoria/primera-comunion") ?>">Primera comunion</a>
+							<a class="dropdown-item" href="<?= base_url("/categoria/matrimonio") ?>">Matrimonio</a>
+							<a class="dropdown-item" href="<?= base_url("/categoria/desportivas") ?>">Deportivas</a>
+							<a class="dropdown-item" href="<?= base_url("/categoria/despedidas") ?>">Despedidas</a>
 							<a class="dropdown-item" href="<?= base_url("/categoria/15-anos") ?>">15 años</a>
 							<a class="dropdown-item" href="<?= base_url("/categoria/18-anos") ?>">18 años</a>
 							<a class="dropdown-item" href="<?= base_url("/categoria/50-anos") ?>">50 años</a>
@@ -64,7 +52,7 @@
 					</li>
 				</ul>
 				<form action="/tienda/buscar/" class="form-inline my-2 my-lg-0">
-					<input class="form-control" name="s" type="search" placeholder="Buscar" style="border-right: 0;max-width: 7em;border-radius: .25rem 0 0 .25rem;">
+					<input class="form-control" name="s" type="search" placeholder="Buscar" style="border-right: 0;border-radius: .25rem 0 0 .25rem;">
 					<button class="btn my-2 my-sm-0" type="submit" style="border-radius: 0 .25rem .25rem 0; border-color: #d1d7dc; "><i class="fa fa-search"></i></button>
 				</form>
 				<ul class="navbar-nav">
