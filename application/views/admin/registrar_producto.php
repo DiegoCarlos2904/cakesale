@@ -5,12 +5,14 @@
 		$pro_price			= set_value('pro_price');
 		$pro_stock			= set_value('pro_stock');
 		$cat_id				= set_value('cat_id');
+		$stuts				= set_value('stuts');
 	} else {
 		$pro_title			= '';
 		$pro_description	= '';
 		$pro_price			= '';
 		$pro_stock			= '';
 		$cat_id				= '';
+		$stuts				= '';
 	}
 ?>
 		<?php $this->load->view('admin/header')?>
@@ -53,8 +55,8 @@
 							<div class="input-group">
 								<div class="input-group-addon">$</div> 
 								<input value="<?= $pro_price ?>" id="pro_price" name="pro_price" type="text" class="onlyDecimal form-control" data-required-error="Ingrese precio" required="required">
-								<div class="help-block with-errors"></div>
 							</div> 
+							<div class="help-block with-errors"></div>
 						</div>
 					</div>
 					<div class="col-xl-6">
@@ -65,6 +67,14 @@
 						</div> 
 						
 					</div>
+				</div>
+				<div class="form-group">
+					<label for="stuts">Estado</label>
+					<select class="form-control" data-required-error="CAMBIAR TEXTO" required="required" name="stuts" id="stuts">
+						<option <?= $stuts == 'publish' ? "selected = 'selected'" : "" ;?> value="publish">Visible</option>
+						<option <?= $stuts == 'hidden' ? "selected = 'selected'" : "" ;?> value="hidden">Invisible</option>
+					</select>
+					<div class="help-block with-errors"></div>
 				</div>
 				<div class="form-group">
 					<input type="hidden" name="is_submitted" value="1">

@@ -14,7 +14,7 @@ class Productos extends CI_Controller {
 	}
 	public function index() {
 		$data['title'] = 'Productos';
-		$data['list'] = $this->model_products->all_products();
+		$data['list'] = $this->model_products->all_products_admin();
 		$this->load->view('admin/productos',$data);
 	}
 	public function delete($pro_id) {
@@ -59,6 +59,7 @@ class Productos extends CI_Controller {
 							'pro_stock'			=> set_value('pro_stock'),
 							'pro_slug'			=> url_title(set_value('pro_title'), 'dash', true),
 							'cat_id'			=> set_value('cat_id'),
+							'stuts'			=> set_value('stuts'),
 							'pro_image'			=> 'http://cakesale.pe/upload/'.$upload_image['file_name']
 						);
 						$this->model_products->create($data_products);
@@ -71,6 +72,7 @@ class Productos extends CI_Controller {
 						'pro_description'	=> set_value('pro_description'),
 						'pro_price'			=> set_value('pro_price'),
 						'pro_stock'			=> set_value('pro_stock'),
+							'stuts'			=> set_value('stuts'),
 						'pro_slug'			=> url_title(set_value('pro_title'), 'dash', true),
 						'cat_id'			=> set_value('cat_id'),
 					);
@@ -112,6 +114,7 @@ class Productos extends CI_Controller {
 							'pro_price'			=> set_value('pro_price'),
 							'pro_stock'			=> set_value('pro_stock'),
 							'cat_id'			=> set_value('cat_id'),
+							'stuts'			=> set_value('stuts'),
 							'pro_slug'			=> url_title(set_value('pro_title'), 'dash', true),
 							'pro_image'			=> 'http://cakesale.pe/upload/'.$upload_image['file_name']
 						);
@@ -125,6 +128,7 @@ class Productos extends CI_Controller {
 						'pro_description'	=> set_value('pro_description'),
 						'pro_price'			=> set_value('pro_price'),
 						'pro_stock'			=> set_value('pro_stock'),
+							'stuts'			=> set_value('stuts'),
 						'pro_slug'			=> url_title(set_value('pro_title'), 'dash', true),
 						'cat_id'			=> set_value('cat_id'),
 					);

@@ -19,6 +19,22 @@ class Model_products extends CI_Model {
 			return array();
 		}
 	}
+	public function all_products_admin( $cat_id = '' ) {
+		if ( $cat_id ) {
+			$this->db->select('products.*, categories.name as cat_name, categories.slug as cat_slug');
+			$this->db->join('categories', 'categories.cat_id = products.cat_id', 'LEFT');
+			$show = $this->db->get_where('products', array('products.stuts !='=>'trash', 'products.cat_id' => $cat_id));
+		} else {
+			$this->db->select('products.*, categories.name as cat_name, categories.slug as cat_slug');
+			$this->db->join('categories', 'categories.cat_id = products.cat_id', 'LEFT');
+			$show = $this->db->get_where('products', array( 'products.stuts !='=>'trash' ));
+		}
+		if($show->num_rows() > 0 ) {
+			return $show->result();
+		} else {
+			return array();
+		}
+	}
 	
 	public function search( $texto = '' ) {
 		$this->db->select('products.*, categories.name as cat_name, categories.slug as cat_slug');
@@ -36,8 +52,10 @@ class Model_products extends CI_Model {
 	}
 	
 	public function showme($pro_slug) {
-		$this->db->select('products.*, categories.name as cat_name, categories.slug as cat_slug');
+		$this->db->select('products.*, categories.name as cat_name, categories.slug as cat_slug, SUM(CASE WHEN comments.val != 0 THEN 1 ELSE 0 END) as total_cal, avg(CASE WHEN comments.val != 0 THEN comments.val ELSE null END) as avg_comment');
 		$this->db->join('categories', 'categories.cat_id = products.cat_id', 'LEFT');
+		$this->db->join('comments', 'comments.post_id = products.pro_id', 'LEFT');
+		$this->db->group_by('products.pro_id');
 		$query = $this->db->get_where('products', array( 'products.stuts'=>'publish', 'pro_slug' => $pro_slug));
 		return $query->row();
 	}

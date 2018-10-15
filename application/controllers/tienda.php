@@ -49,6 +49,11 @@ class Tienda extends CI_Controller {
 		$data['products'] = $this->model_products->search( $texto );
 		$this->load->view('home',$data); 
 	}
+	public function disena_producto( ) {
+		$data['title'] = 'Diseña tu carrito';
+		$data['hide_slider'] = true;
+		$this->load->view('disena_producto',$data);
+	}
 	public function carrito( ) {
 		$data['title'] = 'Carrito';
 		$data['hide_slider'] = true;
@@ -59,7 +64,7 @@ class Tienda extends CI_Controller {
 		$data['hide_slider'] = true;
 		$data['product'] = $this->model_products->showme($pro_slug);
 		if ( $data['product'] ) {
-        	$data['comments'] = $this->model_comments->get_comment( $data['product']->pro_id );
+			$data['comments'] = $this->model_comments->get_comment( $data['product']->pro_id );
 		} else {
 			$data['comments'] = array();
 		}

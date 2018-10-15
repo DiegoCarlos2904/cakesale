@@ -12,6 +12,14 @@
 			<div class="col-12 col-xl-6">
 				<h2 class="mb-3 post-title"><?=	$product->pro_title	?></h2>
 				<p>Categoría: <a href="<?= base_url( 'categoria/'. $product->cat_slug ) ?>"><?= $product->cat_name ?></a></p>
+				<nav class="navbar navbar-expand-lg p-0">
+					<p class="clasificacion_single navbar-nav">
+						<?php for ($i=1; $i < 6; $i++) : ?>
+							<label for="" style="<?= (int) $product->avg_comment >= $i ? "color: orange" : ''; ?>">★</label>
+						<?php endfor ?>
+						<small>( <?= $product->total_cal ?> de calificaciones )</small>
+					</p>
+				</nav>
 				<p><?= $product->pro_description ?></p>
 				<h4 class="btn btn-outline-primary">$ <?= number_format( $product->pro_price, 2 ); ?></h4>
 				<p><b><?= $product->pro_stock ?> disponibles</b></p>
@@ -55,6 +63,15 @@
 								<?php $now = time(); ?>
 								<p class="mt-0"><b><?=$row['full_name'];?></b> -
 									hace <?= timespan(strtotime( $row['date_added'] ), $now) . ''; ?>
+									<?php if ( $row['val'] ): ?>
+										<nav class="navbar navbar-expand-lg p-0">
+											<p class="clasificacion_single navbar-nav">
+												<?php for ($i=1; $i < 6; $i++) : ?>
+													<label for="" style="<?= $row['val'] >= $i ? "color: orange" : ''; ?>">★</label>
+												<?php endfor ?>
+											</p>
+										</nav>
+									<?php endif ?>
 								</p>
 		    					<p><?=$row['comment'];?></p>
 								<hr>
@@ -68,8 +85,26 @@
 				<?php if ( $this->session->userdata('usr_id') ): ?>
 					<form action="<?=  base_url()?>comments/add_comment/<?= $product->pro_slug ?>" method="post">
 						<div class="form-group">
-							<label for="exampleFormControlTextarea1">Comentario</label>
-							<textarea class="form-control" rows="4" cols="100" name="comment" rows="3"></textarea>
+							<label>Valoración</label>
+							<nav class="navbar navbar-expand-lg p-0">
+								<p class="clasificacion navbar-nav">
+									<input id="radio1" type="radio" name="estrellas" value="5">
+									<label for="radio1">★</label>
+									<input id="radio2" type="radio" name="estrellas" value="4">
+									<label for="radio2">★</label>
+									<input id="radio3" type="radio" name="estrellas" value="3">
+									<label for="radio3">★</label>
+									<input id="radio4" type="radio" name="estrellas" value="2">
+									<label for="radio4">★</label>
+									<input id="radio5" type="radio" name="estrellas" value="1">
+									<label for="radio5">★</label>
+								</p>
+							</nav>
+						</div>
+						<div class="form-group">
+							<label>Comentario</label>
+							<textarea class="form-control" data-required-error="Ingresa un comentario" required="" rows="4" cols="100" name="comment" rows="3"></textarea>
+							<div class="help-block with-errors"></div>
 						</div>
 						<button type="submit" class="btn btn-primary">Comentar</button>
 					</form>

@@ -55,3 +55,32 @@ main.main {
 	-webkit-line-clamp: 3;
 	-webkit-box-orient: vertical;
 }
+
+
+.clasificacion_single {
+	unicode-bidi: bidi-override;
+	font-size: 1.5em;
+	line-height: 1;
+}
+
+
+.clasificacion {
+	direction: rtl;
+	unicode-bidi: bidi-override;
+	font-size: 1.5em;
+	line-height: 1;
+}
+
+
+.clasificacion input[type="radio"] {
+  display: none;
+}
+
+.clasificacion label:hover,
+.clasificacion label:hover ~ label {
+  color: orange;
+}
+
+.clasificacion input[type="radio"]:checked ~ label {
+  color: orange;
+}

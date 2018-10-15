@@ -15,6 +15,7 @@ class Comments extends CI_Controller {
 			$data = array(
 				'post_id' => $product->pro_id,
 				'user_id' => $this->session->userdata('usr_id'),
+				'val' => $this->input->post('estrellas') | 0,
 				'comment' => $this->input->post('comment'),
 			);
 			$this->model_comments->add_comment($data);

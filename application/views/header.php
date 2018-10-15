@@ -20,7 +20,7 @@
 <body>
 	<div class="position-fixed" style="top: 50%; right: 0; z-index: 111; ">
 		<div class="alert alert-primary" role="alert" style="background: #5e3535; border-color: #5e3535; color: white; ">
-			<a class="btn btn-xs" href="/disena-producto" style="color: white; border: 0; padding: 0; ">Diseña tu torta</a>
+			<a class="btn btn-xs" href="/tienda/disena_producto" style="color: white; border: 0; padding: 0; ">Diseña tu torta</a>
 		</div>
 	</div>
 	<header class="navbar navbar-expand-lg navbar-light flex-column flex-md-row bd-navbar bg-white">
