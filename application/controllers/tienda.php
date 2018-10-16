@@ -52,6 +52,44 @@ class Tienda extends CI_Controller {
 	public function disena_producto( ) {
 		$data['title'] = 'Diseña tu carrito';
 		$data['hide_slider'] = true;
+
+		if ( isset( $_POST ) && count( $_POST ) ) {
+			$this->form_validation->set_rules('pro_title','Título','required');
+			$this->form_validation->set_rules('mensaje','Mensaje en la torta','required');
+			if ($this->form_validation->run() == FALSE) {
+				$data['errors'] = validation_errors();
+			} else {
+				if($_FILES['userfile']['name'] != '') {
+					$config['upload_path']          = './upload/';
+					$config['allowed_types']        = 'jpg|png';
+					$config['max_size']             = 2000;
+					$config['max_width']            = 2000;
+					$config['max_height']           = 2000;
+					$this->load->library('upload', $config);
+					if ( ! $this->upload->do_upload()) {
+						$data['errors'] = 'Error al subir la foto.';
+					} else{
+						$this->load->model('model_design_products');
+						$upload_image = $this->upload->data();
+						$data_products = array(
+							'pro_title'			=> set_value('pro_title'),
+							'pro_image'			=> 'http://cakesale.pe/upload/'.$upload_image['file_name'],
+							'stuts'				=> 'publish',
+							'user_id'			=> $this->session->userdata['usr_id'],
+							'especificaciones'	=> set_value('especificaciones'),
+							'mensaje'			=> set_value('mensaje'),
+							'hash'				=> sha1( time() ),
+						);
+						$this->model_design_products->create($data_products);
+						$this->session->set_flashdata('log_success','Se registró el diseño correctamente.');
+						redirect('/');
+					}
+				} else {
+					$data['errors'] = 'Debes agregar una foto.';
+				}
+			}
+		}
+
 		$this->load->view('disena_producto',$data);
 	}
 	public function carrito( ) {
@@ -100,6 +138,39 @@ class Tienda extends CI_Controller {
 		} else{
 			redirect( base_url() );
 		}
+	}
+	public function add_to_cart_design($pro_hash) {
+		$this->load->model('model_design_products');
+		$this->load->library('cart');
+		
+		$diseno_producto = $this->model_design_products->findHash($pro_hash);
+		if( $diseno_producto ) {
+			$product = $this->model_products->find($diseno_producto->product_id);
+			if ( $product ) {
+				if ( $product->pro_stock ) {
+					$data = array(
+						'id'      => $product->pro_id,
+						'qty'     => $product->pro_stock,
+						'price'   => $product->pro_price,
+						'name'	  => $product->pro_title,
+						'options' => array( 
+							'porciones' => '',
+							'mensaje' => $diseno_producto->mensaje,
+							'especificaciones' => $diseno_producto->especificaciones,
+						)
+					);
+					$this->cart->insert($data);
+					$this->session->set_flashdata('log_success','Se agregó el producto al carrito correctamente.');
+				} else {
+					
+				}
+			} else {
+				$this->session->set_flashdata('log_error','No se encontró el producto.');
+			}
+		} else {
+			$this->session->set_flashdata('log_error','No se encontró el producto.');
+		}
+		redirect( base_url() );
 	}
 	public function GetExpressCheckoutDetails() {
 		$cart = $this->session->userdata('shopping_cart');

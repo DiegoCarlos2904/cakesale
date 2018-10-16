@@ -109,7 +109,7 @@
 						<button type="submit" class="btn btn-primary">Comentar</button>
 					</form>
 				<?php else: ?>
-					<a href="<?=  base_url()?>/login">Inicia sesión para comentar.</a>
+					<a href="<?=  base_url()?>login">Inicia sesión para comentar.</a>
 				<?php endif ?>
 			</div>
 		</div>

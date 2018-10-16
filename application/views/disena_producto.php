@@ -1,9 +1,20 @@
 		<?php $this->load->view('header')?>
 		<div class="col-6">
-			<?=	form_open('tienda/add_diseno',['data-toggle'=>"validator", 'class'=>'']) ?>
+			<?php if( isset($errors) ): ?>
+   				<div class="alert alert-danger text-left">
+   					<?php print_r($errors); ?>
+   				</div>
+   			<?php endif ?>
+			<?=	form_open_multipart('',['data-toggle'=>"validator", 'class'=>'']) ?>
 				<div class="form-group">
-					<label for="porciones">Cantidad de porciones</label>
-					<input value="" min="20" max="100" id="porciones" name="porciones" type="number" class="form-control" data-required-error=" Ingrese Cantidad" required="required">
+					<label for="pro_title">Título</label> 
+					<input value="" id="pro_title" name="pro_title" type="text" class="form-control" data-required-error="Ingrese titulo" required="required">
+					<div class="help-block with-errors"></div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<input type="file" required="" class="form-control-file" name="userfile">
+					</div>
 					<div class="help-block with-errors"></div>
 				</div>
 				<div class="form-group">

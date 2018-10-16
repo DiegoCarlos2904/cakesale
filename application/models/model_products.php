@@ -72,9 +72,12 @@ class Model_products extends CI_Model {
 	}
 	
 	public function create($data_products) {
-		
-		$this->db->insert('products',$data_products);
-			
+		$insert = $this->db->insert('products',$data_products);
+		if($insert){
+			return $this->db->insert_id();
+		} else{
+			return false;
+		}
 	}
 	
 	public function edit($pro_id,$data_products) {

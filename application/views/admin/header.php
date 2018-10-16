@@ -36,6 +36,9 @@
 						<a class="nav-link <?= $this->uri->segment(2) == 'productos' ? 'active' : '' ?>" href="<?= base_url("/admin/productos") ?>">Productos</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link <?= $this->uri->segment(2) == 'disena_producto' ? 'active' : '' ?>" href="<?= base_url("/admin/disena_producto") ?>">Diseños solicitados</a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link <?= $this->uri->segment(2) == 'categorias' ? 'active' : '' ?>" href="<?= base_url("/admin/categorias") ?>">Categorías</a>
 					</li>
 					<li class="nav-item">

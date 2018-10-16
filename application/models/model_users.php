@@ -5,10 +5,10 @@ class Model_users extends CI_Model {
 
 	public function get_users( $user_id = '' ) {
 		if ( $user_id ) {
-			$show = $this->db->get_where('users', array('usr_id' => $user_id, 'stuts'=>'publish'));
+			$show = $this->db->get_where('users', array('usr_id' => $user_id, 'stuts !='=>'trash'));
 			return $show->row();
 		} else {
-			$show = $this->db->get_where('users', array('stuts'=>'publish'));
+			$show = $this->db->get_where('users', array('stuts !='=>'trash'));
 		}
 		if($show->num_rows() > 0 ) {
 			return $show->result();
