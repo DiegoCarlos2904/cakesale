@@ -2,10 +2,10 @@
 -- version 4.4.15.9
 -- https://www.phpmyadmin.net
 --
--- Servidor: localhost:3327
--- Tiempo de generación: 16-10-2018 a las 04:51:05
+-- Servidor: localhost
+-- Tiempo de generación: 16-10-2018 a las 16:50:01
 -- Versión del servidor: 5.6.37
--- Versión de PHP: 5.6.31
+-- Versión de PHP: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -88,6 +88,33 @@ INSERT INTO `comments` (`comment_id`, `user_id`, `post_id`, `comment`, `date_add
 (12, 1, 4, 'erreer', '2018-10-15 04:19:47', 'product', 4),
 (13, 1, 4, 'dfsfsd', '2018-10-15 04:22:16', 'product', 0),
 (14, 19, 2, 'holii\r\n', '2018-10-15 21:27:14', 'product', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `design_products`
+--
+
+CREATE TABLE IF NOT EXISTS `design_products` (
+  `pro_id` int(16) NOT NULL,
+  `pro_title` varchar(200) NOT NULL,
+  `pro_image` text NOT NULL,
+  `stuts` set('publish','trash','hidden') NOT NULL,
+  `user_id` int(11) NOT NULL DEFAULT '1',
+  `especificaciones` varchar(400) NOT NULL,
+  `mensaje` varchar(400) NOT NULL,
+  `hash` varchar(200) NOT NULL,
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `design_products`
+--
+
+INSERT INTO `design_products` (`pro_id`, `pro_title`, `pro_image`, `stuts`, `user_id`, `especificaciones`, `mensaje`, `hash`, `product_id`) VALUES
+(1, 'asdasd', 'http://cakesale.pe/upload/Screenshot_1534359102.png', 'trash', 1, 'asdasd 2', 'asdasd 4', 'a7764c0e61ded0842cabc666e026b277993a1ada', 0),
+(2, 'sdfsdfs', 'http://cakesale.pe/upload/Screenshot_15343591021.png', 'publish', 1, 'fsdf', 'dfsdfsd', '4b1e86b5e117b06cb9c60881768b66d3e2bea8fc', 31),
+(3, 'Diseño de nico', 'http://cakesale.pe/upload/Screenshot_1.png', 'publish', 5, 'asdas das dasd as dasd', 'quiero que sea una torta de 3 pisos', '6a4a5311ba35a132898a411552bf01abf803c0a4', 34);
 
 -- --------------------------------------------------------
 
@@ -192,35 +219,40 @@ CREATE TABLE IF NOT EXISTS `products` (
   `pro_image` text NOT NULL,
   `cat_id` int(11) NOT NULL,
   `pro_slug` varchar(200) NOT NULL,
-  `stuts` set('publish','trash','hidden') NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+  `stuts` set('publish','trash','hidden') NOT NULL,
+  `user_id` int(11) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `products`
 --
 
-INSERT INTO `products` (`pro_id`, `pro_title`, `pro_description`, `pro_price`, `pro_stock`, `pro_image`, `cat_id`, `pro_slug`, `stuts`) VALUES
-(2, 'Torta masa elástica diseñado de pikachu, relleno de biscochuelo.', 'Soy obesin', '16.00', 4, 'http://cakesale.pe/upload/2.jpeg', 1, 'torta-masa-elstica-diseado-de-pikachu-relleno-de-biscochuelo', 'publish'),
-(4, 'Torta masa elástica diseño buscando a meno, relleno de Keke  de chocolate.', 'Muuy obeesin', '10.00', 0, 'http://cakesale.pe/upload/4.jpeg', 1, 'torta-masa-elstica-diseo-buscando-a-meno-relleno-de-keke-de-chocolate', 'publish'),
-(6, 'Torta masa elástica diseñado de pikachu, relleno de biscochuelo.', 'sdfsdfsdf', '16.00', 0, 'http://cakesale.pe/upload/12.jpeg', 2, 'producto-6', 'publish'),
-(8, 'Torta masa elástica diseño buscando a meno, relleno de Keke  de chocolate.', 'sdfsd', '10.00', 4, 'http://cakesale.pe/upload/14.jpeg', 4, 'producto-8', 'trash'),
-(9, 'weewew sdfsd fsdfsdf', 'wewwe', '2323.50', 8, '', 1, 'weewew-sdfsd-fsdfsdf', 'trash'),
-(10, 'sdfsdf', 'werwer', '323423.90', 33, '', 1, 'sdfsdf', 'trash'),
-(12, 'asdas', 'asdasd', '151.00', 4, 'http://cakesale.pe/upload/torta.png', 9, 'asdas', 'trash'),
-(13, 'sadasdsa', 'sadsacsc', '121.00', 3, 'http://cakesale.pe/upload/torta_tajadas.png', 7, 'sadasdsa', 'trash'),
-(14, '           hola', '         feliz navidad', '120.00', 17, 'http://cakesale.pe/upload/501.png', 2, 'hola', 'trash'),
-(15, '               21231354', '                   323232', '151.00', 4, '', 1, '21231354', 'trash'),
-(16, 'd', '                               d', '151.01', 555115, '', 1, 'd', 'trash'),
-(17, 'Matrimonio 1', 'Torta de masa elástica diseñada de dos parejas  ', '60.00', 1, 'http://cakesale.pe/upload/matri4.jpg', 4, 'matrimonio-1', 'publish'),
-(18, 'ecdsf', 'sdfdsfds', '12.00', 45, 'http://cakesale.pe/upload/torta_chantilly_baby_shower1.jpg', 2, 'ecdsf', 'trash'),
-(19, 'Primera comunión 1 ', 'Diseñado de masa elástica diseñada de un rosario ', '50.00', 1, 'http://cakesale.pe/upload/Cruz.jpg', 3, 'primera-comunin-1', 'publish'),
-(20, 'Deportivo 1', 'Torta de masa elástica diseñada con el logo de la u ', '70.00', 4, 'http://cakesale.pe/upload/dd817f03aaeafa355331db6d506d643d.jpg', 5, 'deportivo-1', 'publish'),
-(21, 'Despedida 1', 'Torta de una pareja de despedida con diseño de un muñeco', '80.00', 6, 'http://cakesale.pe/upload/cfb_195887.jpg', 6, 'despedida-1', 'publish'),
-(22, 'Torta de 15 años 1', 'Torta 15 años en masa elástica ', '80.00', 9, 'http://cakesale.pe/upload/tortas-de-boda-casamiento-15-anos-fondant-D_NQ_NP_740493-MLU25743115146_072017-F.jpg', 7, 'torta-de-15-aos-1', 'publish'),
-(23, 'Torta de 18 años 1', 'tortas de 18 años masa elástica ', '100.00', 7, 'http://cakesale.pe/upload/100_4011.JPG', 8, 'torta-de-18-aos-1', 'publish'),
-(24, 'Torta de 50 años 1', 'Torta de masa elástica de 50 años', '120.00', 11, 'http://cakesale.pe/upload/TORTA-3-240.jpg', 9, 'torta-de-50-aos-1', 'publish'),
-(25, 'tiramisu', '......', '15.00', 2, 'http://cakesale.pe/upload/Torta-de-Guanabana-con-Manjar.jpg', 1, 'tiramisu', 'publish'),
-(26, 'Nuevo producto invisible', 'asidnaidas dasd asd', '12.00', 1, '', 1, 'nuevo-producto-invisible', 'hidden');
+INSERT INTO `products` (`pro_id`, `pro_title`, `pro_description`, `pro_price`, `pro_stock`, `pro_image`, `cat_id`, `pro_slug`, `stuts`, `user_id`) VALUES
+(2, 'Torta masa elástica diseñado de pikachu, relleno de biscochuelo.', 'Soy obesin', '16.00', 4, 'http://cakesale.pe/upload/2.jpeg', 1, 'torta-masa-elstica-diseado-de-pikachu-relleno-de-biscochuelo', 'publish', 1),
+(4, 'Torta masa elástica diseño buscando a meno, relleno de Keke  de chocolate.', 'Muuy obeesin', '10.00', 0, 'http://cakesale.pe/upload/4.jpeg', 1, 'torta-masa-elstica-diseo-buscando-a-meno-relleno-de-keke-de-chocolate', 'publish', 1),
+(6, 'Torta masa elástica diseñado de pikachu, relleno de biscochuelo.', 'sdfsdfsdf', '16.00', 0, 'http://cakesale.pe/upload/12.jpeg', 2, 'producto-6', 'publish', 1),
+(8, 'Torta masa elástica diseño buscando a meno, relleno de Keke  de chocolate.', 'sdfsd', '10.00', 4, 'http://cakesale.pe/upload/14.jpeg', 4, 'producto-8', 'trash', 1),
+(9, 'weewew sdfsd fsdfsdf', 'wewwe', '2323.50', 8, '', 1, 'weewew-sdfsd-fsdfsdf', 'trash', 1),
+(10, 'sdfsdf', 'werwer', '323423.90', 33, '', 1, 'sdfsdf', 'trash', 1),
+(12, 'asdas', 'asdasd', '151.00', 4, 'http://cakesale.pe/upload/torta.png', 9, 'asdas', 'trash', 1),
+(13, 'sadasdsa', 'sadsacsc', '121.00', 3, 'http://cakesale.pe/upload/torta_tajadas.png', 7, 'sadasdsa', 'trash', 1),
+(14, '           hola', '         feliz navidad', '120.00', 17, 'http://cakesale.pe/upload/501.png', 2, 'hola', 'trash', 1),
+(15, '               21231354', '                   323232', '151.00', 4, '', 1, '21231354', 'trash', 1),
+(16, 'd', '                               d', '151.01', 555115, '', 1, 'd', 'trash', 1),
+(17, 'Matrimonio 1', 'Torta de masa elástica diseñada de dos parejas  ', '60.00', 1, 'http://cakesale.pe/upload/matri4.jpg', 4, 'matrimonio-1', 'publish', 1),
+(18, 'ecdsf', 'sdfdsfds', '12.00', 45, 'http://cakesale.pe/upload/torta_chantilly_baby_shower1.jpg', 2, 'ecdsf', 'trash', 1),
+(19, 'Primera comunión 1 ', 'Diseñado de masa elástica diseñada de un rosario ', '50.00', 1, 'http://cakesale.pe/upload/Cruz.jpg', 3, 'primera-comunin-1', 'publish', 1),
+(20, 'Deportivo 1', 'Torta de masa elástica diseñada con el logo de la u ', '70.00', 4, 'http://cakesale.pe/upload/dd817f03aaeafa355331db6d506d643d.jpg', 5, 'deportivo-1', 'publish', 1),
+(21, 'Despedida 1', 'Torta de una pareja de despedida con diseño de un muñeco', '80.00', 6, 'http://cakesale.pe/upload/cfb_195887.jpg', 6, 'despedida-1', 'publish', 1),
+(22, 'Torta de 15 años 1', 'Torta 15 años en masa elástica ', '80.00', 9, 'http://cakesale.pe/upload/tortas-de-boda-casamiento-15-anos-fondant-D_NQ_NP_740493-MLU25743115146_072017-F.jpg', 7, 'torta-de-15-aos-1', 'publish', 1),
+(23, 'Torta de 18 años 1', 'tortas de 18 años masa elástica ', '100.00', 7, 'http://cakesale.pe/upload/100_4011.JPG', 8, 'torta-de-18-aos-1', 'publish', 1),
+(24, 'Torta de 50 años 1', 'Torta de masa elástica de 50 años', '120.00', 11, 'http://cakesale.pe/upload/TORTA-3-240.jpg', 9, 'torta-de-50-aos-1', 'publish', 1),
+(25, 'tiramisu', '......', '15.00', 2, 'http://cakesale.pe/upload/Torta-de-Guanabana-con-Manjar.jpg', 1, 'tiramisu', 'publish', 1),
+(26, 'Nuevo producto invisible', 'asidnaidas dasd asd', '12.00', 1, '', 1, 'nuevo-producto-invisible', 'hidden', 1),
+(27, 'sdfsdfs', 'dfsdfsd', '12.00', 3, 'http://cakesale.pe/upload/Screenshot_15343591021.png', 0, 'sdfsdfs', 'trash', 1),
+(29, 'sdfsdfs3333', 'dfsdfsd', '23.00', 1, 'http://cakesale.pe/upload/Screenshot_15343591021.png', 0, 'sdfsdfs3333', 'trash', 1),
+(31, 'sdfsdfs3333 asa sd', 'dfsdfsd', '23.00', 1, 'http://cakesale.pe/upload/Screenshot_15343591021.png', 0, 'sdfsdfs3333-asa-sd', 'trash', 1),
+(34, 'Diseño de nico', 'quiero que sea una torta de 3 pisos', '200.00', 3, 'http://cakesale.pe/upload/Screenshot_1.png', 0, 'diseo-de-nico', 'hidden', 5);
 
 -- --------------------------------------------------------
 
@@ -632,7 +664,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`usr_id`, `usr_name`, `usr_password`, `usr_group`, `stuts`, `telephone`, `full_name`, `first_name`, `last_name`, `direccion`, `factura_ruc`, `factura_direccion`, `factura_razon_social`, `hash`) VALUES
 (1, 'admin@cakesale.pe', '56f5950b728849d0b97c1bccf1691c090ab6734c', 1, 'publish', '3242342', 'Admin', 'asdasd', 'dasdasd', 'dfsdfsdf', '', '', '', '1'),
-(5, 'nico@ebp.pe', '1f82ea75c5cc526729e2d581aeb3aeccfef4407e', 1, 'publish', '3453453', 'Nico Quispe', 'Nico', 'Quispe', '23423', '', '', '', '1428df279a9a4fb4c060816ee89e60a4407f2705'),
+(5, 'nico@ebp.pe', '1f82ea75c5cc526729e2d581aeb3aeccfef4407e', 3, 'publish', '3453453', 'Nico Quispe', 'Nico', 'Quispe', '23423', '', '', '', '1428df279a9a4fb4c060816ee89e60a4407f2705'),
 (7, 'nico3@ebp.pe', 'fe703d258c7ef5f50b71e06565a65aa07194907f', 3, 'trash', '', 'NICO', '', '', '', '', '', '', '2'),
 (8, 'Diego@cakesale.com', '10470c3b4b1fed12c3baac014be15fac67c6e815', 3, 'publish', '', 'NICO', '', '', '', '', '', '', '3'),
 (9, 'prueba@cakesale.pe', '10470c3b4b1fed12c3baac014be15fac67c6e815', 3, 'publish', '23121231', 'diego carlos', 'diego', 'carlos', 'Callao, Los portales del aeropuerto Mz J lote 24', '', '', '', '4'),
@@ -668,6 +700,12 @@ ALTER TABLE `categories`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`comment_id`);
+
+--
+-- Indices de la tabla `design_products`
+--
+ALTER TABLE `design_products`
+  ADD PRIMARY KEY (`pro_id`);
 
 --
 -- Indices de la tabla `groups`
@@ -728,6 +766,11 @@ ALTER TABLE `categories`
 ALTER TABLE `comments`
   MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
+-- AUTO_INCREMENT de la tabla `design_products`
+--
+ALTER TABLE `design_products`
+  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT de la tabla `groups`
 --
 ALTER TABLE `groups`
@@ -746,7 +789,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=35;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
@@ -768,12 +811,6 @@ ALTER TABLE `invoices`
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`pro_id`),
   ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`invoice_id`) REFERENCES `invoices` (`id`);
-
---
--- Filtros para la tabla `products`
---
-ALTER TABLE `products`
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`cat_id`) REFERENCES `categories` (`cat_id`);
 
 --
 -- Filtros para la tabla `users`
