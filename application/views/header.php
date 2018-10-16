@@ -53,7 +53,7 @@
 				</ul>
 				<form action="/tienda/buscar/" class="form-inline my-2 my-lg-0">
 					<input class="form-control" name="s" type="search" placeholder="Buscar" style="border-right: 0;border-radius: .25rem 0 0 .25rem;">
-					<button class="btn my-2 my-sm-0" type="submit" style="border-radius: 0 .25rem .25rem 0; border-color: #d1d7dc; "><i class="fa fa-search"></i></button>
+					<button class="btn my-2 my-sm-0" type="submit" style="border-radius: 50 .100rem .100rem 0; border-color: #d1d7dc; "><i class="fa fa-search"></i></button>
 				</form>
 				<ul class="navbar-nav">
 					<?php if ( $this->session && $this->session->userdata && ! empty( $this->session->userdata['usr_id'] ) ): ?>
