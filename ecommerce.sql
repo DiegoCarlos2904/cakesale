@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 16-10-2018 a las 16:50:01
+-- Tiempo de generación: 17-10-2018 a las 04:08:40
 -- Versión del servidor: 5.6.37
 -- Versión de PHP: 7.1.8
 
@@ -66,28 +66,29 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `comment` text CHARACTER SET utf8 NOT NULL,
   `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `type` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT 'product',
-  `val` int(11) NOT NULL DEFAULT '0'
+  `val` int(11) NOT NULL DEFAULT '0',
+  `status` varchar(50) NOT NULL DEFAULT 'publish'
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `comments`
 --
 
-INSERT INTO `comments` (`comment_id`, `user_id`, `post_id`, `comment`, `date_added`, `type`, `val`) VALUES
-(1, 1, 2, 'asdasd', '2018-10-11 04:16:58', 'product', 0),
-(2, 1, 2, 'sasdasd', '2018-10-11 04:17:16', 'product', 0),
-(3, 1, 2, 'asdasd', '2018-10-11 04:20:32', 'product', 0),
-(4, 1, 2, 'asdasd', '2018-10-11 04:22:33', 'product', 0),
-(5, 1, 2, 'asdasd', '2018-10-11 04:22:35', 'product', 0),
-(6, 1, 2, 'ffff', '2018-10-11 04:22:38', 'product', 0),
-(7, 1, 4, 'sdfsdf', '2018-10-15 04:12:17', 'product', 4),
-(8, 1, 4, 'as asd', '2018-10-15 04:12:22', 'product', 0),
-(9, 1, 4, 'sdfs', '2018-10-15 04:12:26', 'product', 3),
-(10, 1, 4, 'asd', '2018-10-15 04:17:23', 'product', 2),
-(11, 1, 4, 'asdas', '2018-10-15 04:17:58', 'product', 4),
-(12, 1, 4, 'erreer', '2018-10-15 04:19:47', 'product', 4),
-(13, 1, 4, 'dfsfsd', '2018-10-15 04:22:16', 'product', 0),
-(14, 19, 2, 'holii\r\n', '2018-10-15 21:27:14', 'product', 3);
+INSERT INTO `comments` (`comment_id`, `user_id`, `post_id`, `comment`, `date_added`, `type`, `val`, `status`) VALUES
+(1, 1, 2, 'asdasd', '2018-10-11 04:16:58', 'product', 0, 'publish'),
+(2, 1, 2, 'sasdasd', '2018-10-11 04:17:16', 'product', 0, 'publish'),
+(3, 1, 2, 'asdasd', '2018-10-11 04:20:32', 'product', 0, 'publish'),
+(4, 1, 2, 'asdasd', '2018-10-11 04:22:33', 'product', 0, 'publish'),
+(5, 1, 2, 'asdasd', '2018-10-11 04:22:35', 'product', 0, 'publish'),
+(6, 1, 2, 'ffff', '2018-10-11 04:22:38', 'product', 0, 'publish'),
+(7, 1, 4, 'sdfsdf', '2018-10-15 04:12:17', 'product', 4, 'trash'),
+(8, 1, 4, 'as asd', '2018-10-15 04:12:22', 'product', 0, 'trash'),
+(9, 1, 4, 'sdfs', '2018-10-15 04:12:26', 'product', 3, 'trash'),
+(10, 1, 4, 'asd', '2018-10-15 04:17:23', 'product', 2, 'trash'),
+(11, 1, 4, 'asdas', '2018-10-15 04:17:58', 'product', 4, 'trash'),
+(12, 1, 4, 'erreer', '2018-10-15 04:19:47', 'product', 4, 'trash'),
+(13, 1, 4, 'dfsfsd', '2018-10-15 04:22:16', 'product', 0, 'publish'),
+(14, 19, 2, 'holii\r\n', '2018-10-15 21:27:14', 'product', 3, 'publish');
 
 -- --------------------------------------------------------
 
@@ -105,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `design_products` (
   `mensaje` varchar(400) NOT NULL,
   `hash` varchar(200) NOT NULL,
   `product_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `design_products`
@@ -114,7 +115,10 @@ CREATE TABLE IF NOT EXISTS `design_products` (
 INSERT INTO `design_products` (`pro_id`, `pro_title`, `pro_image`, `stuts`, `user_id`, `especificaciones`, `mensaje`, `hash`, `product_id`) VALUES
 (1, 'asdasd', 'http://cakesale.pe/upload/Screenshot_1534359102.png', 'trash', 1, 'asdasd 2', 'asdasd 4', 'a7764c0e61ded0842cabc666e026b277993a1ada', 0),
 (2, 'sdfsdfs', 'http://cakesale.pe/upload/Screenshot_15343591021.png', 'publish', 1, 'fsdf', 'dfsdfsd', '4b1e86b5e117b06cb9c60881768b66d3e2bea8fc', 31),
-(3, 'Diseño de nico', 'http://cakesale.pe/upload/Screenshot_1.png', 'publish', 5, 'asdas das dasd as dasd', 'quiero que sea una torta de 3 pisos', '6a4a5311ba35a132898a411552bf01abf803c0a4', 34);
+(3, 'Diseño de nico', 'http://cakesale.pe/upload/Screenshot_1.png', 'publish', 5, 'asdas das dasd as dasd', 'quiero que sea una torta de 3 pisos', '6a4a5311ba35a132898a411552bf01abf803c0a4', 34),
+(4, '1234567', 'http://cakesale.pe/upload/icon-text.png', 'publish', 1, 'dasd', 'asdas', 'a5e6225c5a634c8e263b0a1a6c08259cde9962f1', 0),
+(5, '1234567', 'http://cakesale.pe/upload/icon-text1.png', 'publish', 1, 'sdasd', 'dasda', '1a709ad0e9066d9fa00f801e60023301ad34f717', 0),
+(6, '1234567', 'http://cakesale.pe/upload/icon-microfono.png', 'publish', 1, 'asdasdas', 'asdasd', 'b1c325fed983c32612b1966ada67d356c7db8a6c', 35);
 
 -- --------------------------------------------------------
 
@@ -221,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `pro_slug` varchar(200) NOT NULL,
   `stuts` set('publish','trash','hidden') NOT NULL,
   `user_id` int(11) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `products`
@@ -252,7 +256,8 @@ INSERT INTO `products` (`pro_id`, `pro_title`, `pro_description`, `pro_price`, `
 (27, 'sdfsdfs', 'dfsdfsd', '12.00', 3, 'http://cakesale.pe/upload/Screenshot_15343591021.png', 0, 'sdfsdfs', 'trash', 1),
 (29, 'sdfsdfs3333', 'dfsdfsd', '23.00', 1, 'http://cakesale.pe/upload/Screenshot_15343591021.png', 0, 'sdfsdfs3333', 'trash', 1),
 (31, 'sdfsdfs3333 asa sd', 'dfsdfsd', '23.00', 1, 'http://cakesale.pe/upload/Screenshot_15343591021.png', 0, 'sdfsdfs3333-asa-sd', 'trash', 1),
-(34, 'Diseño de nico', 'quiero que sea una torta de 3 pisos', '200.00', 3, 'http://cakesale.pe/upload/Screenshot_1.png', 0, 'diseo-de-nico', 'hidden', 5);
+(34, 'Diseño de nico', 'quiero que sea una torta de 3 pisos', '200.00', 3, 'http://cakesale.pe/upload/Screenshot_1.png', 0, 'diseo-de-nico', 'hidden', 5),
+(35, '1234567', 'asdasd', '12.00', 12, 'http://cakesale.pe/upload/icon-microfono.png', 1, '1234567', 'hidden', 1);
 
 -- --------------------------------------------------------
 
@@ -769,7 +774,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT de la tabla `design_products`
 --
 ALTER TABLE `design_products`
-  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `groups`
 --
@@ -789,7 +794,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=35;
+  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
