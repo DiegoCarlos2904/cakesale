@@ -41,6 +41,8 @@ class Productos extends CI_Controller {
 			if ($this->form_validation->run() == FALSE) {
 				$data['errors'] = validation_errors();
 			} else {
+				$photo_correct = true;
+				$pro_slug = '';
 				if($_FILES['userfile']['name'] != '') {
 					$config['upload_path']          = './upload/';
 					$config['allowed_types']        = 'jpg|png';
@@ -49,35 +51,35 @@ class Productos extends CI_Controller {
 					$config['max_height']           = 2000;
 					$this->load->library('upload', $config);
 					if ( ! $this->upload->do_upload()) {
-						$this->load->view('admin/editar_producto',$data);
+						$photo_correct = false;
 					} else{
 						$upload_image = $this->upload->data();
+						$pro_image = 'http://cakesale.pe/upload/'.$upload_image['file_name'];
+					}
+				}
+				if( $photo_correct ){
+	 				$data_prt = $this->security->xss_clean($_POST);
+	 				$pro_slug = url_title(set_value('pro_title'), 'dash', true);
+	 				if ( !$this->model_products->exist( $pro_slug, '' ) ) {
 						$data_products = array(
 							'pro_title'			=> set_value('pro_title'),
 							'pro_description'	=> set_value('pro_description'),
 							'pro_price'			=> set_value('pro_price'),
 							'pro_stock'			=> set_value('pro_stock'),
-							'pro_slug'			=> url_title(set_value('pro_title'), 'dash', true),
+								'stuts'			=> set_value('stuts'),
+							'pro_slug'			=> $pro_slug,
 							'cat_id'			=> set_value('cat_id'),
-							'stuts'			=> set_value('stuts'),
-							'pro_image'			=> 'http://cakesale.pe/upload/'.$upload_image['file_name']
 						);
+						if ( $pro_image ) {
+							$data_products['pro_image'] = $pro_image;
+						}
 						$this->model_products->create($data_products);
 						redirect('admin/productos');
-					}
-				}else{
-	 				$data_user = $this->security->xss_clean($_POST);
-					$data_products = array(
-						'pro_title'			=> set_value('pro_title'),
-						'pro_description'	=> set_value('pro_description'),
-						'pro_price'			=> set_value('pro_price'),
-						'pro_stock'			=> set_value('pro_stock'),
-							'stuts'			=> set_value('stuts'),
-						'pro_slug'			=> url_title(set_value('pro_title'), 'dash', true),
-						'cat_id'			=> set_value('cat_id'),
-					);
-					$this->model_products->create($data_products);
-					redirect('admin/productos');
+	 				} else {
+	 					$data['errors'] = 'Ya existe un producto con ese nombre';
+						$this->load->view('admin/registrar_producto',$data);
+	 				}
+				
 				}
 			}
 		}
@@ -97,6 +99,8 @@ class Productos extends CI_Controller {
 			if ($this->form_validation->run() == FALSE) {
 				$data['errors'] = validation_errors();
 			} else {
+				$photo_correct = true;
+				$pro_slug = '';
 				if($_FILES['userfile']['name'] != '') {
 					$config['upload_path']          = './upload/';
 					$config['allowed_types']        = 'jpg|png';
@@ -105,35 +109,31 @@ class Productos extends CI_Controller {
 					$config['max_height']           = 2000;
 					$this->load->library('upload', $config);
 					if ( ! $this->upload->do_upload()) {
-						$this->load->view('admin/editar_producto',$data);
+						$photo_correct = false;
 					} else{
 						$upload_image = $this->upload->data();
+						$pro_image = 'http://cakesale.pe/upload/'.$upload_image['file_name'];
+					}
+				}
+				if( $photo_correct ){
+	 				$data_prt = $this->security->xss_clean($_POST);
+	 				$pro_slug = url_title(set_value('pro_title'), 'dash', true);
+	 				if ( !$this->model_products->exist( $pro_slug, $pro_id ) ) {
 						$data_products = array(
 							'pro_title'			=> set_value('pro_title'),
 							'pro_description'	=> set_value('pro_description'),
 							'pro_price'			=> set_value('pro_price'),
 							'pro_stock'			=> set_value('pro_stock'),
+								'stuts'			=> set_value('stuts'),
+							'pro_slug'			=> $pro_slug,
 							'cat_id'			=> set_value('cat_id'),
-							'stuts'			=> set_value('stuts'),
-							'pro_slug'			=> url_title(set_value('pro_title'), 'dash', true),
-							'pro_image'			=> 'http://cakesale.pe/upload/'.$upload_image['file_name']
 						);
 						$this->model_products->edit($pro_id,$data_products);
 						redirect('admin/productos');
 					}
-				}else{
-	 				$data_user = $this->security->xss_clean($_POST);
-					$data_products = array(
-						'pro_title'			=> set_value('pro_title'),
-						'pro_description'	=> set_value('pro_description'),
-						'pro_price'			=> set_value('pro_price'),
-						'pro_stock'			=> set_value('pro_stock'),
-							'stuts'			=> set_value('stuts'),
-						'pro_slug'			=> url_title(set_value('pro_title'), 'dash', true),
-						'cat_id'			=> set_value('cat_id'),
-					);
-					$this->model_products->edit($pro_id,$data_products);
-					redirect('admin/productos');
+					else {
+	 					$data['errors'] = 'Ya existe un producto con ese nombre';
+					}
 				}
 			}
 		}

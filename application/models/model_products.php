@@ -98,6 +98,15 @@ class Model_products extends CI_Model {
 			return false;
 		}
 	}
+	
+	function exist($slug = "", $id = ""){
+		if(!empty($slug)){
+			$query = $this->db->get_where( 'products', array( 'products.pro_slug' => $slug, 'pro_id !=' => $id ));
+			return $query->row_array();
+		}else{
+			return array();
+		}
+	}
 	public function exists( $slug ) {
 		$gry = $this->db->where('pro_slug',$slug)
 		->limit(1)// retoma al primer  produucto

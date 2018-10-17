@@ -43,36 +43,42 @@ class Disena_producto extends CI_Controller {
 				if ($this->form_validation->run() == FALSE) {
 					$data['errors'] = validation_errors();
 				} else {
-					$data_products = array(
-						'pro_title'			=> set_value('pro_title'),
-						'pro_description'	=> set_value('pro_description'),
-						'pro_price'			=> set_value('pro_price'),
-						'pro_stock'			=> set_value('pro_stock'),
-						'stuts'				=> set_value('stuts'),
-						'pro_slug'			=> url_title(set_value('pro_title'), 'dash', true),
-						'pro_image'			=> $data['product']->pro_image,
-						'user_id'			=> $data['product']->user_id,
-					);
-					$new_prod_id = $this->model_products->create( $data_products );
-					$this->model_design_products->edit( $pro_id, array( 'product_id' => $new_prod_id ) );
+					$pro_slug = '';
+	 				$pro_slug = url_title(set_value('pro_title'), 'dash', true);
+	 				$producto = $this->model_products->exist( $pro_slug, '' );
+	 				if ( !$producto ) {
+						$data_products = array(
+							'pro_title'			=> set_value('pro_title'),
+							'pro_description'	=> set_value('pro_description'),
+							'pro_price'			=> set_value('pro_price'),
+							'pro_stock'			=> set_value('pro_stock'),
+							'stuts'				=> set_value('stuts'),
+							'pro_slug'			=> $pro_slug,
+							'pro_image'			=> $data['product']->pro_image,
+							'user_id'			=> $data['product']->user_id,
+						);
+						$new_prod_id = $this->model_products->create( $data_products );
+						$this->model_design_products->edit( $pro_id, array( 'product_id' => $new_prod_id ) );
 
-					$this->load->model('model_users');
-					$user = $this->model_users->get_users( $data['product']->user_id );
-
-					if ( $user ) {
-						$contenido = '<p style="font-size: 20px;">
-							<font color="#8b4513"><b><i>Diseño de producto aprobado - CAKESALE</i></b></font>
-						</p>
-						<p style="font-size: 18px;"><span style="font-size:16px;">Hola '. $user->full_name .', Por favor, ingresa a esta url para poder agregar un producto al carrito. Enlace: http://cakesale.pe/tienda/add_to_cart_design/'. $data['product']->hash . '</span></p>
-						</p>';
-						ob_start();
-						$this->load->view('plantilla_correo', array( 'contenido' => $contenido ) );
-						$html = ob_get_contents();
-						ob_end_clean();
-						$restablecer = $this->sendMail( "Diseño de producto aprobado - CAKESALE", $html, $user->usr_name );
-						$this->session->set_flashdata('log_success','Se le notificó al usuario.');
-					}
-					redirect('admin/disena_producto');
+						$this->load->model('model_users');
+						$user = $this->model_users->get_users( $data['product']->user_id );
+						if ( $user ) {
+							$contenido = '<p style="font-size: 20px;">
+								<font color="#8b4513"><b><i>Diseño de producto aprobado - CAKESALE</i></b></font>
+							</p>
+							<p style="font-size: 18px;"><span style="font-size:16px;">Hola '. $user->full_name .', Por favor, ingresa a esta url para poder agregar un producto al carrito. Enlace: http://cakesale.pe/tienda/add_to_cart_design/'. $data['product']->hash . '</span></p>
+							</p>';
+							ob_start();
+							$this->load->view('plantilla_correo', array( 'contenido' => $contenido ) );
+							$html = ob_get_contents();
+							ob_end_clean();
+							$restablecer = $this->sendMail( "Diseño de producto aprobado - CAKESALE", $html, $user->usr_name );
+							$this->session->set_flashdata('log_success','Se le notificó al usuario.');
+						}
+						redirect('admin/disena_producto');
+	 				} else {
+	 					$data['errors'] = 'Ya existe un producto con ese nombre';
+	 				}
 				}
 			}
 
