@@ -22,4 +22,15 @@ class Comments extends CI_Controller {
 		}
 		redirect(base_url().'tienda/ver/'.$pro_slug);
 	}
+
+	public function eliminar( $pro_slug, $commnet_id ) {
+		$this->load->model('model_comments');
+		$this->load->model('model_products');
+		$product = $this->model_products->showme($pro_slug);
+		if( $product ) {
+			$this->model_comments->update_coment( array( 'status' => 'trash' ), $commnet_id);
+			$this->session->set_flashdata('log_success','Se eliminó correctamente el correctamente.');
+		}
+		redirect(base_url().'tienda/ver/'.$pro_slug);
+	}
 }
