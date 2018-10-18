@@ -50,8 +50,10 @@ class Productos extends CI_Controller {
 					$config['max_width']            = 2000;
 					$config['max_height']           = 2000;
 					$this->load->library('upload', $config);
+					$this->upload->initialize($config);
 					if ( ! $this->upload->do_upload()) {
 						$photo_correct = false;
+						$data['errors'] =  $this->upload->display_errors();
 					} else{
 						$upload_image = $this->upload->data();
 						$pro_image = 'http://cakesale.pe/upload/'.$upload_image['file_name'];
@@ -108,8 +110,10 @@ class Productos extends CI_Controller {
 					$config['max_width']            = 2000;
 					$config['max_height']           = 2000;
 					$this->load->library('upload', $config);
+					$this->upload->initialize($config);
 					if ( ! $this->upload->do_upload()) {
 						$photo_correct = false;
+	 					$data['errors'] =  $this->upload->display_errors();
 					} else{
 						$upload_image = $this->upload->data();
 						$pro_image = 'http://cakesale.pe/upload/'.$upload_image['file_name'];
