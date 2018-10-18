@@ -2,8 +2,8 @@
 -- version 4.4.15.9
 -- https://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 17-10-2018 a las 04:08:40
+-- Servidor: localhost:3327
+-- Tiempo de generación: 18-10-2018 a las 21:46:44
 -- Versión del servidor: 5.6.37
 -- Versión de PHP: 7.1.8
 
@@ -68,27 +68,44 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `type` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT 'product',
   `val` int(11) NOT NULL DEFAULT '0',
   `status` varchar(50) NOT NULL DEFAULT 'publish'
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `comments`
 --
 
 INSERT INTO `comments` (`comment_id`, `user_id`, `post_id`, `comment`, `date_added`, `type`, `val`, `status`) VALUES
-(1, 1, 2, 'asdasd', '2018-10-11 04:16:58', 'product', 0, 'publish'),
-(2, 1, 2, 'sasdasd', '2018-10-11 04:17:16', 'product', 0, 'publish'),
-(3, 1, 2, 'asdasd', '2018-10-11 04:20:32', 'product', 0, 'publish'),
-(4, 1, 2, 'asdasd', '2018-10-11 04:22:33', 'product', 0, 'publish'),
-(5, 1, 2, 'asdasd', '2018-10-11 04:22:35', 'product', 0, 'publish'),
-(6, 1, 2, 'ffff', '2018-10-11 04:22:38', 'product', 0, 'publish'),
+(1, 1, 2, 'asdasd', '2018-10-11 04:16:58', 'product', 0, 'trash'),
+(2, 1, 2, 'sasdasd', '2018-10-11 04:17:16', 'product', 0, 'trash'),
+(3, 1, 2, 'asdasd', '2018-10-11 04:20:32', 'product', 0, 'trash'),
+(4, 1, 2, 'asdasd', '2018-10-11 04:22:33', 'product', 0, 'trash'),
+(5, 1, 2, 'asdasd', '2018-10-11 04:22:35', 'product', 0, 'trash'),
+(6, 1, 2, 'ffff', '2018-10-11 04:22:38', 'product', 0, 'trash'),
 (7, 1, 4, 'sdfsdf', '2018-10-15 04:12:17', 'product', 4, 'trash'),
 (8, 1, 4, 'as asd', '2018-10-15 04:12:22', 'product', 0, 'trash'),
 (9, 1, 4, 'sdfs', '2018-10-15 04:12:26', 'product', 3, 'trash'),
 (10, 1, 4, 'asd', '2018-10-15 04:17:23', 'product', 2, 'trash'),
 (11, 1, 4, 'asdas', '2018-10-15 04:17:58', 'product', 4, 'trash'),
 (12, 1, 4, 'erreer', '2018-10-15 04:19:47', 'product', 4, 'trash'),
-(13, 1, 4, 'dfsfsd', '2018-10-15 04:22:16', 'product', 0, 'publish'),
-(14, 19, 2, 'holii\r\n', '2018-10-15 21:27:14', 'product', 3, 'publish');
+(13, 1, 4, 'dfsfsd', '2018-10-15 04:22:16', 'product', 0, 'trash'),
+(14, 19, 2, 'holii\r\n', '2018-10-15 21:27:14', 'product', 3, 'trash'),
+(15, 19, 23, 'esta muy bonito', '2018-10-17 16:22:20', 'product', 4, 'publish'),
+(16, 19, 23, 'debe tener color rojo', '2018-10-17 16:22:45', 'product', 1, 'trash'),
+(17, 19, 22, 'esta muy bonito', '2018-10-17 16:31:15', 'product', 4, 'publish'),
+(18, 19, 22, 'debe de tener el color morado', '2018-10-17 16:31:35', 'product', 0, 'trash'),
+(19, 27, 20, 'Esta bien bonita', '2018-10-17 16:38:17', 'product', 4, 'publish'),
+(20, 27, 20, 'Seria mejor de alianza lima', '2018-10-17 16:38:38', 'product', 1, 'trash'),
+(21, 27, 21, 'se ve muy bonito', '2018-10-17 18:10:05', 'product', 3, 'publish'),
+(22, 27, 21, 'se ve muy exagerado', '2018-10-17 18:10:18', 'product', 5, 'trash'),
+(23, 27, 24, 'Hola como estas', '2018-10-17 18:17:14', 'product', 4, 'publish'),
+(24, 27, 24, 'Bien y tu ', '2018-10-17 18:17:28', 'product', 5, 'trash'),
+(25, 27, 19, 'asadkasjkd', '2018-10-18 01:23:41', 'product', 0, 'publish'),
+(26, 27, 19, 'sadasda', '2018-10-18 01:23:45', 'product', 0, 'trash'),
+(27, 19, 2, 'muy bonito la torta ', '2018-10-18 06:30:15', 'product', 5, 'publish'),
+(28, 19, 2, 'hola', '2018-10-18 06:30:25', 'product', 5, 'trash'),
+(29, 19, 2, 'sad', '2018-10-18 06:30:33', 'product', 2, 'trash'),
+(30, 19, 2, 'hola\r\n', '2018-10-18 17:45:47', 'product', 4, 'trash'),
+(31, 27, 2, 'esta muy colorido', '2018-10-18 21:30:09', 'product', 3, 'publish');
 
 -- --------------------------------------------------------
 
@@ -106,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `design_products` (
   `mensaje` varchar(400) NOT NULL,
   `hash` varchar(200) NOT NULL,
   `product_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `design_products`
@@ -114,11 +131,17 @@ CREATE TABLE IF NOT EXISTS `design_products` (
 
 INSERT INTO `design_products` (`pro_id`, `pro_title`, `pro_image`, `stuts`, `user_id`, `especificaciones`, `mensaje`, `hash`, `product_id`) VALUES
 (1, 'asdasd', 'http://cakesale.pe/upload/Screenshot_1534359102.png', 'trash', 1, 'asdasd 2', 'asdasd 4', 'a7764c0e61ded0842cabc666e026b277993a1ada', 0),
-(2, 'sdfsdfs', 'http://cakesale.pe/upload/Screenshot_15343591021.png', 'publish', 1, 'fsdf', 'dfsdfsd', '4b1e86b5e117b06cb9c60881768b66d3e2bea8fc', 31),
-(3, 'Diseño de nico', 'http://cakesale.pe/upload/Screenshot_1.png', 'publish', 5, 'asdas das dasd as dasd', 'quiero que sea una torta de 3 pisos', '6a4a5311ba35a132898a411552bf01abf803c0a4', 34),
-(4, '1234567', 'http://cakesale.pe/upload/icon-text.png', 'publish', 1, 'dasd', 'asdas', 'a5e6225c5a634c8e263b0a1a6c08259cde9962f1', 0),
-(5, '1234567', 'http://cakesale.pe/upload/icon-text1.png', 'publish', 1, 'sdasd', 'dasda', '1a709ad0e9066d9fa00f801e60023301ad34f717', 0),
-(6, '1234567', 'http://cakesale.pe/upload/icon-microfono.png', 'publish', 1, 'asdasdas', 'asdasd', 'b1c325fed983c32612b1966ada67d356c7db8a6c', 35);
+(2, 'sdfsdfs', 'http://cakesale.pe/upload/Screenshot_15343591021.png', 'trash', 1, 'fsdf', 'dfsdfsd', '4b1e86b5e117b06cb9c60881768b66d3e2bea8fc', 31),
+(3, 'Diseño de nico', 'http://cakesale.pe/upload/Screenshot_1.png', 'trash', 5, 'asdas das dasd as dasd', 'quiero que sea una torta de 3 pisos', '6a4a5311ba35a132898a411552bf01abf803c0a4', 34),
+(4, '1234567', 'http://cakesale.pe/upload/icon-text.png', 'trash', 1, 'dasd', 'asdas', 'a5e6225c5a634c8e263b0a1a6c08259cde9962f1', 0),
+(5, '1234567', 'http://cakesale.pe/upload/icon-text1.png', 'trash', 1, 'sdasd', 'dasda', '1a709ad0e9066d9fa00f801e60023301ad34f717', 0),
+(6, '1234567', 'http://cakesale.pe/upload/icon-microfono.png', 'trash', 1, 'asdasdas', 'asdasd', 'b1c325fed983c32612b1966ada67d356c7db8a6c', 35),
+(7, 'torta de maracuya', 'http://cakesale.pe/upload/torta-lucuma3.jpg', 'publish', 19, 'Queque de chocolate bañado de chantilli rojo', 'Feliz cumpleaños profesor yamil', 'f0b8173752491932633bb218c84a7650467d9c7c', 45),
+(8, 'torta de de lucuma', 'http://cakesale.pe/upload/torta-lucuma4.jpg', 'publish', 19, 'Queque de chocolate baña de chantilli de sabor lucuma', 'Feliz cumpleaños profesor Yamil', 'c585ef17453a60cf2c75878b58c6ec7b2d88ad69', 46),
+(9, 'Torta diseño del  barcelona', 'http://cakesale.pe/upload/FC_BARCELONA1.jpg', 'publish', 27, 'queque de vainilla con los colores azul y rojo', 'Feliz cumpleaños Fernando Zapata', '410ce4e7e2774509519f2bf2cae92f49d89addda', 47),
+(10, 'torta de fresa ', 'http://cakesale.pe/upload/Torta-de-Chocolate-11.jpg', 'publish', 27, 'Queque de vainilla decoración  celeste', 'Feliz cumpleaños Carlos', '02dde8d59c7bd8f3e092e683e64fe8d4e4f74f8d', 48),
+(11, 'torta de maracuya con fresa', 'http://cakesale.pe/upload/torta-lucuma5.jpg', 'publish', 27, 'Queque de vainilla decoración dorado', 'Feliz cumpleaños Carlos', '7a7db22b99f306c00940ad011745bcc6c7d7c13e', 49),
+(12, 'Torta de cafe ', 'http://cakesale.pe/upload/torta-golosinerakg-tartas-tortas-mesa-dulce-dulce-vera-D_NQ_NP_541321-MLA20749533940_062016-F3.jpg', 'publish', 19, 'Que tenga todas lo chocolates', 'Feliz cumpleaños profesor Yamil', 'd4d9f8cf201efca0988f3b440533bf313ac7e31f', 50);
 
 -- --------------------------------------------------------
 
@@ -153,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `invoices` (
   `usr_id` int(10) NOT NULL,
   `status` enum('paid','confirmed','unpaid','canceled','expired') NOT NULL,
   `total` float(12,2) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `invoices`
@@ -174,7 +197,11 @@ INSERT INTO `invoices` (`id`, `data`, `due_date`, `usr_id`, `status`, `total`) V
 (12, '2018-10-15 19:09:51', '2018-10-16 19:09:51', 19, 'paid', 0.00),
 (13, '2018-10-15 19:10:24', '2018-10-16 19:10:24', 19, 'paid', 0.00),
 (14, '2018-10-15 19:12:08', '2018-10-16 19:12:08', 19, 'paid', 0.00),
-(15, '2018-10-15 19:13:47', '2018-10-16 19:13:47', 19, 'paid', 0.00);
+(15, '2018-10-15 19:13:47', '2018-10-16 19:13:47', 19, 'paid', 0.00),
+(16, '2018-10-17 11:26:37', '2018-10-18 11:26:37', 19, 'paid', 30.50),
+(17, '2018-10-17 11:41:06', '2018-10-18 11:41:06', 27, 'paid', 80.00),
+(18, '2018-10-17 13:20:07', '2018-10-18 13:20:07', 27, 'paid', 160.00),
+(19, '2018-10-18 01:33:31', '2018-10-19 01:33:31', 19, 'paid', 50.00);
 
 -- --------------------------------------------------------
 
@@ -191,7 +218,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `price` decimal(9,2) NOT NULL,
   `options` text NOT NULL,
   `stuts` enum('publish','trash') NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `orders`
@@ -206,7 +233,11 @@ INSERT INTO `orders` (`id`, `invoice_id`, `product_id`, `product_title`, `qty`, 
 (6, 6, 17, 'Matrimonio 1', 1, '60.00', 'a:3:{s:9:"porciones";s:2:"23";s:7:"mensaje";s:11:"sdfsdfdsfsd";s:16:"especificaciones";s:20:"sdfdsfdsfdsfsdfsdfds";}', 'publish'),
 (7, 7, 19, 'Primera comunión 1 ', 1, '50.00', 'a:3:{s:9:"porciones";s:2:"20";s:7:"mensaje";s:5:"dfgsd";s:16:"especificaciones";s:6:"dsfsdf";}', 'publish'),
 (8, 8, 17, 'Matrimonio 1', 1, '60.00', 'a:3:{s:9:"porciones";s:2:"20";s:7:"mensaje";s:5:"fdgfd";s:16:"especificaciones";s:6:"dfgdfg";}', 'publish'),
-(9, 9, 22, 'Torta de 15 años 1', 1, '80.00', 'a:3:{s:9:"porciones";s:2:"20";s:7:"mensaje";s:5:"dfdsf";s:16:"especificaciones";s:6:"dsfdsf";}', 'publish');
+(9, 9, 22, 'Torta de 15 años 1', 1, '80.00', 'a:3:{s:9:"porciones";s:2:"20";s:7:"mensaje";s:5:"dfdsf";s:16:"especificaciones";s:6:"dsfdsf";}', 'publish'),
+(10, 16, 45, 'torta de maracuya', 1, '30.50', 'a:3:{s:9:"porciones";s:0:"";s:7:"mensaje";s:32:"Feliz cumpleaños profesor yamil";s:16:"especificaciones";s:45:"Queque de chocolate bañado de chantilli rojo";}', 'publish'),
+(11, 17, 47, 'Torta diseño del  barcelona', 1, '80.00', 'a:3:{s:9:"porciones";s:0:"";s:7:"mensaje";s:33:"Feliz cumpleaños Fernando Zapata";s:16:"especificaciones";s:46:"queque de vainilla con los colores azul y rojo";}', 'publish'),
+(12, 18, 49, 'torta de maracuya con fresa', 2, '80.00', 'a:3:{s:9:"porciones";s:0:"";s:7:"mensaje";s:24:"Feliz cumpleaños Carlos";s:16:"especificaciones";s:37:"Queque de vainilla decoración dorado";}', 'publish'),
+(13, 19, 50, 'Torta de cafe ', 1, '50.00', 'a:3:{s:9:"porciones";s:0:"";s:7:"mensaje";s:32:"Feliz cumpleaños profesor Yamil";s:16:"especificaciones";s:29:"Que tenga todas lo chocolates";}', 'publish');
 
 -- --------------------------------------------------------
 
@@ -225,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `pro_slug` varchar(200) NOT NULL,
   `stuts` set('publish','trash','hidden') NOT NULL,
   `user_id` int(11) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `products`
@@ -256,8 +287,14 @@ INSERT INTO `products` (`pro_id`, `pro_title`, `pro_description`, `pro_price`, `
 (27, 'sdfsdfs', 'dfsdfsd', '12.00', 3, 'http://cakesale.pe/upload/Screenshot_15343591021.png', 0, 'sdfsdfs', 'trash', 1),
 (29, 'sdfsdfs3333', 'dfsdfsd', '23.00', 1, 'http://cakesale.pe/upload/Screenshot_15343591021.png', 0, 'sdfsdfs3333', 'trash', 1),
 (31, 'sdfsdfs3333 asa sd', 'dfsdfsd', '23.00', 1, 'http://cakesale.pe/upload/Screenshot_15343591021.png', 0, 'sdfsdfs3333-asa-sd', 'trash', 1),
-(34, 'Diseño de nico', 'quiero que sea una torta de 3 pisos', '200.00', 3, 'http://cakesale.pe/upload/Screenshot_1.png', 0, 'diseo-de-nico', 'hidden', 5),
-(35, '1234567', 'asdasd', '12.00', 12, 'http://cakesale.pe/upload/icon-microfono.png', 1, '1234567', 'hidden', 1);
+(34, 'Diseño de nico', 'quiero que sea una torta de 3 pisos', '200.00', 3, 'http://cakesale.pe/upload/Screenshot_1.png', 0, 'diseo-de-nico', 'trash', 5),
+(35, '1234567', 'asdasd', '12.00', 12, 'http://cakesale.pe/upload/icon-microfono.png', 1, '1234567', 'trash', 1),
+(45, 'torta de maracuya', 'Feliz cumpleaños profesor yamil', '30.50', 0, 'http://cakesale.pe/upload/torta-lucuma3.jpg', 0, 'torta-de-maracuya', 'hidden', 19),
+(46, 'torta de de lucuma', 'Feliz cumpleaños profesor Yamil', '40.00', 3, 'http://cakesale.pe/upload/torta-lucuma4.jpg', 0, 'torta-de-de-lucuma', 'hidden', 19),
+(47, 'Torta diseño del  barcelona', 'Feliz cumpleaños Fernando Zapata', '80.00', 0, 'http://cakesale.pe/upload/FC_BARCELONA1.jpg', 0, 'torta-diseo-del-barcelona', 'hidden', 27),
+(48, 'torta de fresa ', 'Feliz cumpleaños Carlos', '45.00', 2, 'http://cakesale.pe/upload/Torta-de-Chocolate-11.jpg', 0, 'torta-de-fresa', 'hidden', 27),
+(49, 'torta de maracuya con fresa', 'Feliz cumpleaños Carlos', '80.00', 0, 'http://cakesale.pe/upload/torta-lucuma5.jpg', 0, 'torta-de-maracuya-con-fresa', 'hidden', 27),
+(50, 'Torta de cafe ', 'Feliz cumpleaños profesor Yamil', '50.00', 0, 'http://cakesale.pe/upload/torta-golosinerakg-tartas-tortas-mesa-dulce-dulce-vera-D_NQ_NP_541321-MLA20749533940_062016-F3.jpg', 0, 'torta-de-cafe', 'hidden', 19);
 
 -- --------------------------------------------------------
 
@@ -661,7 +698,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `factura_direccion` varchar(200) NOT NULL,
   `factura_razon_social` varchar(200) NOT NULL,
   `hash` varchar(300) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `users`
@@ -687,7 +724,8 @@ INSERT INTO `users` (`usr_id`, `usr_name`, `usr_password`, `usr_group`, `stuts`,
 (23, 'yamilhola@cakesale.pe', '1f82ea75c5cc526729e2d581aeb3aeccfef4407e', 3, 'publish', '123456789', 'Yamìl Quiñones', 'Yamìl', 'Quiñones', 'hdsjkhjkfdsksd', '', '', '', ''),
 (24, 'prueba11@cakasale.pe', '7f06c04d59bd83605193621e8d0d693bd30cdc9e', 3, 'publish', '', '', '', '', '', '', '', '', ''),
 (25, 'prueba15@cakesale.pe', '7f06c04d59bd83605193621e8d0d693bd30cdc9e', 3, 'publish', '', '', '', '', '', '', '', '', ''),
-(26, 'prueba21@cakesale.pe', '1f82ea75c5cc526729e2d581aeb3aeccfef4407e', 3, 'publish', '', '', '', '', '', '', '', '', '');
+(26, 'prueba21@cakesale.pe', '1f82ea75c5cc526729e2d581aeb3aeccfef4407e', 3, 'publish', '', '', '', '', '', '', '', '', ''),
+(27, 'diegocarloscas@gmail.com', '1f82ea75c5cc526729e2d581aeb3aeccfef4407e', 3, 'publish', '975154512', 'Fernando  Castillo Zapata', 'Fernando ', 'Castillo Zapata', 'hasjkdjjakoksamdklmsadla', '', '', '', '');
 
 --
 -- Índices para tablas volcadas
@@ -769,12 +807,12 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT de la tabla `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=32;
 --
 -- AUTO_INCREMENT de la tabla `design_products`
 --
 ALTER TABLE `design_products`
-  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `groups`
 --
@@ -784,22 +822,22 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT de la tabla `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+  MODIFY `id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT de la tabla `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=45;
+  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `usr_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=27;
+  MODIFY `usr_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
 --
 -- Restricciones para tablas volcadas
 --
