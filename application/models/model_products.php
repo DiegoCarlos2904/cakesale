@@ -52,7 +52,7 @@ class Model_products extends CI_Model {
 	}
 	
 	public function showme($pro_slug) {
-		$this->db->select('products.*, categories.name as cat_name, categories.slug as cat_slug, SUM(CASE WHEN comments.val != 0 THEN 1 ELSE 0 END) as total_cal, avg(CASE WHEN comments.val != 0 THEN comments.val ELSE null END) as avg_comment');
+		$this->db->select('products.*, categories.name as cat_name, categories.slug as cat_slug, SUM(CASE WHEN comments.val != 0 && comments.status = \'publish\' THEN 1 ELSE 0 END) as total_cal, avg(CASE WHEN comments.val != 0 && comments.status = \'publish\' THEN comments.val ELSE null END) as avg_comment');
 		$this->db->join('categories', 'categories.cat_id = products.cat_id', 'LEFT');
 		$this->db->join('comments', 'comments.post_id = products.pro_id', 'LEFT');
 		$this->db->group_by('products.pro_id');
