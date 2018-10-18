@@ -66,8 +66,9 @@ class Tienda extends CI_Controller {
 					$config['max_width']            = 2000;
 					$config['max_height']           = 2000;
 					$this->load->library('upload', $config);
+					$this->upload->initialize($config);
 					if ( ! $this->upload->do_upload()) {
-						$data['errors'] = 'Error al subir la foto.';
+						$data['errors'] =  $this->upload->display_errors();
 					} else{
 						$this->load->model('model_design_products');
 						$upload_image = $this->upload->data();
