@@ -16,7 +16,7 @@
 						'</div>'+
 						'<h1 id="firstHeading" class="firstHeading">Callao</h1>'+
 						'<div id="bodyContent">'+
-						'<p>La panederia se encuentra ubicado entre la avenida san juan macias con la avenida candada, en el distrito del Callao.</p>'+
+						'<p>La panederia se encuentra ubicado entre la avenida faucett con la avenida Callao, en el distrito del Callao.</p>'+
 						'</div>'+
 						'</div>';
 						var infowindow_1 = new google.maps.InfoWindow({
@@ -38,7 +38,7 @@
 						'</div>'+
 						'<h1 id="firstHeading" class="firstHeading">San martin de porres</h1>'+
 						'<div id="bodyContent">'+
-						'<p>La panederia se encuentra ubicado entre la avenida san juan macias con la avenida candada, en el distrito de San martin de porres.</p>'+
+						'<p>La panederia se encuentra ubicado entre la avenida Huandoy, en el distrito de San martin de porres.</p>'+
 						'</div>'+
 						'</div>';
 						var infowindow_2 = new google.maps.InfoWindow({
@@ -60,7 +60,7 @@
 						'</div>'+
 						'<h1 id="firstHeading" class="firstHeading">Los olivos</h1>'+
 						'<div id="bodyContent">'+
-						'<p>La panederia se encuentra ubicado entre la avenida san juan macias con la avenida candada, en el distrito de Los olivos.</p>'+
+						'<p>La panederia se encuentra ubicado en la avenida Mayolo, en el distrito de Los olivos.</p>'+
 						'</div>'+
 						'</div>';
 						var infowindow_3 = new google.maps.InfoWindow({
@@ -82,7 +82,7 @@
 						'</div>'+
 						'<h1 id="firstHeading" class="firstHeading">Santa anita</h1>'+
 						'<div id="bodyContent">'+
-						'<p>La panederia se encuentra ubicado entre la avenida san <br> juan macias con la avenida candada, en el distrito de Santa anita.</p>'+
+						'<p>La panederia se encuentra ubicado en la avenida evitamiento, en el distrito de Santa anita.</p>'+
 						'</div>'+
 						'</div>';
 						var infowindow_4 = new google.maps.InfoWindow({
@@ -102,7 +102,7 @@
 						'</div>'+
 						'<h1 id="firstHeading" class="firstHeading">La Molina</h1>'+
 						'<div id="bodyContent">'+
-						'<p>La panederia se encuentra ubicado entre la avenida san juan macias con la avenida candada, en el distrito de La Molina.</p>'+
+						'<p>La panederia se encuentra ubicado en la avenida la fortuna , en el distrito de La Molina.</p>'+
 						'</div>'+
 						'</div>';
 						var infowindow_5 = new google.maps.InfoWindow({

@@ -76,7 +76,7 @@
 								</p>
 								<?php if ( $this->session->userdata('usr_group') == 1 || $row['user_id'] == $this->session->userdata('usr_id') ): ?>
 										<p style="clear: both; " >
-											<a onclick="return confirm('¿Seguro que quiere eliminar este comentario?')"  href="<?=  base_url()?>comments/eliminar/<?= $product->pro_slug ?>/<?= $row['comment_id'] ?>">Eliminar</a>
+											<a onclick="return confirm('¿Seguro que quiere eliminar este comentario?')"  href="<?=  base_url()?>comments/eliminar/<?= $product->pro_slug ?>/<?= $row['comment_id'] ?>"class="btn btn-danger btn-xs">Eliminar</a>
 										</p>
 									<?php endif ?>
 		    					<p><?=$row['comment'];?></p>
