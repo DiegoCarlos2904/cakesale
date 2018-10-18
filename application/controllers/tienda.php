@@ -50,7 +50,7 @@ class Tienda extends CI_Controller {
 		$this->load->view('home',$data); 
 	}
 	public function disena_producto( ) {
-		$data['title'] = 'Diseña tu carrito';
+		$data['title'] = 'Diseña su propio pedido de torta';
 		$data['hide_slider'] = true;
 
 		if ( isset( $_POST ) && count( $_POST ) ) {
