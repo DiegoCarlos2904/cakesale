@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Servidor: localhost:3327
--- Tiempo de generación: 18-10-2018 a las 21:46:44
+-- Tiempo de generación: 22-10-2018 a las 19:48:03
 -- Versión del servidor: 5.6.37
 -- Versión de PHP: 7.1.8
 
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `design_products` (
   `mensaje` varchar(400) NOT NULL,
   `hash` varchar(200) NOT NULL,
   `product_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `design_products`
@@ -141,7 +141,10 @@ INSERT INTO `design_products` (`pro_id`, `pro_title`, `pro_image`, `stuts`, `use
 (9, 'Torta diseño del  barcelona', 'http://cakesale.pe/upload/FC_BARCELONA1.jpg', 'publish', 27, 'queque de vainilla con los colores azul y rojo', 'Feliz cumpleaños Fernando Zapata', '410ce4e7e2774509519f2bf2cae92f49d89addda', 47),
 (10, 'torta de fresa ', 'http://cakesale.pe/upload/Torta-de-Chocolate-11.jpg', 'publish', 27, 'Queque de vainilla decoración  celeste', 'Feliz cumpleaños Carlos', '02dde8d59c7bd8f3e092e683e64fe8d4e4f74f8d', 48),
 (11, 'torta de maracuya con fresa', 'http://cakesale.pe/upload/torta-lucuma5.jpg', 'publish', 27, 'Queque de vainilla decoración dorado', 'Feliz cumpleaños Carlos', '7a7db22b99f306c00940ad011745bcc6c7d7c13e', 49),
-(12, 'Torta de cafe ', 'http://cakesale.pe/upload/torta-golosinerakg-tartas-tortas-mesa-dulce-dulce-vera-D_NQ_NP_541321-MLA20749533940_062016-F3.jpg', 'publish', 19, 'Que tenga todas lo chocolates', 'Feliz cumpleaños profesor Yamil', 'd4d9f8cf201efca0988f3b440533bf313ac7e31f', 50);
+(12, 'Torta de cafe ', 'http://cakesale.pe/upload/torta-golosinerakg-tartas-tortas-mesa-dulce-dulce-vera-D_NQ_NP_541321-MLA20749533940_062016-F3.jpg', 'publish', 19, 'Que tenga todas lo chocolates', 'Feliz cumpleaños profesor Yamil', 'd4d9f8cf201efca0988f3b440533bf313ac7e31f', 50),
+(13, 'asnkldn', 'http://cakesale.pe/upload/Torta-de-Guanabana-con-Manjar2.jpg', 'publish', 27, 'sdfdsfsd', 'dsfsdf', 'f8c6135a354916fe830251f63c53d2535a9bd0f4', 51),
+(14, 'asdsada', 'http://cakesale.pe/upload/Torta-de-Guanabana-con-Manjar3.jpg', 'publish', 27, 'asdsad', 'sadasd', 'ba04297e418d96574272075de8c4e81eb9fa20fe', 52),
+(15, 'sdfdsf', 'http://cakesale.pe/upload/Torta-de-Guanabana-con-Manjar4.jpg', 'publish', 27, 'dsfdsfsd', 'dsfdsfds', '45889874ba843ca22221f11e5f05a40004f0e3e2', 0);
 
 -- --------------------------------------------------------
 
@@ -256,7 +259,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `pro_slug` varchar(200) NOT NULL,
   `stuts` set('publish','trash','hidden') NOT NULL,
   `user_id` int(11) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `products`
@@ -294,7 +297,9 @@ INSERT INTO `products` (`pro_id`, `pro_title`, `pro_description`, `pro_price`, `
 (47, 'Torta diseño del  barcelona', 'Feliz cumpleaños Fernando Zapata', '80.00', 0, 'http://cakesale.pe/upload/FC_BARCELONA1.jpg', 0, 'torta-diseo-del-barcelona', 'hidden', 27),
 (48, 'torta de fresa ', 'Feliz cumpleaños Carlos', '45.00', 2, 'http://cakesale.pe/upload/Torta-de-Chocolate-11.jpg', 0, 'torta-de-fresa', 'hidden', 27),
 (49, 'torta de maracuya con fresa', 'Feliz cumpleaños Carlos', '80.00', 0, 'http://cakesale.pe/upload/torta-lucuma5.jpg', 0, 'torta-de-maracuya-con-fresa', 'hidden', 27),
-(50, 'Torta de cafe ', 'Feliz cumpleaños profesor Yamil', '50.00', 0, 'http://cakesale.pe/upload/torta-golosinerakg-tartas-tortas-mesa-dulce-dulce-vera-D_NQ_NP_541321-MLA20749533940_062016-F3.jpg', 0, 'torta-de-cafe', 'hidden', 19);
+(50, 'Torta de cafe ', 'Feliz cumpleaños profesor Yamil', '50.00', 0, 'http://cakesale.pe/upload/torta-golosinerakg-tartas-tortas-mesa-dulce-dulce-vera-D_NQ_NP_541321-MLA20749533940_062016-F3.jpg', 0, 'torta-de-cafe', 'hidden', 19),
+(51, 'asnkldn', 'dsfsdf', '25.00', 1, 'http://cakesale.pe/upload/Torta-de-Guanabana-con-Manjar2.jpg', 0, 'asnkldn', 'hidden', 27),
+(52, 'asdsada', 'sadasd', '52.00', 1, 'http://cakesale.pe/upload/Torta-de-Guanabana-con-Manjar3.jpg', 0, 'asdsada', 'hidden', 27);
 
 -- --------------------------------------------------------
 
@@ -706,9 +711,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`usr_id`, `usr_name`, `usr_password`, `usr_group`, `stuts`, `telephone`, `full_name`, `first_name`, `last_name`, `direccion`, `factura_ruc`, `factura_direccion`, `factura_razon_social`, `hash`) VALUES
 (1, 'admin@cakesale.pe', '56f5950b728849d0b97c1bccf1691c090ab6734c', 1, 'publish', '3242342', 'Admin', 'asdasd', 'dasdasd', 'dfsdfsdf', '', '', '', '1'),
-(5, 'nico@ebp.pe', '1f82ea75c5cc526729e2d581aeb3aeccfef4407e', 3, 'publish', '3453453', 'Nico Quispe', 'Nico', 'Quispe', '23423', '', '', '', '1428df279a9a4fb4c060816ee89e60a4407f2705'),
+(5, 'nico@ebp.pe', '1f82ea75c5cc526729e2d581aeb3aeccfef4407e', 3, 'trash', '3453453', 'Nico Quispe', 'Nico', 'Quispe', '23423', '', '', '', '1428df279a9a4fb4c060816ee89e60a4407f2705'),
 (7, 'nico3@ebp.pe', 'fe703d258c7ef5f50b71e06565a65aa07194907f', 3, 'trash', '', 'NICO', '', '', '', '', '', '', '2'),
-(8, 'Diego@cakesale.com', '10470c3b4b1fed12c3baac014be15fac67c6e815', 3, 'publish', '', 'NICO', '', '', '', '', '', '', '3'),
+(8, 'Diego@cakesale.com', '10470c3b4b1fed12c3baac014be15fac67c6e815', 3, 'trash', '', 'NICO', '', '', '', '', '', '', '3'),
 (9, 'prueba@cakesale.pe', '10470c3b4b1fed12c3baac014be15fac67c6e815', 3, 'publish', '23121231', 'diego carlos', 'diego', 'carlos', 'Callao, Los portales del aeropuerto Mz J lote 24', '', '', '', '4'),
 (10, 'prueba2@cakesale.pe', 'fe703d258c7ef5f50b71e06565a65aa07194907f', 3, 'publish', '993791679', 'sdfsdf sdfsdfsdf', 'sdfsdf', 'sdfsdfsdf', 'Callao, Los portales del aeropuerto Mz J lote 24', '', '', '', '5'),
 (11, 'prueba3@cakesale.pe', 'fe703d258c7ef5f50b71e06565a65aa07194907f', 3, 'publish', '23423', 'asdas asdasd', 'asdas', 'asdasd', 'Los portales del aeropuerto Mz J lote 24, Los portales del aeropuerto Mz J lote 24', '', '', '', '6'),
@@ -812,7 +817,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT de la tabla `design_products`
 --
 ALTER TABLE `design_products`
-  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT de la tabla `groups`
 --
@@ -832,7 +837,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=51;
+  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
