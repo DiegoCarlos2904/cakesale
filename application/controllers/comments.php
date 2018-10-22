@@ -29,7 +29,7 @@ class Comments extends CI_Controller {
 		$product = $this->model_products->showme($pro_slug);
 		if( $product ) {
 			$this->model_comments->update_coment( array( 'status' => 'trash' ), $commnet_id);
-			$this->session->set_flashdata('log_success','Se eliminó correctamente el correctamente.');
+			$this->session->set_flashdata('log_success','Se eliminó correctamente el comentario.');
 		}
 		redirect(base_url().'tienda/ver/'.$pro_slug);
 	}

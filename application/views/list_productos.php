@@ -17,7 +17,7 @@
 							</h4>
 							<div class="row align-items-center">
 								<div class="col-md">
-									<h4 class="mb-0">$ <?= number_format( $product->pro_price, 2 );	?></h4>
+									<h4 class="mb-0">S/ <?= number_format( $product->pro_price, 2 );	?></h4>
 								</div>
 								<div class="col-md-auto">
 									<a class="btn btn-primary btn-xs" href="<?= base_url( 'tienda/ver/'.$product->pro_slug ) ?>">Ver</a>

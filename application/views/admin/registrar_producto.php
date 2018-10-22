@@ -53,7 +53,7 @@
 						<div class="form-group">
 							<label for="pro_price">Precio</label> 
 							<div class="input-group">
-								<div class="input-group-addon">$</div> 
+								<div class="input-group-addon">S/</div> 
 								<input value="<?= $pro_price ?>" id="pro_price" name="pro_price" type="text" class="onlyDecimal form-control" data-required-error="Ingrese precio" required="required">
 							</div> 
 							<div class="help-block with-errors"></div>
