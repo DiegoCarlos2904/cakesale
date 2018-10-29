@@ -18,6 +18,13 @@ jQuery( document ).ready( function ( $ ) {
 	$('form').validator();
 
 	
+	$('.input-daterange').datepicker({
+		format: "yyyy-mm-dd",
+		language: "es",
+		autoclose: true,
+	});
+
+	
 	$('#tableList').DataTable( {
 		"language": {
 			"sProcessing":		"Procesando...",

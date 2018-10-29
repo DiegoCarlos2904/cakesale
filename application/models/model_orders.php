@@ -100,4 +100,35 @@ class Model_orders extends CI_Model {
 			return FALSE;
 		}
 	}
+	public function get_productos_reporte($from, $to) {
+		$this->db->select('product_title, count( orders.id ) as count, SUM( price * qty ) as total, SUM( qty ) as qty');
+		$this->db->where('dateCreate >=', $from.' 00:00:00');
+		$this->db->where('dateCreate <=', $to.' 23:59:59' );
+		$this->db->where('stuts', 'publish' );
+		$this->db->group_by('product_id');
+		$list = $this->db->get('orders');
+		return $list->result_array();
+	}
+	public function get_categorias_reporte($from, $to) {
+		$this->db->select('categories.*,product_title, count( orders.id ) as count, SUM( price * qty ) as total, SUM( qty ) as qty');
+		$this->db->join('products', 'products.pro_id = orders.product_id', 'LEFT');
+		$this->db->join('categories', 'categories.cat_id = products.cat_id', 'LEFT');
+		$this->db->where('dateCreate >=', $from.' 00:00:00');
+		$this->db->where('dateCreate <=', $to.' 23:59:59' );
+		$this->db->where('orders.stuts', 'publish' );
+		$this->db->where('categories.name !=', '' );
+		$this->db->group_by('categories.cat_id');
+		$list = $this->db->get('orders');
+		return $list->result_array();
+	}
+	public function get_cliente_reporte($from, $to) {
+		$this->db->select('users.full_name as usuario, count( invoices.id ) as count, SUM( total ) as total');
+		$this->db->join('users', 'users.usr_id = invoices.usr_id', 'LEFT');
+		$this->db->where('due_date >=', $from.' 00:00:00');
+		$this->db->where('due_date <=', $to.' 23:59:59' );
+		$this->db->where('invoices.status', 'paid' );
+		$this->db->group_by('invoices.usr_id');
+		$list = $this->db->get('invoices');
+		return $list->result_array();
+	}
 }

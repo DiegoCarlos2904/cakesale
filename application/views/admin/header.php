@@ -8,6 +8,7 @@
 	<meta name="author" content="">
 	<title>Cake sale</title>
 	<link href="<?php echo base_url('/assets/css/bootstrap.min.css');?>" rel="stylesheet">
+	<link href="<?php echo base_url('/assets/css/bootstrap-datepicker3.min.css');?>" rel="stylesheet">
 	<link href="<?php echo base_url('assets/css/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
 	<link href="<?php echo base_url('/assets/css/back.css');?>" rel="stylesheet">
 	<link href="<?php echo base_url('/assets/font-awesome/css/font-awesome.min.css');?>" rel="stylesheet" type="text/css">
@@ -15,9 +16,7 @@
 	<script type="text/javascript" language="javascript" src="<?php echo base_url('/assets/js/jquery.dataTables.min.js');?>"></script>
 	<script type="text/javascript" language="javascript" src="<?php echo base_url('/assets/js/dataTables.bootstrap.js');?>"></script>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/dataTables.bootstrap.css');?>">
-
 </head>
-
 <body>
 	<header class="navbar navbar-expand-lg navbar-light flex-column flex-md-row bd-navbar bg-white">
 		<div class="container">
@@ -43,6 +42,9 @@
 					</li>
 					<li class="nav-item">
 						<a class="nav-link <?= $this->uri->segment(2) == 'pedidos' ? 'active' : '' ?>" href="<?= base_url("/admin/pedidos") ?>">Pedidos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link <?= $this->uri->segment(2) == 'reportes' ? 'active' : '' ?>" href="<?= base_url("/admin/reportes") ?>">Reportes</a>
 					</li>
 				</ul>
 				<ul class="navbar-nav">

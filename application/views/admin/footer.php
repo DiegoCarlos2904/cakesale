@@ -11,6 +11,8 @@
 	</div>
 	<script src="<?php echo base_url('/assets/js/jquery.js');?>"></script>
 	<script src="<?php echo base_url('/assets/js/bootstrap.min.js');?>"></script>
+	<script src="<?php echo base_url('/assets/js/bootstrap-datepicker.js');?>"></script>
+	<script src="<?php echo base_url('/assets/js/bootstrap-datepicker.es.js');?>"></script>
 	<script src="<?php echo base_url('assets/js/jquery.dataTables.min.js') ?>"></script>
 	<script src="<?php echo base_url('assets/js/dataTables.bootstrap4.min.js') ?>"></script>
 	<script src="<?php echo base_url('/assets/js/validator.min.js');?>"></script>

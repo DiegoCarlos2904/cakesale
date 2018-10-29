@@ -1,8 +1,8 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-	require_once 'dompdf/lib/html5lib/Parser.php';
-	require_once 'dompdf/lib/php-font-lib/src/FontLib/Autoloader.php';
-	require_once 'dompdf/lib/php-svg-lib/src/autoload.php';
-	require_once 'dompdf/src/Autoloader.php';
+require_once 'dompdf/lib/html5lib/Parser.php';
+require_once 'dompdf/lib/php-font-lib/src/FontLib/Autoloader.php';
+require_once 'dompdf/lib/php-svg-lib/src/autoload.php';
+require_once 'dompdf/src/Autoloader.php';
 function pdf_create($html, $filename='', $stream=TRUE) {
 	Dompdf\Autoloader::register();
 	$options = new Dompdf\Options();
@@ -19,5 +19,4 @@ function pdf_create($html, $filename='', $stream=TRUE) {
 	} else {
 		return $dompdf->output();
 	}
-}
-?>
+}?>
