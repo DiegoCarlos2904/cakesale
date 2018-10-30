@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 30-10-2018 a las 04:05:16
+-- Tiempo de generación: 30-10-2018 a las 23:27:38
 -- Versión del servidor: 5.6.37
 -- Versión de PHP: 7.1.8
 
@@ -307,24 +307,31 @@ CREATE TABLE IF NOT EXISTS `reportes` (
   `id` int(11) NOT NULL,
   `date_from` date NOT NULL,
   `date_to` date NOT NULL,
-  `type` date NOT NULL,
+  `type` varchar(50) NOT NULL,
   `status` varchar(50) NOT NULL DEFAULT 'publish',
   `url` varchar(400) NOT NULL,
   `formato` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `reportes`
 --
 
 INSERT INTO `reportes` (`id`, `date_from`, `date_to`, `type`, `status`, `url`, `formato`) VALUES
-(1, '2018-10-02', '2018-11-04', '0000-00-00', 'publish', 'http://cakesale.pe/uploads/reporte_1a475f082b1536f30a4ce43cc0e047e1337ab28d.pdf', 'pdf'),
-(2, '2018-10-03', '2018-11-04', '0000-00-00', 'publish', 'http://cakesale.pe/uploads/reporte_f497b09ede3467a51975ea37b571175d74d0d0cb.xls', 'xls'),
-(3, '2018-10-02', '2018-11-03', '0000-00-00', 'publish', 'http://cakesale.pe/uploads/reporte_7a46a6e2006784d208aafd1128d07b6b3de7a146.xls', 'xls'),
-(4, '2018-10-02', '2018-11-03', '0000-00-00', 'publish', 'http://cakesale.pe/uploads/reporte_1540777335.xls', 'xls'),
-(5, '2018-10-02', '2018-11-03', '0000-00-00', 'publish', 'http://cakesale.pe/uploads/reporte_1540777470.xls', 'xls'),
-(6, '2018-10-02', '2018-11-03', '0000-00-00', 'publish', 'http://cakesale.pe/uploads/reporte_1540777495.xls', 'xls'),
-(7, '2018-10-02', '2018-11-03', '0000-00-00', 'publish', 'http://cakesale.pe/uploads/reporte_1540777544.xls', 'xls');
+(8, '2018-10-01', '2018-11-04', 'ventas_productos', 'trash', 'http://cakesale.pe/upload/reporte_1540939913.pdf', 'pdf'),
+(9, '2018-10-03', '2018-11-02', 'ventas_productos', 'publish', 'http://cakesale.pe/upload/reporte_1540939968.xls', 'xls'),
+(10, '2018-10-10', '2018-11-04', 'ventas_productos', 'publish', 'http://cakesale.pe/upload/reporte_1540940303.xls', 'xls'),
+(11, '2018-10-02', '2018-11-04', 'ventas_productos', 'publish', 'http://cakesale.pe/upload/reporte_1540940411.pdf', 'pdf'),
+(12, '2018-09-24', '2018-11-03', 'ventas_productos', 'publish', 'http://cakesale.pe/upload/reporte_1540940459.xls', 'xls'),
+(13, '2018-10-01', '2018-11-04', 'ventas_categorias', 'publish', 'http://cakesale.pe/upload/reporte_1540940727.xls', 'xls'),
+(14, '2018-10-02', '2018-11-03', 'ventas_categorias', 'publish', 'http://cakesale.pe/upload/reporte_1540941060.xls', 'xls'),
+(15, '2018-10-17', '2018-11-03', 'ventas_categorias', 'publish', 'http://cakesale.pe/upload/reporte_1540941103.xls', 'xls'),
+(16, '2018-10-08', '2018-11-03', 'ventas_productos', 'publish', 'http://cakesale.pe/upload/reporte_1540941183.xls', 'xls'),
+(17, '2018-02-27', '2019-01-06', 'pedidos', 'publish', 'http://cakesale.pe/upload/reporte_1540941544.xls', 'xls'),
+(18, '2018-06-05', '2019-01-05', 'pedidos', 'publish', 'http://cakesale.pe/upload/reporte_1540941691.pdf', 'pdf'),
+(19, '2018-09-25', '2018-11-04', 'ventas_productos', 'publish', 'http://cakesale.pe/upload/reporte_1540941817.pdf', 'pdf'),
+(20, '2018-10-02', '2018-11-03', 'valoracion', 'publish', 'http://cakesale.pe/upload/reporte_1540942002.xls', 'xls'),
+(21, '2018-10-09', '2018-11-03', 'valoracion', 'publish', 'http://cakesale.pe/upload/reporte_1540942009.pdf', 'pdf');
 
 -- --------------------------------------------------------
 
@@ -873,7 +880,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT de la tabla `reportes`
 --
 ALTER TABLE `reportes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --

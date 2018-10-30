@@ -18,7 +18,7 @@ class Model_comments extends CI_Model
 		return $query->result_array();
 	}
 	function get_reporte() {
-		$this->db->select('products.pro_title, avg( comments.val ) as avg_comment, sum( comments.val ) as total, count( comments.comment_id ) as count');
+		$this->db->select('products.pro_title as nombre, avg( comments.val ) as avg_comment, sum( comments.val ) as total, count( comments.comment_id ) as count');
 		$this->db->join('products', 'products.pro_id = comments.post_id', 'LEFT');
 		$this->db->from('comments');
 		$this->db->join('users','users.usr_id = comments.user_id', 'left');

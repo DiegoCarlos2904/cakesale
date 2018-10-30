@@ -23,7 +23,7 @@
 								<td>
 									<a onclick="return confirm('¿Seguro que quiere eliminar este reporte?')" class="btn btn-danger btn-xs" href="<?= base_url('admin/reportes/delete/'.$row->id) ?>">Eliminar</a> 
 									<?php if ( $row->url ): ?>
-									  | <a href="<?= $row->url ?>">Descargar</a>
+									  | <a target="_blank" href="<?= $row->url ?>">Descargar</a>
 									<?php endif ?>
 								</td>
 							</tr>
