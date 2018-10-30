@@ -2,8 +2,8 @@
 -- version 4.4.15.9
 -- https://www.phpmyadmin.net
 --
--- Servidor: localhost:3327
--- Tiempo de generación: 22-10-2018 a las 19:48:03
+-- Servidor: localhost
+-- Tiempo de generación: 30-10-2018 a las 04:05:16
 -- Versión del servidor: 5.6.37
 -- Versión de PHP: 7.1.8
 
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `design_products` (
   `mensaje` varchar(400) NOT NULL,
   `hash` varchar(200) NOT NULL,
   `product_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `design_products`
@@ -141,10 +141,7 @@ INSERT INTO `design_products` (`pro_id`, `pro_title`, `pro_image`, `stuts`, `use
 (9, 'Torta diseño del  barcelona', 'http://cakesale.pe/upload/FC_BARCELONA1.jpg', 'publish', 27, 'queque de vainilla con los colores azul y rojo', 'Feliz cumpleaños Fernando Zapata', '410ce4e7e2774509519f2bf2cae92f49d89addda', 47),
 (10, 'torta de fresa ', 'http://cakesale.pe/upload/Torta-de-Chocolate-11.jpg', 'publish', 27, 'Queque de vainilla decoración  celeste', 'Feliz cumpleaños Carlos', '02dde8d59c7bd8f3e092e683e64fe8d4e4f74f8d', 48),
 (11, 'torta de maracuya con fresa', 'http://cakesale.pe/upload/torta-lucuma5.jpg', 'publish', 27, 'Queque de vainilla decoración dorado', 'Feliz cumpleaños Carlos', '7a7db22b99f306c00940ad011745bcc6c7d7c13e', 49),
-(12, 'Torta de cafe ', 'http://cakesale.pe/upload/torta-golosinerakg-tartas-tortas-mesa-dulce-dulce-vera-D_NQ_NP_541321-MLA20749533940_062016-F3.jpg', 'publish', 19, 'Que tenga todas lo chocolates', 'Feliz cumpleaños profesor Yamil', 'd4d9f8cf201efca0988f3b440533bf313ac7e31f', 50),
-(13, 'asnkldn', 'http://cakesale.pe/upload/Torta-de-Guanabana-con-Manjar2.jpg', 'publish', 27, 'sdfdsfsd', 'dsfsdf', 'f8c6135a354916fe830251f63c53d2535a9bd0f4', 51),
-(14, 'asdsada', 'http://cakesale.pe/upload/Torta-de-Guanabana-con-Manjar3.jpg', 'publish', 27, 'asdsad', 'sadasd', 'ba04297e418d96574272075de8c4e81eb9fa20fe', 52),
-(15, 'sdfdsf', 'http://cakesale.pe/upload/Torta-de-Guanabana-con-Manjar4.jpg', 'publish', 27, 'dsfdsfsd', 'dsfdsfds', '45889874ba843ca22221f11e5f05a40004f0e3e2', 0);
+(12, 'Torta de cafe ', 'http://cakesale.pe/upload/torta-golosinerakg-tartas-tortas-mesa-dulce-dulce-vera-D_NQ_NP_541321-MLA20749533940_062016-F3.jpg', 'publish', 19, 'Que tenga todas lo chocolates', 'Feliz cumpleaños profesor Yamil', 'd4d9f8cf201efca0988f3b440533bf313ac7e31f', 50);
 
 -- --------------------------------------------------------
 
@@ -220,27 +217,28 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `qty` int(3) NOT NULL,
   `price` decimal(9,2) NOT NULL,
   `options` text NOT NULL,
-  `stuts` enum('publish','trash') NOT NULL
+  `stuts` enum('publish','trash') NOT NULL,
+  `dateCreate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `orders`
 --
 
-INSERT INTO `orders` (`id`, `invoice_id`, `product_id`, `product_title`, `qty`, `price`, `options`, `stuts`) VALUES
-(1, 1, 2, 'Torta masa elástica diseñado de pikachu, relleno de biscochu', 1, '16.00', 'a:3:{s:9:"porciones";s:2:"21";s:7:"mensaje";s:6:"sadsad";s:16:"especificaciones";s:8:"asdsadas";}', 'publish'),
-(2, 2, 17, 'Matrimonio 1', 1, '60.00', 'a:3:{s:9:"porciones";s:2:"22";s:7:"mensaje";s:9:"hjghjbkkj";s:16:"especificaciones";s:9:"hbhjbjhbj";}', 'publish'),
-(3, 3, 17, 'Matrimonio 1', 1, '60.00', 'a:3:{s:9:"porciones";s:2:"23";s:7:"mensaje";s:4:"dsgf";s:16:"especificaciones";s:6:"sdfdsf";}', 'publish'),
-(4, 4, 20, 'Deportivo 1', 1, '70.00', 'a:3:{s:9:"porciones";s:2:"21";s:7:"mensaje";s:6:"dasdad";s:16:"especificaciones";s:6:"sadsad";}', 'publish'),
-(5, 5, 19, 'Primera comunión 1 ', 1, '50.00', 'a:3:{s:9:"porciones";s:2:"22";s:7:"mensaje";s:10:"xfbbvdxvds";s:16:"especificaciones";s:11:"dsfdsfdsfds";}', 'publish'),
-(6, 6, 17, 'Matrimonio 1', 1, '60.00', 'a:3:{s:9:"porciones";s:2:"23";s:7:"mensaje";s:11:"sdfsdfdsfsd";s:16:"especificaciones";s:20:"sdfdsfdsfdsfsdfsdfds";}', 'publish'),
-(7, 7, 19, 'Primera comunión 1 ', 1, '50.00', 'a:3:{s:9:"porciones";s:2:"20";s:7:"mensaje";s:5:"dfgsd";s:16:"especificaciones";s:6:"dsfsdf";}', 'publish'),
-(8, 8, 17, 'Matrimonio 1', 1, '60.00', 'a:3:{s:9:"porciones";s:2:"20";s:7:"mensaje";s:5:"fdgfd";s:16:"especificaciones";s:6:"dfgdfg";}', 'publish'),
-(9, 9, 22, 'Torta de 15 años 1', 1, '80.00', 'a:3:{s:9:"porciones";s:2:"20";s:7:"mensaje";s:5:"dfdsf";s:16:"especificaciones";s:6:"dsfdsf";}', 'publish'),
-(10, 16, 45, 'torta de maracuya', 1, '30.50', 'a:3:{s:9:"porciones";s:0:"";s:7:"mensaje";s:32:"Feliz cumpleaños profesor yamil";s:16:"especificaciones";s:45:"Queque de chocolate bañado de chantilli rojo";}', 'publish'),
-(11, 17, 47, 'Torta diseño del  barcelona', 1, '80.00', 'a:3:{s:9:"porciones";s:0:"";s:7:"mensaje";s:33:"Feliz cumpleaños Fernando Zapata";s:16:"especificaciones";s:46:"queque de vainilla con los colores azul y rojo";}', 'publish'),
-(12, 18, 49, 'torta de maracuya con fresa', 2, '80.00', 'a:3:{s:9:"porciones";s:0:"";s:7:"mensaje";s:24:"Feliz cumpleaños Carlos";s:16:"especificaciones";s:37:"Queque de vainilla decoración dorado";}', 'publish'),
-(13, 19, 50, 'Torta de cafe ', 1, '50.00', 'a:3:{s:9:"porciones";s:0:"";s:7:"mensaje";s:32:"Feliz cumpleaños profesor Yamil";s:16:"especificaciones";s:29:"Que tenga todas lo chocolates";}', 'publish');
+INSERT INTO `orders` (`id`, `invoice_id`, `product_id`, `product_title`, `qty`, `price`, `options`, `stuts`, `dateCreate`) VALUES
+(1, 1, 2, 'Torta masa elástica diseñado de pikachu, relleno de biscochu', 1, '16.00', 'a:3:{s:9:"porciones";s:2:"21";s:7:"mensaje";s:6:"sadsad";s:16:"especificaciones";s:8:"asdsadas";}', 'publish', '2018-10-29 00:57:23'),
+(2, 2, 17, 'Matrimonio 1', 1, '60.00', 'a:3:{s:9:"porciones";s:2:"22";s:7:"mensaje";s:9:"hjghjbkkj";s:16:"especificaciones";s:9:"hbhjbjhbj";}', 'publish', '2018-10-29 00:57:23'),
+(3, 3, 17, 'Matrimonio 1', 1, '60.00', 'a:3:{s:9:"porciones";s:2:"23";s:7:"mensaje";s:4:"dsgf";s:16:"especificaciones";s:6:"sdfdsf";}', 'publish', '2018-10-29 00:57:23'),
+(4, 4, 20, 'Deportivo 1', 1, '70.00', 'a:3:{s:9:"porciones";s:2:"21";s:7:"mensaje";s:6:"dasdad";s:16:"especificaciones";s:6:"sadsad";}', 'publish', '2018-10-29 00:57:23'),
+(5, 5, 19, 'Primera comunión 1 ', 1, '50.00', 'a:3:{s:9:"porciones";s:2:"22";s:7:"mensaje";s:10:"xfbbvdxvds";s:16:"especificaciones";s:11:"dsfdsfdsfds";}', 'publish', '2018-10-29 00:57:23'),
+(6, 6, 17, 'Matrimonio 1', 1, '60.00', 'a:3:{s:9:"porciones";s:2:"23";s:7:"mensaje";s:11:"sdfsdfdsfsd";s:16:"especificaciones";s:20:"sdfdsfdsfdsfsdfsdfds";}', 'publish', '2018-10-29 00:57:23'),
+(7, 7, 19, 'Primera comunión 1 ', 1, '50.00', 'a:3:{s:9:"porciones";s:2:"20";s:7:"mensaje";s:5:"dfgsd";s:16:"especificaciones";s:6:"dsfsdf";}', 'publish', '2018-10-29 00:57:23'),
+(8, 8, 17, 'Matrimonio 1', 1, '60.00', 'a:3:{s:9:"porciones";s:2:"20";s:7:"mensaje";s:5:"fdgfd";s:16:"especificaciones";s:6:"dfgdfg";}', 'publish', '2018-10-29 00:57:23'),
+(9, 9, 22, 'Torta de 15 años 1', 1, '80.00', 'a:3:{s:9:"porciones";s:2:"20";s:7:"mensaje";s:5:"dfdsf";s:16:"especificaciones";s:6:"dsfdsf";}', 'publish', '2018-10-29 00:57:23'),
+(10, 16, 45, 'torta de maracuya', 1, '30.50', 'a:3:{s:9:"porciones";s:0:"";s:7:"mensaje";s:32:"Feliz cumpleaños profesor yamil";s:16:"especificaciones";s:45:"Queque de chocolate bañado de chantilli rojo";}', 'publish', '2018-10-29 00:57:23'),
+(11, 17, 47, 'Torta diseño del  barcelona', 1, '80.00', 'a:3:{s:9:"porciones";s:0:"";s:7:"mensaje";s:33:"Feliz cumpleaños Fernando Zapata";s:16:"especificaciones";s:46:"queque de vainilla con los colores azul y rojo";}', 'publish', '2018-10-29 00:57:23'),
+(12, 18, 49, 'torta de maracuya con fresa', 2, '80.00', 'a:3:{s:9:"porciones";s:0:"";s:7:"mensaje";s:24:"Feliz cumpleaños Carlos";s:16:"especificaciones";s:37:"Queque de vainilla decoración dorado";}', 'publish', '2018-10-29 00:57:23'),
+(13, 19, 50, 'Torta de cafe ', 1, '50.00', 'a:3:{s:9:"porciones";s:0:"";s:7:"mensaje";s:32:"Feliz cumpleaños profesor Yamil";s:16:"especificaciones";s:29:"Que tenga todas lo chocolates";}', 'publish', '2018-10-29 00:57:23');
 
 -- --------------------------------------------------------
 
@@ -259,7 +257,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `pro_slug` varchar(200) NOT NULL,
   `stuts` set('publish','trash','hidden') NOT NULL,
   `user_id` int(11) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `products`
@@ -297,9 +295,36 @@ INSERT INTO `products` (`pro_id`, `pro_title`, `pro_description`, `pro_price`, `
 (47, 'Torta diseño del  barcelona', 'Feliz cumpleaños Fernando Zapata', '80.00', 0, 'http://cakesale.pe/upload/FC_BARCELONA1.jpg', 0, 'torta-diseo-del-barcelona', 'hidden', 27),
 (48, 'torta de fresa ', 'Feliz cumpleaños Carlos', '45.00', 2, 'http://cakesale.pe/upload/Torta-de-Chocolate-11.jpg', 0, 'torta-de-fresa', 'hidden', 27),
 (49, 'torta de maracuya con fresa', 'Feliz cumpleaños Carlos', '80.00', 0, 'http://cakesale.pe/upload/torta-lucuma5.jpg', 0, 'torta-de-maracuya-con-fresa', 'hidden', 27),
-(50, 'Torta de cafe ', 'Feliz cumpleaños profesor Yamil', '50.00', 0, 'http://cakesale.pe/upload/torta-golosinerakg-tartas-tortas-mesa-dulce-dulce-vera-D_NQ_NP_541321-MLA20749533940_062016-F3.jpg', 0, 'torta-de-cafe', 'hidden', 19),
-(51, 'asnkldn', 'dsfsdf', '25.00', 1, 'http://cakesale.pe/upload/Torta-de-Guanabana-con-Manjar2.jpg', 0, 'asnkldn', 'hidden', 27),
-(52, 'asdsada', 'sadasd', '52.00', 1, 'http://cakesale.pe/upload/Torta-de-Guanabana-con-Manjar3.jpg', 0, 'asdsada', 'hidden', 27);
+(50, 'Torta de cafe ', 'Feliz cumpleaños profesor Yamil', '50.00', 0, 'http://cakesale.pe/upload/torta-golosinerakg-tartas-tortas-mesa-dulce-dulce-vera-D_NQ_NP_541321-MLA20749533940_062016-F3.jpg', 0, 'torta-de-cafe', 'hidden', 19);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reportes`
+--
+
+CREATE TABLE IF NOT EXISTS `reportes` (
+  `id` int(11) NOT NULL,
+  `date_from` date NOT NULL,
+  `date_to` date NOT NULL,
+  `type` date NOT NULL,
+  `status` varchar(50) NOT NULL DEFAULT 'publish',
+  `url` varchar(400) NOT NULL,
+  `formato` varchar(50) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `reportes`
+--
+
+INSERT INTO `reportes` (`id`, `date_from`, `date_to`, `type`, `status`, `url`, `formato`) VALUES
+(1, '2018-10-02', '2018-11-04', '0000-00-00', 'publish', 'http://cakesale.pe/uploads/reporte_1a475f082b1536f30a4ce43cc0e047e1337ab28d.pdf', 'pdf'),
+(2, '2018-10-03', '2018-11-04', '0000-00-00', 'publish', 'http://cakesale.pe/uploads/reporte_f497b09ede3467a51975ea37b571175d74d0d0cb.xls', 'xls'),
+(3, '2018-10-02', '2018-11-03', '0000-00-00', 'publish', 'http://cakesale.pe/uploads/reporte_7a46a6e2006784d208aafd1128d07b6b3de7a146.xls', 'xls'),
+(4, '2018-10-02', '2018-11-03', '0000-00-00', 'publish', 'http://cakesale.pe/uploads/reporte_1540777335.xls', 'xls'),
+(5, '2018-10-02', '2018-11-03', '0000-00-00', 'publish', 'http://cakesale.pe/uploads/reporte_1540777470.xls', 'xls'),
+(6, '2018-10-02', '2018-11-03', '0000-00-00', 'publish', 'http://cakesale.pe/uploads/reporte_1540777495.xls', 'xls'),
+(7, '2018-10-02', '2018-11-03', '0000-00-00', 'publish', 'http://cakesale.pe/uploads/reporte_1540777544.xls', 'xls');
 
 -- --------------------------------------------------------
 
@@ -711,9 +736,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`usr_id`, `usr_name`, `usr_password`, `usr_group`, `stuts`, `telephone`, `full_name`, `first_name`, `last_name`, `direccion`, `factura_ruc`, `factura_direccion`, `factura_razon_social`, `hash`) VALUES
 (1, 'admin@cakesale.pe', '56f5950b728849d0b97c1bccf1691c090ab6734c', 1, 'publish', '3242342', 'Admin', 'asdasd', 'dasdasd', 'dfsdfsdf', '', '', '', '1'),
-(5, 'nico@ebp.pe', '1f82ea75c5cc526729e2d581aeb3aeccfef4407e', 3, 'trash', '3453453', 'Nico Quispe', 'Nico', 'Quispe', '23423', '', '', '', '1428df279a9a4fb4c060816ee89e60a4407f2705'),
+(5, 'nico@ebp.pe', '1f82ea75c5cc526729e2d581aeb3aeccfef4407e', 3, 'publish', '3453453', 'Nico Quispe', 'Nico', 'Quispe', '23423', '', '', '', '1428df279a9a4fb4c060816ee89e60a4407f2705'),
 (7, 'nico3@ebp.pe', 'fe703d258c7ef5f50b71e06565a65aa07194907f', 3, 'trash', '', 'NICO', '', '', '', '', '', '', '2'),
-(8, 'Diego@cakesale.com', '10470c3b4b1fed12c3baac014be15fac67c6e815', 3, 'trash', '', 'NICO', '', '', '', '', '', '', '3'),
+(8, 'Diego@cakesale.com', '10470c3b4b1fed12c3baac014be15fac67c6e815', 3, 'publish', '', 'NICO', '', '', '', '', '', '', '3'),
 (9, 'prueba@cakesale.pe', '10470c3b4b1fed12c3baac014be15fac67c6e815', 3, 'publish', '23121231', 'diego carlos', 'diego', 'carlos', 'Callao, Los portales del aeropuerto Mz J lote 24', '', '', '', '4'),
 (10, 'prueba2@cakesale.pe', 'fe703d258c7ef5f50b71e06565a65aa07194907f', 3, 'publish', '993791679', 'sdfsdf sdfsdfsdf', 'sdfsdf', 'sdfsdfsdf', 'Callao, Los portales del aeropuerto Mz J lote 24', '', '', '', '5'),
 (11, 'prueba3@cakesale.pe', 'fe703d258c7ef5f50b71e06565a65aa07194907f', 3, 'publish', '23423', 'asdas asdasd', 'asdas', 'asdasd', 'Los portales del aeropuerto Mz J lote 24, Los portales del aeropuerto Mz J lote 24', '', '', '', '6'),
@@ -785,6 +810,12 @@ ALTER TABLE `products`
   ADD KEY `cat_id` (`cat_id`);
 
 --
+-- Indices de la tabla `reportes`
+--
+ALTER TABLE `reportes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `shop_session`
 --
 ALTER TABLE `shop_session`
@@ -817,7 +848,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT de la tabla `design_products`
 --
 ALTER TABLE `design_products`
-  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `groups`
 --
@@ -837,7 +868,12 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=53;
+  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=51;
+--
+-- AUTO_INCREMENT de la tabla `reportes`
+--
+ALTER TABLE `reportes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
