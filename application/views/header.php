@@ -36,6 +36,8 @@
 					<li class="dropdown">
 						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Cateogrías <b class="caret"> </b></a>
 						<div class="dropdown-menu">
+							<a class="dropdown-item" href="<?= base_url("/categoria/tortas") ?>">Tortas</a>
+							<a class="dropdown-item" href="<?= base_url("/categoria/postres") ?>">Postres</a>
 							<a class="dropdown-item" href="<?= base_url("/categoria/infantiles") ?>">Infatiles</a>
 							<a class="dropdown-item" href="<?= base_url("/categoria/baby-shower") ?>">Baby shower</a>
 							<a class="dropdown-item" href="<?= base_url("/categoria/primera-comunion") ?>">Primera comunion</a>
@@ -45,6 +47,7 @@
 							<a class="dropdown-item" href="<?= base_url("/categoria/15-anos") ?>">15 años</a>
 							<a class="dropdown-item" href="<?= base_url("/categoria/18-anos") ?>">18 años</a>
 							<a class="dropdown-item" href="<?= base_url("/categoria/50-anos") ?>">50 años</a>
+
 						</div>
 					</li>
 					<li class="nav-item">
@@ -93,13 +96,23 @@
 		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
 				<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+				 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 			</ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="http://cakesale.pe/upload/50.png" class="d-block w-100 img-responsive">
+					<img src="http://cakesale.pe/upload/tortita1.jpg" class="d-block w-100 img-responsive">
+				</div>
+				<div class="carousel-item  ">
+					<img src="http://cakesale.pe/upload/tortita3.jpg" class="d-block w-100 img-responsive">
+				</div>
+				<div class="carousel-item  ">
+					<img src="http://cakesale.pe/upload/tortita2.jpg" class="d-block w-100 img-responsive">
 				</div>
 
 			</div>
+
+
 			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 				<span class="sr-only">Previous</span>
