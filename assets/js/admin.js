@@ -19,6 +19,7 @@ jQuery( document ).ready( function ( $ ) {
 
 	
 	$('.input-daterange').datepicker({
+		orientation: "bottom auto",
 		format: "yyyy-mm-dd",
 		language: "es",
 		autoclose: true,
