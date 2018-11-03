@@ -37,11 +37,11 @@
 				jQuery( window ).ready( function () {
 					var data = <?= json_encode( $data_graf ); ?>;
 					var data_chart = {
-						type: 'line',
+						type: 'horizontalBar',
 						data: {
 							labels: [],
 							datasets: [{
-								label: 'Ventas de productos por cantidad',
+								label: 'Ventas de productos',
 								fill: false,
 								data: [],
 								borderColor: [
@@ -71,15 +71,15 @@
 								position: 'top',
 							},
 							title: {
-								display: true,
-								text: 'Ventas de productos por cantidad'
+								display: false,
+								text: 'Ventas de productos'
 							},
 							animation: {
 								animateScale: true,
 								animateRotate: true
 							},
 							scales: {
-								yAxes: [{
+								xAxes: [{
 									display: true,
 									ticks: {
 										min: 0,
@@ -93,7 +93,7 @@
 							if (!data.hasOwnProperty(key)) continue;
 
 							var obj = data[key];
-							data_chart.data.labels.push( obj.name.substring(0, 20) ); 
+							data_chart.data.labels.push( obj.name ); 
 							data_chart.data.datasets[0].data.push( obj.total ); 
 						}
 					}
@@ -223,7 +223,6 @@
 							if (!data.hasOwnProperty(key)) continue;
 
 							var obj = data[key];
-							console.log( obj );
 							data_chart.data.labels.push( obj.name ); 
 							data_chart.data.datasets[0].data.push( obj.total ); 
 						}
@@ -302,7 +301,7 @@
 				jQuery( window ).ready( function () {
 					var data = <?= json_encode( $data_graf ); ?>;
 					var data_chart = {
-						type: 'horizontalBar',
+						type: 'line',
 						data: {
 							labels: [],
 							datasets: [{
@@ -340,7 +339,7 @@
 								animateRotate: true
 							},
 							scales: {
-								xAxes: [{
+								yAxes: [{
 									display: true,
 									ticks: {
 										min: 0,
@@ -354,7 +353,6 @@
 							if (!data.hasOwnProperty(key)) continue;
 
 							var obj = data[key];
-							console.log( obj );
 							data_chart.data.labels.push( obj.name ); 
 							data_chart.data.datasets[0].data.push( obj.total ); 
 						}
@@ -485,7 +483,6 @@
 							if (!data.hasOwnProperty(key)) continue;
 
 							var obj = data[key];
-							console.log( obj );
 							data_chart.data.labels.push( obj.name ); 
 							data_chart.data.datasets[0].data.push( obj.total ); 
 						}
