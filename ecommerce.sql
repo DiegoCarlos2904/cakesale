@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net
 --
 -- Servidor: localhost:3327
--- Tiempo de generación: 02-11-2018 a las 23:20:05
+-- Tiempo de generación: 03-11-2018 a las 01:48:12
 -- Versión del servidor: 5.6.37
 -- Versión de PHP: 7.1.8
 
@@ -70,71 +70,66 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `type` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT 'product',
   `val` int(11) NOT NULL DEFAULT '0',
   `status` varchar(50) NOT NULL DEFAULT 'publish'
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `comments`
 --
 
 INSERT INTO `comments` (`comment_id`, `user_id`, `post_id`, `comment`, `date_added`, `type`, `val`, `status`) VALUES
-(1, 1, 2, 'asdasd', '2018-10-11 04:16:58', 'product', 0, 'trash'),
-(2, 1, 2, 'sasdasd', '2018-10-11 04:17:16', 'product', 0, 'trash'),
-(3, 1, 2, 'asdasd', '2018-10-11 04:20:32', 'product', 0, 'trash'),
-(4, 1, 2, 'asdasd', '2018-10-11 04:22:33', 'product', 0, 'trash'),
-(5, 1, 2, 'asdasd', '2018-10-11 04:22:35', 'product', 0, 'trash'),
-(6, 1, 2, 'ffff', '2018-10-11 04:22:38', 'product', 0, 'trash'),
-(7, 1, 4, 'sdfsdf', '2018-10-15 04:12:17', 'product', 4, 'trash'),
-(8, 1, 4, 'as asd', '2018-10-15 04:12:22', 'product', 0, 'trash'),
-(9, 1, 4, 'sdfs', '2018-10-15 04:12:26', 'product', 3, 'trash'),
-(10, 1, 4, 'asd', '2018-10-15 04:17:23', 'product', 2, 'trash'),
-(11, 1, 4, 'asdas', '2018-10-15 04:17:58', 'product', 4, 'trash'),
-(12, 1, 4, 'erreer', '2018-10-15 04:19:47', 'product', 4, 'trash'),
-(13, 1, 4, 'dfsfsd', '2018-10-15 04:22:16', 'product', 0, 'trash'),
-(14, 19, 2, 'holii\r\n', '2018-10-15 21:27:14', 'product', 3, 'trash'),
-(15, 19, 23, 'esta muy bonito', '2018-10-17 16:22:20', 'product', 4, 'publish'),
-(16, 19, 23, 'debe tener color rojo', '2018-10-17 16:22:45', 'product', 1, 'trash'),
-(17, 19, 22, 'esta muy bonito', '2018-10-17 16:31:15', 'product', 4, 'publish'),
-(18, 19, 22, 'debe de tener el color morado', '2018-10-17 16:31:35', 'product', 0, 'trash'),
-(19, 27, 20, 'Esta bien bonita', '2018-10-17 16:38:17', 'product', 4, 'publish'),
-(20, 27, 20, 'Seria mejor de alianza lima', '2018-10-17 16:38:38', 'product', 1, 'trash'),
-(21, 27, 21, 'se ve muy bonito', '2018-10-17 18:10:05', 'product', 3, 'publish'),
-(22, 27, 21, 'se ve muy exagerado', '2018-10-17 18:10:18', 'product', 5, 'trash'),
-(23, 27, 24, 'Hola como estas', '2018-10-17 18:17:14', 'product', 4, 'publish'),
-(24, 27, 24, 'Bien y tu ', '2018-10-17 18:17:28', 'product', 5, 'trash'),
-(25, 27, 19, 'asadkasjkd', '2018-10-18 01:23:41', 'product', 0, 'trash'),
-(26, 27, 19, 'sadasda', '2018-10-18 01:23:45', 'product', 0, 'trash'),
-(27, 19, 2, 'muy bonito la torta ', '2018-10-18 06:30:15', 'product', 5, 'publish'),
-(28, 19, 2, 'hola', '2018-10-18 06:30:25', 'product', 5, 'trash'),
-(29, 19, 2, 'sad', '2018-10-18 06:30:33', 'product', 2, 'trash'),
-(30, 19, 2, 'hola\r\n', '2018-10-18 17:45:47', 'product', 4, 'trash'),
-(31, 27, 2, 'esta muy colorido', '2018-10-18 21:30:09', 'product', 3, 'publish'),
-(32, 31, 17, 'Esta muy bonita \r\n', '2018-11-02 07:13:41', 'product', 3, 'publish'),
-(33, 30, 17, 'esta muy feo', '2018-11-02 07:14:27', 'product', 1, 'publish'),
-(34, 29, 17, 'Esta muy bonito pero demasiado grande', '2018-11-02 07:15:30', 'product', 3, 'publish'),
-(35, 29, 17, 'Esta muy bonito', '2018-11-02 07:16:27', 'product', 4, 'publish'),
-(36, 28, 17, 'se ve muy feo', '2018-11-02 07:17:18', 'product', 1, 'publish'),
-(37, 27, 17, 'se ve muy bien ', '2018-11-02 07:18:15', 'product', 5, 'publish'),
-(38, 19, 17, 'muy bonito', '2018-11-02 07:19:48', 'product', 5, 'publish'),
-(39, 19, 19, 'Es muy exagerado', '2018-11-02 07:26:33', 'product', 4, 'publish'),
-(40, 32, 19, 'es muy bonito ', '2018-11-02 07:27:09', 'product', 5, 'publish'),
-(41, 30, 19, 'se ve muy bonito pero debería de poner mas diseños ', '2018-11-02 07:27:59', 'product', 5, 'publish'),
-(42, 31, 19, 'Se ve demasiado bonito', '2018-11-02 07:28:39', 'product', 5, 'publish'),
-(43, 28, 19, 'Deberia de ir una virgen pero igual se ve muy bonito', '2018-11-02 07:30:01', 'product', 5, 'publish'),
-(44, 27, 19, 'se ve muy bonito', '2018-11-02 07:31:07', 'product', 5, 'publish'),
-(45, 19, 20, 'deberían de tener de alianza lima', '2018-11-02 07:33:24', 'product', 1, 'publish'),
-(46, 32, 20, 'Debería ir muñeco', '2018-11-02 07:34:43', 'product', 5, 'publish'),
-(47, 30, 20, 'VAMOS LA U GARRA CREMA', '2018-11-02 07:35:27', 'product', 5, 'publish'),
-(48, 28, 20, 'Deben poner modelos del barcelona', '2018-11-02 07:36:08', 'product', 2, 'publish'),
-(49, 31, 20, 'se ve muy feo', '2018-11-02 07:37:06', 'product', 5, 'publish'),
-(50, 19, 21, 'Se ve de demasiado exagerado', '2018-11-02 07:38:05', 'product', 1, 'publish'),
-(51, 28, 21, 'Se tiene que hacer mas modelos', '2018-11-02 07:38:49', 'product', 5, 'publish'),
-(52, 29, 22, 'se ve demasiado opaco', '2018-11-02 07:40:24', 'product', 1, 'publish'),
-(53, 32, 23, 'se ve demasiado sencillo', '2018-11-02 07:40:57', 'product', 0, 'trash'),
-(54, 32, 23, 'se ve demasiado sencillo', '2018-11-02 07:41:22', 'product', 1, 'publish'),
-(55, 27, 51, 'deberia de haber mas variedad', '2018-11-02 07:42:42', 'product', 1, 'publish'),
-(56, 28, 53, 'se ve muy delicioso pero deberían de tener fresa', '2018-11-02 07:43:23', 'product', 5, 'publish'),
-(57, 31, 54, 'esta muy bonito', '2018-11-02 07:43:54', 'product', 3, 'publish'),
-(58, 31, 55, 'esta muy divertido', '2018-11-02 07:44:19', 'product', 4, 'publish');
+(15, 19, 23, 'esta muy bonito', '2018-07-01 16:22:20', 'product', 4, 'publish'),
+(17, 19, 22, 'esta muy bonito', '2018-07-02 16:31:15', 'product', 4, 'publish'),
+(19, 27, 20, 'Esta bien bonita', '2018-07-03 16:38:17', 'product', 4, 'publish'),
+(21, 27, 21, 'se ve muy bonito', '2018-07-04 18:10:05', 'product', 3, 'publish'),
+(23, 27, 24, 'Hola como estas', '2018-07-05 18:17:14', 'product', 4, 'publish'),
+(27, 19, 2, 'muy bonito la torta ', '2018-07-09 06:30:15', 'product', 5, 'publish'),
+(31, 27, 2, 'esta muy colorido', '2018-07-09 21:30:09', 'product', 3, 'publish'),
+(32, 31, 17, 'Esta muy bonita \r\n', '2018-07-18 07:13:41', 'product', 3, 'publish'),
+(33, 30, 17, 'esta muy feo', '2018-07-18 07:14:27', 'product', 1, 'publish'),
+(34, 29, 17, 'Esta muy bonito pero demasiado grande', '2018-07-24 07:15:30', 'product', 3, 'publish'),
+(35, 29, 17, 'Esta muy bonito', '2018-08-01 07:16:27', 'product', 4, 'publish'),
+(36, 28, 17, 'se ve muy feo', '2018-08-02 07:17:18', 'product', 1, 'publish'),
+(37, 27, 17, 'se ve muy bien ', '2018-08-06 07:18:15', 'product', 5, 'publish'),
+(38, 19, 17, 'muy bonito', '2018-08-07 07:19:48', 'product', 5, 'publish'),
+(39, 19, 19, 'Es muy exagerado', '2018-08-10 07:26:33', 'product', 4, 'publish'),
+(40, 32, 19, 'es muy bonito ', '2018-08-12 07:27:09', 'product', 5, 'publish'),
+(41, 30, 19, 'se ve muy bonito pero debería de poner mas diseños ', '2018-08-14 07:27:59', 'product', 5, 'publish'),
+(42, 31, 19, 'Se ve demasiado bonito', '2018-08-15 07:28:39', 'product', 5, 'publish'),
+(43, 28, 19, 'Deberia de ir una virgen pero igual se ve muy bonito', '2018-08-28 07:30:01', 'product', 5, 'publish'),
+(44, 27, 19, 'se ve muy bonito', '2018-08-29 07:31:07', 'product', 5, 'publish'),
+(45, 19, 20, 'deberían de tener de alianza lima', '2018-09-01 07:33:24', 'product', 1, 'publish'),
+(46, 32, 20, 'Debería ir muñeco', '2018-09-11 07:34:43', 'product', 5, 'publish'),
+(47, 30, 20, 'VAMOS LA U GARRA CREMA', '2018-09-12 07:35:27', 'product', 5, 'publish'),
+(48, 28, 20, 'Deben poner modelos del barcelona', '2018-09-13 07:36:08', 'product', 2, 'publish'),
+(49, 31, 20, 'se ve muy feo', '2018-09-14 07:37:06', 'product', 5, 'publish'),
+(50, 19, 21, 'Se ve de demasiado exagerado', '2018-09-17 07:38:05', 'product', 1, 'publish'),
+(51, 28, 21, 'Se tiene que hacer mas modelos', '2018-09-20 07:38:49', 'product', 5, 'publish'),
+(52, 29, 22, 'se ve demasiado opaco', '2018-09-21 07:40:24', 'product', 1, 'publish'),
+(53, 32, 23, 'se ve demasiado sencillo', '2018-09-23 07:40:57', 'product', 0, 'trash'),
+(54, 32, 23, 'se ve demasiado sencillo', '2018-09-24 07:41:22', 'product', 1, 'publish'),
+(55, 27, 51, 'deberia de haber mas variedad', '2018-09-26 07:42:42', 'product', 1, 'publish'),
+(56, 28, 53, 'se ve muy delicioso pero deberían de tener fresa', '2018-10-01 07:43:23', 'product', 5, 'publish'),
+(57, 31, 54, 'esta muy bonito', '2018-10-02 07:43:54', 'product', 3, 'publish'),
+(58, 31, 55, 'esta muy divertido', '2018-10-03 07:44:19', 'product', 4, 'publish'),
+(59, 19, 22, 'se ve muy exagerado', '2018-10-05 23:53:34', 'product', 5, 'publish'),
+(60, 32, 54, 'Debe tener tambien de mikey mause', '2018-10-08 23:54:19', 'product', 4, 'publish'),
+(61, 32, 54, 'bonito\r\n', '2018-10-09 23:54:34', 'product', 2, 'publish'),
+(62, 28, 24, 'se ve para muy ancianos', '2018-10-13 23:55:04', 'product', 3, 'publish'),
+(63, 30, 53, 'se ve muy delicioso', '2018-10-14 23:55:28', 'product', 4, 'publish'),
+(64, 32, 20, 'se ve muy feo debe ser de alianza lima', '2018-10-15 23:56:04', 'product', 1, 'publish'),
+(65, 31, 17, 'debe tener diseño de de goku', '2018-10-16 23:56:43', 'product', 2, 'publish'),
+(66, 27, 21, 'es muy exagerado', '2018-10-17 23:57:13', 'product', 1, 'publish'),
+(67, 30, 23, 'tiene mucho color azul no me gusta', '2018-10-18 23:57:42', 'product', 3, 'publish'),
+(68, 31, 19, 'esta muy bonito', '2018-10-23 23:58:25', 'product', 4, 'publish'),
+(69, 27, 20, 'debe tener del boys', '2018-10-25 23:58:51', 'product', 1, 'publish'),
+(70, 30, 55, 'se ve muy bonito', '2018-10-28 23:59:15', 'product', 5, 'publish'),
+(71, 27, 17, 'esta recontra bonito', '2018-10-29 00:04:33', 'product', 4, 'publish'),
+(72, 27, 19, 'que hermoso', '2018-10-29 00:04:50', 'product', 4, 'publish'),
+(73, 27, 20, 'es horrible', '2018-10-29 00:05:05', 'product', 3, 'publish'),
+(74, 27, 22, 'otro color caeria mejor', '2018-10-30 00:05:30', 'product', 3, 'publish'),
+(75, 27, 24, 'se verían mejor con otro diseño', '2018-10-30 00:06:07', 'product', 3, 'publish'),
+(76, 19, 55, 'muy curioso', '2018-10-31 00:06:39', 'product', 4, 'publish'),
+(77, 32, 53, 'quer ricoo', '2018-11-01 00:07:00', 'product', 3, 'publish');
 
 -- --------------------------------------------------------
 
@@ -152,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `design_products` (
   `mensaje` varchar(400) NOT NULL,
   `hash` varchar(200) NOT NULL,
   `product_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `design_products`
@@ -170,7 +165,8 @@ INSERT INTO `design_products` (`pro_id`, `pro_title`, `pro_image`, `stuts`, `use
 (9, 'Torta diseño del  barcelona', 'http://cakesale.pe/upload/FC_BARCELONA1.jpg', 'publish', 27, 'queque de vainilla con los colores azul y rojo', 'Feliz cumpleaños Fernando Zapata', '410ce4e7e2774509519f2bf2cae92f49d89addda', 47),
 (10, 'torta de fresa ', 'http://cakesale.pe/upload/Torta-de-Chocolate-11.jpg', 'publish', 27, 'Queque de vainilla decoración  celeste', 'Feliz cumpleaños Carlos', '02dde8d59c7bd8f3e092e683e64fe8d4e4f74f8d', 48),
 (11, 'torta de maracuya con fresa', 'http://cakesale.pe/upload/torta-lucuma5.jpg', 'publish', 27, 'Queque de vainilla decoración dorado', 'Feliz cumpleaños Carlos', '7a7db22b99f306c00940ad011745bcc6c7d7c13e', 49),
-(12, 'Torta de cafe ', 'http://cakesale.pe/upload/torta-golosinerakg-tartas-tortas-mesa-dulce-dulce-vera-D_NQ_NP_541321-MLA20749533940_062016-F3.jpg', 'publish', 19, 'Que tenga todas lo chocolates', 'Feliz cumpleaños profesor Yamil', 'd4d9f8cf201efca0988f3b440533bf313ac7e31f', 50);
+(12, 'Torta de cafe ', 'http://cakesale.pe/upload/torta-golosinerakg-tartas-tortas-mesa-dulce-dulce-vera-D_NQ_NP_541321-MLA20749533940_062016-F3.jpg', 'publish', 19, 'Que tenga todas lo chocolates', 'Feliz cumpleaños profesor Yamil', 'd4d9f8cf201efca0988f3b440533bf313ac7e31f', 50),
+(13, 'TORTA DE FRESAA', 'http://cakesale.pe/upload/images2.jpg', 'publish', 30, 'SDSDF', 'RELLENO DE CHOCOLATE', 'f6a7e5f96c3f573440db3d794bcda910036e0194', 56);
 
 -- --------------------------------------------------------
 
@@ -205,42 +201,53 @@ CREATE TABLE IF NOT EXISTS `invoices` (
   `usr_id` int(10) NOT NULL,
   `status` enum('paid','confirmed','unpaid','canceled','expired') NOT NULL,
   `total` float(12,2) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `invoices`
 --
 
 INSERT INTO `invoices` (`id`, `data`, `due_date`, `usr_id`, `status`, `total`) VALUES
-(1, '2018-10-15 17:40:59', '2018-10-16 17:40:59', 19, 'paid', 16.00),
-(2, '2018-10-15 17:49:20', '2018-10-16 17:49:20', 19, 'paid', 60.00),
-(3, '2018-10-15 17:51:22', '2018-10-16 17:51:22', 19, 'paid', 60.00),
-(4, '2018-10-15 18:00:55', '2018-10-16 18:00:55', 19, 'paid', 70.00),
-(5, '2018-10-15 18:12:00', '2018-10-16 18:12:00', 19, 'paid', 50.00),
-(6, '2018-10-15 18:13:18', '2018-10-16 18:13:18', 19, 'paid', 60.00),
+(1, '2018-08-01 17:40:59', '2018-08-01 17:40:59', 19, 'paid', 16.00),
+(2, '2018-08-03 17:49:20', '2018-08-03 17:49:20', 19, 'paid', 60.00),
+(3, '2018-08-06 17:51:22', '2018-08-06 17:51:22', 19, 'paid', 60.00),
+(4, '2018-08-07 18:00:55', '2018-08-07 18:00:55', 19, 'paid', 70.00),
+(5, '2018-08-08 18:12:00', '2018-08-08 18:12:00', 19, 'paid', 50.00),
+(6, '2018-09-01 18:13:18', '2018-10-16 18:13:18', 19, 'paid', 60.00),
 (7, '2018-10-15 18:20:24', '2018-10-16 18:20:24', 19, 'paid', 50.00),
 (8, '2018-10-15 18:56:36', '2018-10-16 18:56:36', 19, 'paid', 60.00),
 (9, '2018-10-15 19:00:12', '2018-10-16 19:00:12', 19, 'paid', 80.00),
-(10, '2018-10-15 19:07:07', '2018-10-16 19:07:07', 19, 'paid', 0.00),
-(11, '2018-10-15 19:07:53', '2018-10-16 19:07:53', 19, 'paid', 0.00),
-(12, '2018-10-15 19:09:51', '2018-10-16 19:09:51', 19, 'paid', 0.00),
-(13, '2018-10-15 19:10:24', '2018-10-16 19:10:24', 19, 'paid', 0.00),
-(14, '2018-10-15 19:12:08', '2018-10-16 19:12:08', 19, 'paid', 0.00),
-(15, '2018-10-15 19:13:47', '2018-10-16 19:13:47', 19, 'paid', 0.00),
 (16, '2018-10-17 11:26:37', '2018-10-18 11:26:37', 19, 'paid', 30.50),
-(17, '2018-10-17 11:41:06', '2018-10-18 11:41:06', 27, 'paid', 80.00),
-(18, '2018-10-17 13:20:07', '2018-10-18 13:20:07', 27, 'paid', 160.00),
-(19, '2018-10-18 01:33:31', '2018-10-19 01:33:31', 19, 'paid', 50.00),
-(20, '2018-11-02 17:48:33', '2018-11-03 17:48:33', 19, 'paid', 30.00),
-(21, '2018-11-02 17:50:28', '2018-11-03 17:50:28', 19, 'paid', 50.00),
-(22, '2018-11-02 17:58:08', '2018-11-03 17:58:08', 32, 'paid', 120.00),
-(23, '2018-11-02 18:00:33', '2018-11-03 18:00:33', 32, 'paid', 160.00),
-(24, '2018-11-02 18:02:49', '2018-11-03 18:02:49', 32, 'paid', 70.00),
-(25, '2018-11-02 18:05:15', '2018-11-03 18:05:15', 27, 'paid', 150.00),
-(26, '2018-11-02 18:07:28', '2018-11-03 18:07:28', 30, 'paid', 200.00),
-(27, '2018-11-02 18:09:08', '2018-11-03 18:09:08', 28, 'paid', 80.00),
-(28, '2018-11-02 18:12:00', '2018-11-03 18:12:00', 29, 'paid', 270.00),
-(29, '2018-11-02 18:13:44', '2018-11-03 18:13:44', 31, 'paid', 80.00);
+(17, '2018-10-17 11:41:06', '2018-08-09 11:41:06', 27, 'paid', 80.00),
+(18, '2018-10-17 13:20:07', '2018-08-10 13:20:07', 27, 'paid', 160.00),
+(19, '2018-10-18 01:33:31', '2018-09-01 01:33:31', 19, 'paid', 50.00),
+(20, '2018-11-02 17:48:33', '2018-09-10 17:48:33', 19, 'paid', 30.00),
+(21, '2018-11-02 17:50:28', '2018-09-18 17:50:28', 19, 'paid', 50.00),
+(22, '2018-11-02 17:58:08', '2018-08-11 17:58:08', 32, 'paid', 120.00),
+(23, '2018-11-02 18:00:33', '2018-08-12 18:00:33', 32, 'paid', 160.00),
+(24, '2018-11-02 18:02:49', '2018-08-13 18:02:49', 32, 'paid', 70.00),
+(25, '2018-11-02 18:05:15', '2018-09-26 18:05:15', 27, 'paid', 150.00),
+(26, '2018-11-02 18:07:28', '2018-09-27 18:07:28', 30, 'paid', 200.00),
+(27, '2018-11-02 18:09:08', '2018-09-30 18:09:08', 28, 'paid', 80.00),
+(28, '2018-11-02 18:12:00', '2018-10-01 18:12:00', 29, 'paid', 270.00),
+(29, '2018-11-02 18:13:44', '2018-10-09 18:13:44', 31, 'paid', 80.00),
+(30, '2018-11-02 20:18:50', '2018-10-09 20:18:50', 30, 'paid', 80.00),
+(31, '2018-11-02 20:20:04', '2018-10-15 20:20:04', 32, 'paid', 60.00),
+(32, '2018-11-02 20:21:13', '2018-10-16 20:21:13', 27, 'paid', 120.00),
+(33, '2018-11-02 20:22:34', '2018-10-17 20:22:34', 31, 'paid', 30.00),
+(34, '2018-11-02 20:23:51', '2018-10-18 20:23:51', 28, 'paid', 80.00),
+(35, '2018-11-02 20:25:12', '2018-11-19 20:25:12', 29, 'paid', 100.00),
+(36, '2018-11-02 20:26:14', '2018-10-20 20:26:14', 28, 'paid', 80.00),
+(37, '2018-11-02 20:27:18', '2018-10-21 20:27:18', 27, 'paid', 50.00),
+(38, '2018-11-02 20:28:51', '2018-10-22 20:28:51', 28, 'paid', 80.00),
+(39, '2018-11-02 20:30:17', '2018-10-23 20:30:17', 32, 'paid', 80.00),
+(40, '2018-11-02 20:31:57', '2018-10-24 20:31:57', 27, 'paid', 80.00),
+(41, '2018-11-02 20:33:03', '2018-10-24 20:33:03', 30, 'paid', 80.00),
+(42, '2018-11-02 20:35:18', '2018-10-28 20:35:18', 28, 'paid', 120.00),
+(43, '2018-11-02 20:36:38', '2018-10-30 20:36:38', 31, 'paid', 80.00),
+(44, '2018-11-02 20:38:23', '2018-11-01 20:38:23', 32, 'paid', 30.00),
+(45, '2018-11-02 20:40:18', '2018-11-02 20:40:18', 30, 'paid', 120.00),
+(46, '2018-11-02 20:41:55', '2018-11-03 20:41:55', 27, 'paid', 100.00);
 
 -- --------------------------------------------------------
 
@@ -258,7 +265,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `options` text NOT NULL,
   `stuts` enum('publish','trash') NOT NULL,
   `dateCreate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `orders`
@@ -293,7 +300,25 @@ INSERT INTO `orders` (`id`, `invoice_id`, `product_id`, `product_title`, `qty`, 
 (26, 28, 53, 'cheesecake de maracuya 2', 1, '50.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:16:"FELIZ DIA MARGOT";s:16:"especificaciones";s:20:"RELLENO DE CHOCOLATE";}', 'publish', '2018-11-02 23:12:00'),
 (27, 28, 23, 'Torta de 18 años 1', 1, '100.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:14:"FELIZ DIA LUIS";s:16:"especificaciones";s:20:"RELLENO DE CHOCOLATE";}', 'publish', '2018-11-02 23:12:00'),
 (28, 28, 24, 'Torta de 50 años 1', 1, '120.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:18:"FELIZ DIA ABUALITA";s:16:"especificaciones";s:20:"RELLENO DE CHOCOLATE";}', 'publish', '2018-11-02 23:12:00'),
-(29, 29, 22, 'Torta de 15 años 1', 1, '80.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:16:"FELIZ DIA LUCERO";s:16:"especificaciones";s:20:"RELLENO DE CHOCOLATE";}', 'publish', '2018-11-02 23:13:44');
+(29, 29, 22, 'Torta de 15 años 1', 1, '80.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:16:"FELIZ DIA LUCERO";s:16:"especificaciones";s:20:"RELLENO DE CHOCOLATE";}', 'publish', '2018-11-02 23:13:44'),
+(30, 30, 55, 'babyshower', 1, '80.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:5:"asdsa";s:16:"especificaciones";s:6:"sadasd";}', 'publish', '2018-11-03 01:18:50'),
+(31, 31, 17, 'Matrimonio 1', 1, '60.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:5:"sdfsd";s:16:"especificaciones";s:4:"fdsf";}', 'publish', '2018-11-03 01:20:04'),
+(32, 32, 24, 'Torta de 50 años 1', 1, '120.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:9:"dsfsdfdsf";s:16:"especificaciones";s:6:"sdfdsf";}', 'publish', '2018-11-03 01:21:14'),
+(33, 33, 51, 'Torta de de lucuma 2', 1, '30.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:6:"dsfsdf";s:16:"especificaciones";s:6:"sdfdsf";}', 'publish', '2018-11-03 01:22:34'),
+(34, 34, 54, 'Infantil 2', 1, '80.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:10:"jghjbjkbjk";s:16:"especificaciones";s:7:"jknkkjn";}', 'publish', '2018-11-03 01:23:51'),
+(35, 35, 53, 'cheesecake de maracuya 2', 1, '50.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:8:"trtrrtrt";s:16:"especificaciones";s:7:"trrttrt";}', 'publish', '2018-11-03 01:25:12'),
+(36, 35, 53, 'cheesecake de maracuya 2', 1, '50.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:5:"gfggf";s:16:"especificaciones";s:6:"fggfgf";}', 'publish', '2018-11-03 01:25:12'),
+(37, 36, 54, 'Infantil 2', 1, '80.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:5:"gffgf";s:16:"especificaciones";s:6:"fgfggf";}', 'publish', '2018-11-03 01:26:14'),
+(38, 37, 53, 'cheesecake de maracuya 2', 1, '50.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:9:"kjhjknkln";s:16:"especificaciones";s:9:"hkghjjkkj";}', 'publish', '2018-11-03 01:27:18'),
+(39, 38, 55, 'babyshower', 1, '80.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:5:"dsfds";s:16:"especificaciones";s:5:"dsfds";}', 'publish', '2018-11-03 01:28:51'),
+(40, 39, 22, 'Torta de 15 años 1', 1, '80.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:6:"sadsad";s:16:"especificaciones";s:7:"asdsads";}', 'publish', '2018-11-03 01:30:17'),
+(41, 40, 55, 'babyshower', 1, '80.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:7:"saddasd";s:16:"especificaciones";s:6:"asdasd";}', 'publish', '2018-11-03 01:31:57'),
+(42, 41, 21, 'Despedida 1', 1, '80.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:7:"fdgdsfg";s:16:"especificaciones";s:6:"sdfdsf";}', 'publish', '2018-11-03 01:33:03'),
+(43, 42, 24, 'Torta de 50 años 1', 1, '120.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:6:"sdfdsf";s:16:"especificaciones";s:8:"dsfdsfds";}', 'publish', '2018-11-03 01:35:18'),
+(44, 43, 22, 'Torta de 15 años 1', 1, '80.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:8:"mklmlkmk";s:16:"especificaciones";s:7:"hghjbjk";}', 'publish', '2018-11-03 01:36:38'),
+(45, 44, 51, 'Torta de de lucuma 2', 1, '30.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:6:"dsasda";s:16:"especificaciones";s:6:"sadsad";}', 'publish', '2018-11-03 01:38:23'),
+(46, 45, 24, 'Torta de 50 años 1', 1, '120.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:5:"sdssf";s:16:"especificaciones";s:6:"fdsfds";}', 'publish', '2018-11-03 01:40:18'),
+(47, 46, 23, 'Torta de 18 años 1', 1, '100.00', 'a:3:{s:9:"porciones";N;s:7:"mensaje";s:6:"esfsdf";s:16:"especificaciones";s:7:"sdfsdfs";}', 'publish', '2018-11-03 01:41:55');
 
 -- --------------------------------------------------------
 
@@ -312,7 +337,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `pro_slug` varchar(200) NOT NULL,
   `stuts` set('publish','trash','hidden') NOT NULL,
   `user_id` int(11) NOT NULL DEFAULT '1'
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `products`
@@ -330,14 +355,14 @@ INSERT INTO `products` (`pro_id`, `pro_title`, `pro_description`, `pro_price`, `
 (14, '           hola', '         feliz navidad', '120.00', 17, 'http://cakesale.pe/upload/501.png', 2, 'hola', 'trash', 1),
 (15, '               21231354', '                   323232', '151.00', 4, '', 1, '21231354', 'trash', 1),
 (16, 'd', '                               d', '151.01', 555115, '', 1, 'd', 'trash', 1),
-(17, 'Matrimonio 1', 'Torta de masa elástica diseñada de dos parejas  ', '60.00', 1, 'http://cakesale.pe/upload/matri4.jpg', 4, 'matrimonio-1', 'publish', 1),
+(17, 'Matrimonio 1', 'Torta de masa elástica diseñada de dos parejas  ', '60.00', 0, 'http://cakesale.pe/upload/matri4.jpg', 4, 'matrimonio-1', 'publish', 1),
 (18, 'ecdsf', 'sdfdsfds', '12.00', 45, 'http://cakesale.pe/upload/torta_chantilly_baby_shower1.jpg', 2, 'ecdsf', 'trash', 1),
 (19, 'Primera comunión 1 ', 'Diseñado de masa elástica diseñada de un rosario ', '50.00', 0, 'http://cakesale.pe/upload/Cruz.jpg', 3, 'primera-comunin-1', 'publish', 1),
 (20, 'Deportivo 1', 'Torta de masa elástica diseñada con el logo de la u ', '70.00', 2, 'http://cakesale.pe/upload/dd817f03aaeafa355331db6d506d643d.jpg', 5, 'deportivo-1', 'publish', 1),
-(21, 'Despedida 1', 'Torta de una pareja de despedida con diseño de un muñeco', '80.00', 4, 'http://cakesale.pe/upload/cfb_195887.jpg', 6, 'despedida-1', 'publish', 1),
-(22, 'Torta de 15 años 1', 'Torta 15 años en masa elástica ', '80.00', 8, 'http://cakesale.pe/upload/tortas-de-boda-casamiento-15-anos-fondant-D_NQ_NP_740493-MLU25743115146_072017-F.jpg', 7, 'torta-de-15-aos-1', 'publish', 1),
-(23, 'Torta de 18 años 1', 'tortas de 18 años masa elástica ', '100.00', 6, 'http://cakesale.pe/upload/100_4011.JPG', 8, 'torta-de-18-aos-1', 'publish', 1),
-(24, 'Torta de 50 años 1', 'Torta de masa elástica de 50 años', '120.00', 8, 'http://cakesale.pe/upload/TORTA-3-240.jpg', 9, 'torta-de-50-aos-1', 'publish', 1),
+(21, 'Despedida 1', 'Torta de una pareja de despedida con diseño de un muñeco', '80.00', 3, 'http://cakesale.pe/upload/cfb_195887.jpg', 6, 'despedida-1', 'publish', 1),
+(22, 'Torta de 15 años 1', 'Torta 15 años en masa elástica ', '80.00', 6, 'http://cakesale.pe/upload/tortas-de-boda-casamiento-15-anos-fondant-D_NQ_NP_740493-MLU25743115146_072017-F.jpg', 7, 'torta-de-15-aos-1', 'publish', 1),
+(23, 'Torta de 18 años 1', 'tortas de 18 años masa elástica ', '100.00', 5, 'http://cakesale.pe/upload/100_4011.JPG', 8, 'torta-de-18-aos-1', 'publish', 1),
+(24, 'Torta de 50 años 1', 'Torta de masa elástica de 50 años', '120.00', 5, 'http://cakesale.pe/upload/TORTA-3-240.jpg', 9, 'torta-de-50-aos-1', 'publish', 1),
 (25, 'tiramisu', '......', '15.00', 2, 'http://cakesale.pe/upload/Torta-de-Guanabana-con-Manjar.jpg', 1, 'tiramisu', 'trash', 1),
 (26, 'Nuevo producto invisible', 'asidnaidas dasd asd', '12.00', 1, '', 1, 'nuevo-producto-invisible', 'trash', 1),
 (27, 'sdfsdfs', 'dfsdfsd', '12.00', 3, 'http://cakesale.pe/upload/Screenshot_15343591021.png', 0, 'sdfsdfs', 'trash', 1),
@@ -351,11 +376,12 @@ INSERT INTO `products` (`pro_id`, `pro_title`, `pro_description`, `pro_price`, `
 (48, 'torta de fresa ', 'Feliz cumpleaños Carlos', '45.00', 2, 'http://cakesale.pe/upload/Torta-de-Chocolate-11.jpg', 0, 'torta-de-fresa', 'trash', 27),
 (49, 'torta de maracuya con fresa', 'Feliz cumpleaños Carlos', '80.00', 0, 'http://cakesale.pe/upload/torta-lucuma5.jpg', 0, 'torta-de-maracuya-con-fresa', 'trash', 27),
 (50, 'Torta de cafe ', 'Feliz cumpleaños profesor Yamil', '50.00', 0, 'http://cakesale.pe/upload/torta-golosinerakg-tartas-tortas-mesa-dulce-dulce-vera-D_NQ_NP_541321-MLA20749533940_062016-F3.jpg', 0, 'torta-de-cafe', 'trash', 19),
-(51, 'Torta de de lucuma 2', 'Con crema de chantilli', '30.00', 5, 'http://cakesale.pe/upload/torta-de-lucuma.jpg', 15, 'torta-de-de-lucuma-2', 'publish', 1),
+(51, 'Torta de de lucuma 2', 'Con crema de chantilli', '30.00', 3, 'http://cakesale.pe/upload/torta-de-lucuma.jpg', 15, 'torta-de-de-lucuma-2', 'publish', 1),
 (52, 'cheesecake de maracuya', 'Bañado de maraculla con crema de lecha', '50.00', 8, '', 16, 'cheesecake-de-maracuya', 'trash', 1),
-(53, 'cheesecake de maracuya 2', 'maracuya con crema de leche', '50.00', 6, 'http://cakesale.pe/upload/cheesecake-maracuya1-d82e14bdded6695e7115310116976550-640-01.jpg', 16, 'cheesecake-de-maracuya-2', 'publish', 1),
-(54, 'Infantil 2', 'diseñado de dibujos', '80.00', 5, 'http://cakesale.pe/upload/Torta_de_mini.jpg', 1, 'infantil-2', 'publish', 1),
-(55, 'babyshower', 'Diseñado de bebe', '80.00', 4, 'http://cakesale.pe/upload/Torta_masa_elastica_mujercita_con_pañal.jpg', 2, 'babyshower', 'publish', 1);
+(53, 'cheesecake de maracuya 2', 'maracuya con crema de leche', '50.00', 3, 'http://cakesale.pe/upload/cheesecake-maracuya1-d82e14bdded6695e7115310116976550-640-01.jpg', 16, 'cheesecake-de-maracuya-2', 'publish', 1),
+(54, 'Infantil 2', 'diseñado de dibujos', '80.00', 3, 'http://cakesale.pe/upload/Torta_de_mini.jpg', 1, 'infantil-2', 'publish', 1),
+(55, 'babyshower', 'Diseñado de bebe', '80.00', 1, 'http://cakesale.pe/upload/Torta_masa_elastica_mujercita_con_pañal.jpg', 2, 'babyshower', 'publish', 1),
+(56, 'TORTA DE FRESAA', 'RELLENO DE CHOCOLATE', '10.00', 1, 'http://cakesale.pe/upload/images2.jpg', 0, 'torta-de-fresaa', 'hidden', 30);
 
 -- --------------------------------------------------------
 
@@ -925,12 +951,12 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT de la tabla `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=59;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=78;
 --
 -- AUTO_INCREMENT de la tabla `design_products`
 --
 ALTER TABLE `design_products`
-  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT de la tabla `groups`
 --
@@ -940,17 +966,17 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT de la tabla `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
+  MODIFY `id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=47;
 --
 -- AUTO_INCREMENT de la tabla `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
+  MODIFY `id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=56;
+  MODIFY `pro_id` int(16) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=57;
 --
 -- AUTO_INCREMENT de la tabla `reportes`
 --
