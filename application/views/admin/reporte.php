@@ -433,7 +433,7 @@
 				jQuery( window ).ready( function () {
 					var data = <?= json_encode( $data_graf ); ?>;
 					var data_chart = {
-						type: 'line',
+						type: 'horizontalBar',
 						data: {
 							labels: [],
 							datasets: [{
@@ -471,7 +471,7 @@
 								animateRotate: true
 							},
 							scales: {
-								yAxes: [{
+								xAxes: [{
 									display: true,
 									ticks: {
 										min: 0,
@@ -486,7 +486,7 @@
 
 							var obj = data[key];
 							console.log( obj );
-							data_chart.data.labels.push( obj.name.substring(0, 15) ); 
+							data_chart.data.labels.push( obj.name ); 
 							data_chart.data.datasets[0].data.push( obj.total ); 
 						}
 					}
