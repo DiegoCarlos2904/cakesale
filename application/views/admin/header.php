@@ -45,6 +45,9 @@
 						<a class="nav-link <?= $this->uri->segment(2) == 'pedidos' ? 'active' : '' ?>" href="<?= base_url("/admin/pedidos") ?>">Pedidos</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link <?= $this->uri->segment(2) == 'ubicaciones' ? 'active' : '' ?>" href="<?= base_url("/admin/ubicaciones") ?>">Ubicaciones</a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link <?= $this->uri->segment(2) == 'reportes' ? 'active' : '' ?>" href="<?= base_url("/admin/reportes") ?>">Reportes</a>
 					</li>
 				</ul>

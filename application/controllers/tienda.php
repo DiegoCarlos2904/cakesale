@@ -34,6 +34,8 @@ class Tienda extends CI_Controller {
 	}
 	public function ubicaciones() {
 		$data['hide_slider'] = true;
+		$this->load->model('model_locations');
+		$data['list'] = $this->model_locations->get_all();
 		$data['title'] = 'Ubicaciones';
 		$this->load->view('ubicaciones',$data); 
 	}
