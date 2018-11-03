@@ -110,7 +110,7 @@ class Model_orders extends CI_Model {
 		return $list->result_array();
 	}
 	public function get_categorias_reporte($from, $to) {
-		$this->db->select('categories.*,product_title as nombre, count( orders.id ) as count, SUM( price * qty ) as total, SUM( qty ) as qty');
+		$this->db->select('categories.*, categories.name as nombre, count( orders.id ) as count, SUM( price * qty ) as total, SUM( qty ) as qty');
 		$this->db->join('products', 'products.pro_id = orders.product_id', 'LEFT');
 		$this->db->join('categories', 'categories.cat_id = products.cat_id', 'LEFT');
 		$this->db->where('dateCreate >=', $from.' 00:00:00');

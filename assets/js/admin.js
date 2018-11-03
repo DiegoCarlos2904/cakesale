@@ -24,8 +24,30 @@ jQuery( document ).ready( function ( $ ) {
 		autoclose: true,
 	});
 
-	
+	var buttonCommon = {
+        exportOptions: {
+            format: {
+                body: function ( data, row, column, node ) {
+                    return column === 5 ?
+                        data.replace( /[$,]/g, '' ) :
+                        data;
+                }
+            }
+        }
+    };
 	$('#tableList').DataTable( {
+		dom: 'Bfrtip',
+		buttons: [
+            $.extend( true, {}, buttonCommon, {
+                extend: 'copyHtml5'
+            } ),
+            $.extend( true, {}, buttonCommon, {
+                extend: 'excelHtml5'
+            } ),
+            $.extend( true, {}, buttonCommon, {
+                extend: 'pdfHtml5'
+            } ),
+        ],
 		"language": {
 			"sProcessing":		"Procesando...",
 			"sLengthMenu":		"Mostrar _MENU_ registros",

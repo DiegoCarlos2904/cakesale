@@ -10,12 +10,13 @@
 	<link href="<?php echo base_url('/assets/css/bootstrap.min.css');?>" rel="stylesheet">
 	<link href="<?php echo base_url('/assets/css/bootstrap-datepicker3.min.css');?>" rel="stylesheet">
 	<link href="<?php echo base_url('assets/css/dataTables.bootstrap4.min.css') ?>" rel="stylesheet">
-	<link href="<?php echo base_url('/assets/css/back.css');?>" rel="stylesheet">
 	<link href="<?php echo base_url('/assets/font-awesome/css/font-awesome.min.css');?>" rel="stylesheet" type="text/css">
+	<link href="<?php echo base_url('/assets/css/back.css');?>" rel="stylesheet">
 	<script type="text/javascript" language="javascript" src="<?php echo base_url('/assets/js/jquery-1.10.2.min.js');?>"></script>
 	<script type="text/javascript" language="javascript" src="<?php echo base_url('/assets/js/jquery.dataTables.min.js');?>"></script>
 	<script type="text/javascript" language="javascript" src="<?php echo base_url('/assets/js/dataTables.bootstrap.js');?>"></script>
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/css/dataTables.bootstrap.css');?>">
+	<link href="https://cdn.datatables.net/buttons/1.5.2/css/buttons.dataTables.min.css" rel="stylesheet">
 </head>
 <body>
 	<header class="navbar navbar-expand-lg navbar-light flex-column flex-md-row bd-navbar bg-white">
