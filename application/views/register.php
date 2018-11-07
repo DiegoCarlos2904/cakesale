@@ -9,7 +9,7 @@
 			<?= form_open('', ['data-toggle'=>"validator"]) ?>
 				<div class="form-group">
 					<label for="username">Correo</label>
-					<input type="email" data-pattern-error="" data-required-error="Ingrese correo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" required="" name="rusername" value="<?= set_value('rusername') ?>">
+					<input type="email" data-pattern-error="" data-required-error="Ingrese correo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" required="" name="correo_rg" value="<?= set_value('correo_rg') ?>">
 					<div class="help-block with-errors"></div>
 
 			</div>

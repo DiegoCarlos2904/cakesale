@@ -225,14 +225,14 @@ class Cuenta extends CI_Controller {
 		$data['title'] = '';
 		
 		if ( isset( $_POST ) && count( $_POST ) ) {
-			$this->form_validation->set_rules('rusername','Correo','required');
+			$this->form_validation->set_rules('correo_rg','Correo','required');
 			$this->form_validation->set_rules('rpassword','Contraseña','required|alpha_numeric|matches[repassword]');
 			$this->form_validation->set_rules('repassword','Repetir contraseña','required|alpha_numeric');
 			if ($this->form_validation->run() == false) {
 				$data['errors'] = validation_errors();
 			} else {
 				$data_register_new = array (
-					'usr_name'			=> set_value('rusername'),
+					'usr_name'			=> set_value('correo_rg'),
 					'usr_password'		=> sha1(md5( set_value('rpassword') ) ),
 					'stuts'				=> 'publish',
 					'usr_group'				=>'3'
